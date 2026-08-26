@@ -20,13 +20,31 @@
 \title{Q-GraphRAG: Continuous-Time Quantum Walk Kernels for Multi-Hop Knowledge Graph Retrieval in Complex Domains}
 \titlerunning{Q-GraphRAG: Continuous-Time Quantum Walk Kernels}
 
-\author{Anonymous Authors\inst{1}}
-\authorrunning{Anonymous et al.}
+\author{
+    Gurusigaamani Ayyanar Muthulingam\inst{1}\textsuperscript{*}, 
+    Dhanush S\inst{1}\textsuperscript{$\dagger$}, 
+    N. PeddaPeeraiah\inst{1}\textsuperscript{$\dagger$}, 
+    P. Gurunath Reddy\inst{1}\textsuperscript{$\dagger$}
+}
+\authorrunning{G. A. Muthulingam, D. S, N. PeddaPeeraiah, P. G. Reddy}
 
-\institute{Quantum Machine Learning and Artificial Intelligence Research Laboratory \\
-\email{contact@qrag.research.org}}
+\institute{
+    Department of Computer Science and Engineering, \\
+    Kalasalingam Academy of Research and Education, \\
+    Anand Nagar, Krishnankovil, 626126, Tamilnadu, India \\
+    \email{gurusigaamani@klu.ac.in}, \email{\{99230041087, 99230040988, 99230040953\}@klu.ac.in}
+}
 
 \maketitle
+
+\vspace{-0.3cm}
+\begin{center}
+\small
+\textsuperscript{*}Corresponding author(s). E-mail(s): \texttt{gurusigaamani@klu.ac.in}\\
+Contributing authors: \texttt{99230041087@klu.ac.in}; \texttt{99230040988@klu.ac.in}; \texttt{99230040953@klu.ac.in}\\
+\textsuperscript{$\dagger$}These authors contributed equally to this work.
+\end{center}
+\vspace{0.2cm}
 
 \begin{abstract}
 Large Language Models (LLMs) augmented with Retrieval-Augmented Generation (RAG) suffer severe performance degradation when addressing multi-hop relational queries that require traversing complex causal chains across scientific and biomedical knowledge graphs. Classical GraphRAG architectures rely on Markovian random walks (e.g., Personalized PageRank) or community clustering, which suffer from diffusive probability dilution ($\mathcal{O}(\sqrt{t})$) and entrapment in high-degree hub nodes. In this paper, we propose \textbf{Q-GraphRAG}, a hybrid quantum-classical retrieval architecture that leverages \textbf{Continuous-Time Quantum Walks (CTQW)} over graph-derived Heisenberg Hamiltonians to accelerate multi-hop topological exploration. By exploiting quantum superposition and constructive interference in a $2^N$-dimensional Hilbert space, Q-GraphRAG achieves ballistic wavepacket propagation ($\mathcal{O}(t)$) across multi-hop reasoning chains. We evaluate Q-GraphRAG across a 50-item multi-domain benchmark encompassing Clinical Oncology (PubMedQA), Precision Medicine (PrimeKG), Antimicrobial Resistance (ChEMBL), and Quantum Condensed Matter Physics. Q-GraphRAG achieves an average \textbf{+11.8\% improvement in Retrieval Precision @ 5} ($p < 0.01$) and a \textbf{+57.7\% increase in multi-hop Answer F1} over pure dense vector baselines. Furthermore, we validate hardware feasibility by compiling and transpiling our graph Hamiltonian evolution circuits into native OpenQASM 2.0 specifications on IBM Quantum Heavy-Hex superconducting QPU topologies, demonstrating an experimental state fidelity of $\mathcal{F} = 0.9926$.
