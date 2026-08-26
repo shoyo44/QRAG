@@ -241,6 +241,40 @@ To score the topological relevance of candidate subgraphs relative to the user q
 \end{equation}
 This scalar kernel score $K \in [0, 1]$ ranks candidate subgraphs, selecting the most contextually relevant multi-hop causal chains for injection into the Large Language Model's grounded context window.
 
+% ==============================================================================
+% SECTION 5: SYSTEM ARCHITECTURE & CLOUD-NATIVE ENGINEERING
+% ==============================================================================
+\section{System Architecture and Cloud-Native Engineering}\label{sec:system_architecture}
+
+\subsection{Dual-Path Routing Engine for Computational Throughput Optimization}
+Q-GraphRAG utilizes an intelligent dual-path routing engine governed by an Agentic Router to dynamically partition incoming queries based upon structural and semantic complexity:
+\begin{enumerate}
+    \item \textbf{Classical Vector Fast-Path:} For direct factoid lookups, single-entity definitions, or keyword searches (e.g., ``\textit{What is Graphene?}''), queries are resolved without executing quantum circuits. The input is encoded via the Nomic Embed v1.5 / BAAI BGE neural embedder and matched using cosine similarity over a dense vector index in \texttt{Qdrant}.
+    \item \textbf{Quantum Graph Path:} When a user presents a complex relational query demanding multi-hop causal reasoning (e.g., ``\textit{How does Osimertinib overcome EGFR T790M gatekeeper resistance compared to first-generation TKIs?}''), the query is dynamically routed to the quantum graph pipeline. The system extracts local candidate $k$-hop subgraphs from \texttt{NetworkX} / property graph storage and applies topological pruning prior to executing Continuous-Time Quantum Walks.
+\end{enumerate}
+
+\subsection{Distributed Task Queue with Sub-Millisecond In-Memory Caching}
+When simulating a quantum statevector across a $2^N$-dimensional Hilbert space ($16 \times 2^N$ bytes in double-precision complex floats), blocking latency can degrade synchronous web servers. Q-GraphRAG decouples heavy quantum computations from the HTTP API Gateway using an asynchronous distributed task queue:
+\begin{itemize}
+    \item \textbf{Asynchronous Microservice Worker (\texttt{Celery} + \texttt{Redis}):} The \texttt{FastAPI} gateway dispatches quantum walk simulation tasks (\texttt{compute\_subgraph\_similarity\_task}) to background \texttt{Celery} workers that execute high-performance C++ PennyLane \texttt{lightning.qubit} statevector simulation engines. This non-blocking architecture ensures the API gateway remains immediately responsive.
+    \item \textbf{Sub-Millisecond In-Memory Caching (\texttt{Redis}):} Computed Hilbert space state overlap kernel matrices $K(G_{\text{query}}, G_{\text{cand}})$ are indexed and stored in \texttt{Redis} using the SHA-256 hash of the canonical adjacency matrix. When identical or isomorphic subgraphs are queried, cached warm retrieval returns the transition fidelity score in less than 1 ms ($< 1$ ms), completely bypassing redundant circuit simulation.
+\end{itemize}
+
+\subsection{Context Construction and Hallucination Guardrails}
+After ranking candidate subgraphs with the quantum kernel, the context synthesizer transforms the top-ranked graph paths into structured Cypher relationship strings and JSON topological blocks. These structurally validated facts are concatenated with dense vector text snippets and injected into the Large Language Model's (\texttt{Llama-3.1-8B-Instruct} / \texttt{Cloudflare Workers AI} / \texttt{Ollama}) system prompt under strict grounding guardrails:
+\begin{quote}
+``\textit{You are an intelligent RAG assistant. You must answer the user's question strictly based on the retrieved context provided below. If you cannot answer using the context, state that you do not know. Do not make up answers or extrapolate unverified facts.}''
+\end{quote}
+By constraining generation strictly to verified topological graph contexts, Q-GraphRAG significantly mitigates factual hallucinations in deep multi-hop biomedical question answering.
+
+\subsection{Real-Time 3D WebGL Visualization and Telemetry Streaming}
+The presentation layer is developed as a cloud-native single-page application using \texttt{React 18}, \texttt{Vite}, \texttt{TypeScript}, and \texttt{Three.js} (3D Force-Directed WebGL Graph):
+\begin{itemize}
+    \item \textbf{Real-Time WebSocket Streaming (\texttt{/api/v1/ws/query}):} A bidirectional WebSocket protocol streams live execution telemetry milestones (\texttt{routing} $\rightarrow$ \texttt{retrieving} $\rightarrow$ \texttt{pruning} $\rightarrow$ \texttt{quantum\_computing} $\rightarrow$ \texttt{generating} $\rightarrow$ \texttt{token}) directly to the client UI, allowing researchers to monitor quantum simulation steps and token generation in real time.
+    \item \textbf{Interactive 3D Knowledge Graph Explorer:} Renders large-scale biomedical and physical knowledge networks with interactive node selection, degree-based node sizing, dynamic causal highlighting, and camera orbit controls.
+    \item \textbf{Enterprise Session Management and Authentication:} Multi-turn conversation histories and query audit logs are stored persistently in \texttt{MongoDB Atlas} (with thread-safe local JSON fallback). Access security is managed via \texttt{Firebase Authentication}, supporting Google OAuth 2.0, Email/Password, and Anonymous Guest demo access.
+\end{itemize}
+
 \bibliographystyle{splncs04}
 \bibliography{references}
 
