@@ -70,3 +70,9 @@ pnpm-debug.log*
 # Database & local data caches
 *.sqlite3
 *.db
+
+# Submission Bundles & Archives
+*.zip
+*.tar.gz
+*.rar
+Qrg.txt
