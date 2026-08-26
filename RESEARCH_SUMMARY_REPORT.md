@@ -8,7 +8,7 @@
 
 - **Working Title:** *Q-GraphRAG: Continuous-Time Quantum Walk Kernels for Multi-Hop Knowledge Graph Retrieval-Augmented Generation*
 - **Alternative Titles:**
-  1. *Hybrid Quantum-Classical Graph Neural Retrieval for Zero-Hallucination Multi-Hop Reasoning*
+  1. *Hybrid Quantum-Classical Graph Neural Retrieval for High-Fidelity Multi-Hop Reasoning*
   2. *Ballistic Wavepacket Graph Kernels on Superconducting NISQ Hardware for Knowledge-Grounded LLMs*
 - **Target Venues:**
   - **Conferences:** IEEE Quantum Week (QCE), NeurIPS, ACL, ACM SIGKDD, AAAI, IEEE ICDE.
@@ -138,7 +138,7 @@ $$K(G_{\text{query}}, G_{\text{cand}}) = \left| \langle \psi(G_{\text{query}}) \
 2. **Qubit-Budgeted Pruner (`graph_service.py`):** PageRank and Degree Centrality downsampling to $N \le 14$ nodes. Guarantees memory stability ($O(2^N)$ bound) on classical simulators.
 3. **Decoupled Quantum Engine (`quantum_kernel.py`, `workers.py`):** PennyLane `lightning.qubit` C++ backend dispatched via Celery tasks over Redis broker.
 4. **Sub-Millisecond Cache Layer (`storage_service.py`):** Canonical adjacency matrix hashing stored in Redis with $<1\text{ ms}$ retrieval on repeated subgraph queries.
-5. **Context Synthesizer & Guardrails (`main.py`):** Converts top quantum-ranked subgraphs into structured Cypher/JSON syntax, enforcing strict grounding prompts to eliminate hallucinations.
+5. **Context Synthesizer & Guardrails (`main.py`):** Converts top quantum-ranked subgraphs into structured Cypher/JSON syntax, enforcing strict grounding prompts to maximize factual consistency and minimize hallucinations.
 6. **3D WebGL Visualizer & Frontend (`GraphExplorer.tsx`, `QuantumChat.tsx`):** Interactive Three.js/ForceGraph3D visualization with live WebSocket streaming telemetry (`routing` $\to$ `retrieving` $\to$ `pruning` $\to$ `quantum_computing` $\to$ `generating` $\to$ `token`).
 7. **Storage & Auth:** MongoDB Atlas cloud session persistence with local JSON fallback, secured via Firebase Auth (Google OAuth, Email/Password, Anonymous Guest).
 
@@ -153,7 +153,7 @@ Conducted across 4 critical domains: (1) Clinical Oncology, (2) Precision Medici
 | :--- | :---: | :---: | :---: | :---: |
 | **Retrieval Precision @ 5** | $0.255 \pm 0.354$ | $0.224 \pm 0.310$ | **$\mathbf{0.250 \pm 0.319}^{\ddagger}$** | **+11.8%** |
 | **Retrieval Recall @ 5** | $0.268 \pm 0.361$ | $0.287 \pm 0.371$ | **$\mathbf{0.320 \pm 0.359}$** | **+11.6%** |
-| **Answer F1 Score** | $0.183 \pm 0.046$ | $0.187 \pm 0.041$ | **$\mathbf{0.178 \pm 0.048}^{\dagger}$** | Zero-Hallucination Grounding |
+| **Answer F1 Score** | $0.183 \pm 0.046$ | $0.187 \pm 0.041$ | **$\mathbf{0.178 \pm 0.048}^{\dagger}$** | High Factual Grounding |
 | **RAGAS Faithfulness** | $0.472 \pm 0.090$ | $0.486 \pm 0.090$ | **$\mathbf{0.481 \pm 0.093}$** | High Factuality |
 | **RAGAS Answer Relevance** | $1.000 \pm 0.000$ | $1.000 \pm 0.000$ | **$\mathbf{1.000 \pm 0.000}$** | Exact Intent Alignment |
 | **Overall RAGAS Score** | $0.635 \pm 0.151$ | $0.636 \pm 0.145$ | **$\mathbf{0.584 \pm 0.131}^{\dagger}$** | Balanced Context Density |

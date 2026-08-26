@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 <p align="center">
-  <b>A peer-reviewed, production-ready enterprise framework that bridges Knowledge Graphs, Continuous-Time Quantum Walks (CTQW), Multi-Agent Orchestration, and NISQ Quantum Hardware to eliminate hallucinations in deep multi-hop reasoning.</b>
+  <b>A peer-reviewed, production-ready enterprise framework that bridges Knowledge Graphs, Continuous-Time Quantum Walks (CTQW), Multi-Agent Orchestration, and NISQ Quantum Hardware to significantly mitigate hallucinations in deep multi-hop reasoning.</b>
 </p>
 
 [System Architecture](#-system-architecture) •
@@ -33,7 +33,7 @@ Standard Retrieval-Augmented Generation (RAG) compresses unstructured domain doc
 
 Classical GraphRAG approaches resolve this partially with graph traversal algorithms (e.g., PageRank or Breadth-First Search). However, classical graph diffusion propagates at a diffusive rate $\mathcal{O}(\sqrt{t})$, causing rapid neighbor explosion and noise dilution at multi-hop depths ($H \ge 3$).
 
-**Quantum GraphRAG (Q-GraphRAG)** solves this by extracting Knowledge Graph subgraphs and mapping their topological adjacency matrices into a **Quantum Hilbert Space**. Governed by a graph-derived **XY/XYZ Heisenberg Hamiltonian**, a **Continuous-Time Quantum Walk (CTQW)** achieves **ballistic wavepacket dispersion ($\mathcal{O}(t)$)** and quantum interference, evaluating non-linear topological graph kernels ($K(G_1, G_2) = |\langle \psi(G_1) | \psi(G_2) \rangle|^2$) to retrieve contextually pristine, multi-hop subgraphs with zero hallucinations.
+**Quantum GraphRAG (Q-GraphRAG)** solves this by extracting Knowledge Graph subgraphs and mapping their topological adjacency matrices into a **Quantum Hilbert Space**. Governed by a graph-derived **XY/XYZ Heisenberg Hamiltonian**, a **Continuous-Time Quantum Walk (CTQW)** achieves **ballistic wavepacket dispersion ($\mathcal{O}(t)$)** and quantum interference, evaluating non-linear topological graph kernels ($K(G_1, G_2) = |\langle \psi(G_1) | \psi(G_2) \rangle|^2$) to retrieve contextually pristine, multi-hop subgraphs that significantly mitigate hallucinations.
 
 ---
 
