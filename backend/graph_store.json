@@ -1,0 +1,682 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "name": "Graphene",
+      "type": "Entity",
+      "id": "Graphene"
+    },
+    {
+      "name": "Carbon",
+      "type": "Entity",
+      "id": "Carbon"
+    },
+    {
+      "name": "Honeycomb Lattice",
+      "type": "Entity",
+      "id": "Honeycomb Lattice"
+    },
+    {
+      "name": "Electrical Conductivity",
+      "type": "Entity",
+      "id": "Electrical Conductivity"
+    },
+    {
+      "name": "High Strength",
+      "type": "Entity",
+      "id": "High Strength"
+    },
+    {
+      "name": "Quantum Hall Effect",
+      "type": "Entity",
+      "id": "Quantum Hall Effect"
+    },
+    {
+      "name": "BCS Theory",
+      "type": "Entity",
+      "id": "BCS Theory"
+    },
+    {
+      "name": "Superconductivity",
+      "type": "Entity",
+      "id": "Superconductivity"
+    },
+    {
+      "name": "Electrons",
+      "type": "Entity",
+      "id": "Electrons"
+    },
+    {
+      "name": "Cooper Pairs",
+      "type": "Entity",
+      "id": "Cooper Pairs"
+    },
+    {
+      "name": "Phonon Lattice Vibrations",
+      "type": "Entity",
+      "id": "Phonon Lattice Vibrations"
+    },
+    {
+      "name": "Zero Resistance State",
+      "type": "Entity",
+      "id": "Zero Resistance State"
+    },
+    {
+      "name": "Critical Temperature",
+      "type": "Entity",
+      "id": "Critical Temperature"
+    },
+    {
+      "name": "Trastuzumab Emtansine",
+      "type": "Entity",
+      "id": "Trastuzumab Emtansine"
+    },
+    {
+      "name": "HER2 Receptor",
+      "type": "Entity",
+      "id": "HER2 Receptor"
+    },
+    {
+      "name": "Metastatic Breast Cancer",
+      "type": "Entity",
+      "id": "Metastatic Breast Cancer"
+    },
+    {
+      "name": "DM1 Cytotoxin",
+      "type": "Entity",
+      "id": "DM1 Cytotoxin"
+    },
+    {
+      "name": "Microtubule Polymerization",
+      "type": "Entity",
+      "id": "Microtubule Polymerization"
+    },
+    {
+      "name": "Mitotic Apoptosis",
+      "type": "Entity",
+      "id": "Mitotic Apoptosis"
+    },
+    {
+      "name": "Progression Free Survival",
+      "type": "Entity",
+      "id": "Progression Free Survival"
+    },
+    {
+      "name": "Dapagliflozin",
+      "type": "Entity",
+      "id": "Dapagliflozin"
+    },
+    {
+      "name": "SGLT2 Transporter",
+      "type": "Entity",
+      "id": "SGLT2 Transporter"
+    },
+    {
+      "name": "Proximal Renal Tubule",
+      "type": "Entity",
+      "id": "Proximal Renal Tubule"
+    },
+    {
+      "name": "SGLT2 Inhibition",
+      "type": "Entity",
+      "id": "SGLT2 Inhibition"
+    },
+    {
+      "name": "Tubuloglomerular Feedback",
+      "type": "Entity",
+      "id": "Tubuloglomerular Feedback"
+    },
+    {
+      "name": "Intraglomerular Pressure",
+      "type": "Entity",
+      "id": "Intraglomerular Pressure"
+    },
+    {
+      "name": "Intraglomerular Pressure Reduction",
+      "type": "Entity",
+      "id": "Intraglomerular Pressure Reduction"
+    },
+    {
+      "name": "Chronic Kidney Disease Patients",
+      "type": "Entity",
+      "id": "Chronic Kidney Disease Patients"
+    },
+    {
+      "name": "CRISPR-Cas9 RNP",
+      "type": "Entity",
+      "id": "CRISPR-Cas9 RNP"
+    },
+    {
+      "name": "BCL11A Erythroid Enhancer",
+      "type": "Entity",
+      "id": "BCL11A Erythroid Enhancer"
+    },
+    {
+      "name": "BCL11A Enhancer Disruption",
+      "type": "Entity",
+      "id": "BCL11A Enhancer Disruption"
+    },
+    {
+      "name": "BCL11A Repressor Protein",
+      "type": "Entity",
+      "id": "BCL11A Repressor Protein"
+    },
+    {
+      "name": "BCL11A Repressor Suppression",
+      "type": "Entity",
+      "id": "BCL11A Repressor Suppression"
+    },
+    {
+      "name": "Gamma Globin Expression",
+      "type": "Entity",
+      "id": "Gamma Globin Expression"
+    },
+    {
+      "name": "Fetal Hemoglobin HbF",
+      "type": "Entity",
+      "id": "Fetal Hemoglobin HbF"
+    },
+    {
+      "name": "Sickle Hemoglobin Polymerization",
+      "type": "Entity",
+      "id": "Sickle Hemoglobin Polymerization"
+    },
+    {
+      "name": "Philadelphia Chromosome t(9;22)",
+      "type": "Entity",
+      "id": "Philadelphia Chromosome t(9;22)"
+    },
+    {
+      "name": "BCR-ABL1 Fusion Gene",
+      "type": "Entity",
+      "id": "BCR-ABL1 Fusion Gene"
+    },
+    {
+      "name": "Constitutive Tyrosine Kinase",
+      "type": "Entity",
+      "id": "Constitutive Tyrosine Kinase"
+    },
+    {
+      "name": "JAK-STAT and PI3K Signaling",
+      "type": "Entity",
+      "id": "JAK-STAT and PI3K Signaling"
+    },
+    {
+      "name": "Imatinib",
+      "type": "Entity",
+      "id": "Imatinib"
+    },
+    {
+      "name": "Tyrosine Kinase Inhibition",
+      "type": "Entity",
+      "id": "Tyrosine Kinase Inhibition"
+    },
+    {
+      "name": "Chronic Myeloid Leukemia",
+      "type": "Entity",
+      "id": "Chronic Myeloid Leukemia"
+    },
+    {
+      "name": "Metformin",
+      "type": "Entity",
+      "id": "Metformin"
+    },
+    {
+      "name": "Mitochondrial Complex I",
+      "type": "Entity",
+      "id": "Mitochondrial Complex I"
+    },
+    {
+      "name": "Mitochondrial Complex I Inhibition",
+      "type": "Entity",
+      "id": "Mitochondrial Complex I Inhibition"
+    },
+    {
+      "name": "Cellular AMP to ATP Ratio",
+      "type": "Entity",
+      "id": "Cellular AMP to ATP Ratio"
+    },
+    {
+      "name": "Elevated AMP to ATP Ratio",
+      "type": "Entity",
+      "id": "Elevated AMP to ATP Ratio"
+    },
+    {
+      "name": "AMPK Enzyme",
+      "type": "Entity",
+      "id": "AMPK Enzyme"
+    },
+    {
+      "name": "AMPK Activation",
+      "type": "Entity",
+      "id": "AMPK Activation"
+    },
+    {
+      "name": "Gluconeogenic Enzymes PEPCK and G6Pase",
+      "type": "Entity",
+      "id": "Gluconeogenic Enzymes PEPCK and G6Pase"
+    },
+    {
+      "name": "Gluconeogenic Enzyme Suppression",
+      "type": "Entity",
+      "id": "Gluconeogenic Enzyme Suppression"
+    },
+    {
+      "name": "Hepatic Glucose Production in Diabetes",
+      "type": "Entity",
+      "id": "Hepatic Glucose Production in Diabetes"
+    },
+    {
+      "name": "Osimertinib",
+      "type": "Entity",
+      "id": "Osimertinib"
+    },
+    {
+      "name": "EGFR C797 Residue",
+      "type": "Entity",
+      "id": "EGFR C797 Residue"
+    },
+    {
+      "name": "ATP Binding Cleft",
+      "type": "Entity",
+      "id": "ATP Binding Cleft"
+    },
+    {
+      "name": "EGFR T790M Gatekeeper Mutation",
+      "type": "Entity",
+      "id": "EGFR T790M Gatekeeper Mutation"
+    },
+    {
+      "name": "EGFR T790M Mutation",
+      "type": "Entity",
+      "id": "EGFR T790M Mutation"
+    },
+    {
+      "name": "Non Small Cell Lung Cancer",
+      "type": "Entity",
+      "id": "Non Small Cell Lung Cancer"
+    },
+    {
+      "name": "Osimertinib Therapy",
+      "type": "Entity",
+      "id": "Osimertinib Therapy"
+    },
+    {
+      "name": "Lung Cancer Cell Proliferation",
+      "type": "Entity",
+      "id": "Lung Cancer Cell Proliferation"
+    },
+    {
+      "name": "Antibiotic Resistance Genes",
+      "type": "Entity",
+      "id": "Antibiotic Resistance Genes"
+    },
+    {
+      "name": "Horizontal Gene Transfer",
+      "type": "Entity",
+      "id": "Horizontal Gene Transfer"
+    },
+    {
+      "name": "Bacterial Plasmids",
+      "type": "Entity",
+      "id": "Bacterial Plasmids"
+    },
+    {
+      "name": "Resistance Genes",
+      "type": "Entity",
+      "id": "Resistance Genes"
+    },
+    {
+      "name": "Biological Pathways",
+      "type": "Entity",
+      "id": "Biological Pathways"
+    },
+    {
+      "name": "Microbial Transmission Routes",
+      "type": "Entity",
+      "id": "Microbial Transmission Routes"
+    },
+    {
+      "name": "Knowledge Graph",
+      "type": "Entity",
+      "id": "Knowledge Graph"
+    },
+    {
+      "name": "Multi-Hop Resistance",
+      "type": "Entity",
+      "id": "Multi-Hop Resistance"
+    },
+    {
+      "name": "Heisenberg Hamiltonian",
+      "type": "Entity",
+      "id": "Heisenberg Hamiltonian"
+    },
+    {
+      "name": "Graph Topology",
+      "type": "Entity",
+      "id": "Graph Topology"
+    },
+    {
+      "name": "Trotter Decomposition",
+      "type": "Entity",
+      "id": "Trotter Decomposition"
+    },
+    {
+      "name": "Unitary Time Evolution",
+      "type": "Entity",
+      "id": "Unitary Time Evolution"
+    },
+    {
+      "name": "Quantum Walk",
+      "type": "Entity",
+      "id": "Quantum Walk"
+    },
+    {
+      "name": "Superconducting Qubits",
+      "type": "Entity",
+      "id": "Superconducting Qubits"
+    },
+    {
+      "name": "Pauli Spin Operators",
+      "type": "Entity",
+      "id": "Pauli Spin Operators"
+    },
+    {
+      "name": "Adjacency Matrix",
+      "type": "Entity",
+      "id": "Adjacency Matrix"
+    }
+  ],
+  "edges": [
+    {
+      "relation": "composed_of",
+      "source": "Graphene",
+      "target": "Carbon",
+      "key": 0
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "Electrical Conductivity",
+      "key": 0
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "High Strength",
+      "key": 0
+    },
+    {
+      "relation": "arranged_in",
+      "source": "Carbon",
+      "target": "Honeycomb Lattice",
+      "key": 0
+    },
+    {
+      "relation": "observed_in",
+      "source": "Quantum Hall Effect",
+      "target": "Graphene",
+      "key": 0
+    },
+    {
+      "relation": "explains",
+      "source": "BCS Theory",
+      "target": "Superconductivity",
+      "key": 0
+    },
+    {
+      "relation": "operates_below",
+      "source": "Superconductivity",
+      "target": "Critical Temperature",
+      "key": 0
+    },
+    {
+      "relation": "form",
+      "source": "Electrons",
+      "target": "Cooper Pairs",
+      "key": 0
+    },
+    {
+      "relation": "mediated_by",
+      "source": "Cooper Pairs",
+      "target": "Phonon Lattice Vibrations",
+      "key": 0
+    },
+    {
+      "relation": "condense_into",
+      "source": "Cooper Pairs",
+      "target": "Zero Resistance State",
+      "key": 0
+    },
+    {
+      "relation": "binds_to",
+      "source": "Trastuzumab Emtansine",
+      "target": "HER2 Receptor",
+      "key": 0
+    },
+    {
+      "relation": "improves",
+      "source": "Trastuzumab Emtansine",
+      "target": "Progression Free Survival",
+      "key": 0
+    },
+    {
+      "relation": "amplified_in",
+      "source": "HER2 Receptor",
+      "target": "Metastatic Breast Cancer",
+      "key": 0
+    },
+    {
+      "relation": "inhibits",
+      "source": "DM1 Cytotoxin",
+      "target": "Microtubule Polymerization",
+      "key": 0
+    },
+    {
+      "relation": "induces",
+      "source": "Microtubule Polymerization",
+      "target": "Mitotic Apoptosis",
+      "key": 0
+    },
+    {
+      "relation": "inhibits",
+      "source": "Dapagliflozin",
+      "target": "SGLT2 Transporter",
+      "key": 0
+    },
+    {
+      "relation": "located_in",
+      "source": "SGLT2 Transporter",
+      "target": "Proximal Renal Tubule",
+      "key": 0
+    },
+    {
+      "relation": "enhances",
+      "source": "SGLT2 Inhibition",
+      "target": "Tubuloglomerular Feedback",
+      "key": 0
+    },
+    {
+      "relation": "reduces",
+      "source": "Tubuloglomerular Feedback",
+      "target": "Intraglomerular Pressure",
+      "key": 0
+    },
+    {
+      "relation": "protects",
+      "source": "Intraglomerular Pressure Reduction",
+      "target": "Chronic Kidney Disease Patients",
+      "key": 0
+    },
+    {
+      "relation": "cleaves",
+      "source": "CRISPR-Cas9 RNP",
+      "target": "BCL11A Erythroid Enhancer",
+      "key": 0
+    },
+    {
+      "relation": "suppresses",
+      "source": "BCL11A Enhancer Disruption",
+      "target": "BCL11A Repressor Protein",
+      "key": 0
+    },
+    {
+      "relation": "reactivates",
+      "source": "BCL11A Repressor Suppression",
+      "target": "Gamma Globin Expression",
+      "key": 0
+    },
+    {
+      "relation": "produces",
+      "source": "Gamma Globin Expression",
+      "target": "Fetal Hemoglobin HbF",
+      "key": 0
+    },
+    {
+      "relation": "prevents",
+      "source": "Fetal Hemoglobin HbF",
+      "target": "Sickle Hemoglobin Polymerization",
+      "key": 0
+    },
+    {
+      "relation": "generates",
+      "source": "Philadelphia Chromosome t(9;22)",
+      "target": "BCR-ABL1 Fusion Gene",
+      "key": 0
+    },
+    {
+      "relation": "encodes",
+      "source": "BCR-ABL1 Fusion Gene",
+      "target": "Constitutive Tyrosine Kinase",
+      "key": 0
+    },
+    {
+      "relation": "activates",
+      "source": "Constitutive Tyrosine Kinase",
+      "target": "JAK-STAT and PI3K Signaling",
+      "key": 0
+    },
+    {
+      "relation": "competitively_inhibits",
+      "source": "Imatinib",
+      "target": "Constitutive Tyrosine Kinase",
+      "key": 0
+    },
+    {
+      "relation": "induces_remission_in",
+      "source": "Tyrosine Kinase Inhibition",
+      "target": "Chronic Myeloid Leukemia",
+      "key": 0
+    },
+    {
+      "relation": "inhibits",
+      "source": "Metformin",
+      "target": "Mitochondrial Complex I",
+      "key": 0
+    },
+    {
+      "relation": "increases",
+      "source": "Mitochondrial Complex I Inhibition",
+      "target": "Cellular AMP to ATP Ratio",
+      "key": 0
+    },
+    {
+      "relation": "activates",
+      "source": "Elevated AMP to ATP Ratio",
+      "target": "AMPK Enzyme",
+      "key": 0
+    },
+    {
+      "relation": "suppresses",
+      "source": "AMPK Activation",
+      "target": "Gluconeogenic Enzymes PEPCK and G6Pase",
+      "key": 0
+    },
+    {
+      "relation": "reduces",
+      "source": "Gluconeogenic Enzyme Suppression",
+      "target": "Hepatic Glucose Production in Diabetes",
+      "key": 0
+    },
+    {
+      "relation": "covalently_binds",
+      "source": "Osimertinib",
+      "target": "EGFR C797 Residue",
+      "key": 0
+    },
+    {
+      "relation": "overcomes",
+      "source": "Osimertinib",
+      "target": "EGFR T790M Gatekeeper Mutation",
+      "key": 0
+    },
+    {
+      "relation": "located_in",
+      "source": "EGFR C797 Residue",
+      "target": "ATP Binding Cleft",
+      "key": 0
+    },
+    {
+      "relation": "drives_resistance_in",
+      "source": "EGFR T790M Mutation",
+      "target": "Non Small Cell Lung Cancer",
+      "key": 0
+    },
+    {
+      "relation": "suppresses",
+      "source": "Osimertinib Therapy",
+      "target": "Lung Cancer Cell Proliferation",
+      "key": 0
+    },
+    {
+      "relation": "spread_via",
+      "source": "Antibiotic Resistance Genes",
+      "target": "Horizontal Gene Transfer",
+      "key": 0
+    },
+    {
+      "relation": "transport",
+      "source": "Bacterial Plasmids",
+      "target": "Resistance Genes",
+      "key": 0
+    },
+    {
+      "relation": "contain",
+      "source": "Biological Pathways",
+      "target": "Microbial Transmission Routes",
+      "key": 0
+    },
+    {
+      "relation": "traces",
+      "source": "Knowledge Graph",
+      "target": "Multi-Hop Resistance",
+      "key": 0
+    },
+    {
+      "relation": "models",
+      "source": "Heisenberg Hamiltonian",
+      "target": "Graph Topology",
+      "key": 0
+    },
+    {
+      "relation": "discretizes",
+      "source": "Trotter Decomposition",
+      "target": "Unitary Time Evolution",
+      "key": 0
+    },
+    {
+      "relation": "executes_on",
+      "source": "Quantum Walk",
+      "target": "Superconducting Qubits",
+      "key": 0
+    },
+    {
+      "relation": "encode",
+      "source": "Pauli Spin Operators",
+      "target": "Adjacency Matrix",
+      "key": 0
+    }
+  ]
+}

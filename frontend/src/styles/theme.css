@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/*
+  =======================================================
+  Q-GraphRAG — Pristine Light Slate & Royal Indigo
+  Modern, Crisp, Apple & Stripe-Inspired Light Platform
+  =======================================================
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Light Mode Foundations ── */
+  --bg-base: #f8fafc;            /* Clean light slate background */
+  --bg-surface: #ffffff;         /* Crisp pure white cards */
+  --bg-card: #ffffff;
+  --bg-card-elevated: #f1f5f9;   /* Slate-100 elevated */
+  --bg-card-subtle: #f8fafc;
+  --bg-input: #ffffff;
+
+  /* ── Hairline Borders ── */
+  --bd: #e2e8f0;                 /* Slate-200 */
+  --bd-subtle: #f1f5f9;          /* Slate-100 */
+  --bd-hi: #cbd5e1;              /* Slate-300 */
+  --bd-active: #4f46e5;
+
+  /* ── Primary & Accent Colors ── */
+  --primary: #4f46e5;            /* Royal Indigo */
+  --primary-hover: #4338ca;
+  --primary-lt: #eef2ff;         /* Indigo-50 */
+  --primary-text: #4338ca;
+
+  --secondary: #0284c7;          /* Sky Blue */
+  --secondary-lt: #f0f9ff;
+
+  --emerald: #10b981;            /* Emerald */
+  --emerald-lt: #ecfdf5;
+
+  --amber: #f59e0b;              /* Warm Amber */
+  --amber-lt: #fffbeb;
+
+  --red: #ef4444;                /* Red */
+  --purple: #8b5cf6;             /* Purple */
+
+  /* ── High-Contrast Readable Typography ── */
+  --t1: #0f172a;                 /* Slate-900 (High-contrast primary) */
+  --t2: #334155;                 /* Slate-700 (Secondary readable) */
+  --t3: #64748b;                 /* Slate-500 (Muted metadata) */
+  --t4: #94a3b8;                 /* Slate-400 (Subtle) */
+
+  --font-headline: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Geometry & Soft Ambient Shadows ── */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-full: 9999px;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+
+  --transition: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base ── */
+body {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--t1);
+  background-color: var(--bg-base);
+  background-image: 
+    radial-gradient(circle at 15% 0%, rgba(79, 70, 229, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 100%, rgba(2, 132, 199, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+/* ── Scrollbars ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Cards & Panels ── */
+.glass-panel, .card {
+  background: var(--bg-surface);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.glass-panel:hover, .card:hover {
+  border-color: var(--bd-hi);
+}
+
+/* ── Typography Utilities ── */
+.font-headline { font-family: var(--font-headline); }
+.mono { font-family: var(--font-mono); }
+
+.text-gradient {
+  color: var(--t1);
+}
+
+/* ── Human Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--t1);
+  border: 1px solid var(--bd);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-elevated);
+  border-color: var(--bd-hi);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--t2);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-card-elevated);
+  color: var(--t1);
+}
+
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Clean Light Badges ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--r-full);
+  border: 1px solid;
+}
+
+.badge-quantum, .b-indigo {
+  background: var(--primary-lt);
+  color: #4338ca;
+  border-color: #c7d2fe;
+}
+
+.badge-simple, .b-green {
+  background: var(--emerald-lt);
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
+.badge-complex, .b-purple {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border-color: #ddd6fe;
+}
+
+.b-amber {
+  background: var(--amber-lt);
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.b-red {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+/* ── Inputs ── */
+.inp {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--t1);
+  background: #ffffff;
+  border: 1px solid var(--bd);
+  border-radius: var(--r-md);
+  outline: none;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.inp::placeholder {
+  color: var(--t4);
+}
+
+.inp:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ── Status Dots ── */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-green { background: var(--emerald); }
+.dot-amber { background: var(--amber); }
+.dot-red   { background: var(--red); }
+
+.spin {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--bd);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── App Shell ── */
+.app-shell {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+/* ── Toast Notifications ── */
+.toast-wrap {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: #ffffff;
+  border: 1px solid var(--bd);
+  border-radius: var(--r-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t1);
+  min-width: 250px;
+  box-shadow: var(--shadow-lg);
+  pointer-events: all;
+}
+
+.toast-err { border-left: 3px solid var(--red); }
+.toast-success { border-left: 3px solid var(--emerald); }
+.toast-info { border-left: 3px solid var(--primary); }
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}

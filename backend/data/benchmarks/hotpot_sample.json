@@ -1,0 +1,62 @@
+[
+  {
+    "id": "bench_001",
+    "question": "What chemical element forms Graphene and what is its arrangement?",
+    "answer": "Graphene is composed of Carbon atoms arranged in a 2D honeycomb lattice.",
+    "supporting_triplets": [
+      {
+        "subject": "Graphene",
+        "predicate": "composed_of",
+        "object": "Carbon"
+      },
+      {
+        "subject": "Carbon",
+        "predicate": "arranged_in",
+        "object": "Honeycomb Lattice"
+      }
+    ],
+    "supporting_facts": [
+      "Graphene is composed of Carbon atoms.",
+      "Carbon atoms are arranged in a 2D honeycomb lattice."
+    ],
+    "type": "bridge"
+  },
+  {
+    "id": "bench_002",
+    "question": "How does Graphene relate to Electrical Conductivity and High Strength?",
+    "answer": "Graphene exhibits extraordinary Electrical Conductivity and High Strength due to its 2D electron transport properties.",
+    "supporting_triplets": [
+      {
+        "subject": "Graphene",
+        "predicate": "exhibits",
+        "object": "Electrical Conductivity"
+      },
+      {
+        "subject": "Graphene",
+        "predicate": "exhibits",
+        "object": "High Strength"
+      }
+    ],
+    "supporting_facts": [
+      "Graphene exhibits extraordinary Electrical Conductivity.",
+      "Graphene exhibits High Strength."
+    ],
+    "type": "comparison"
+  },
+  {
+    "id": "bench_003",
+    "question": "What phenomenon occurs in Graphene at room temperature?",
+    "answer": "Quantum Hall Effect is observed in Graphene at room temperature.",
+    "supporting_triplets": [
+      {
+        "subject": "Quantum Hall Effect",
+        "predicate": "observed_in",
+        "object": "Graphene"
+      }
+    ],
+    "supporting_facts": [
+      "Quantum Hall Effect is observed in Graphene at room temperature."
+    ],
+    "type": "bridge"
+  }
+]

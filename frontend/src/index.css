@@ -1,0 +1,333 @@
+/*
+  =======================================================
+  Q-GraphRAG — Pristine Light Mode Layouts
+  =======================================================
+*/
+
+/* ── Sidebar Navigation ── */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid var(--bd);
+  flex-shrink: 0;
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-brand {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--bd-subtle);
+}
+
+.sidebar-logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-md);
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t3);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.sidebar-link:hover {
+  color: var(--t1);
+  background: var(--bg-card-elevated);
+}
+
+.sidebar-link.active {
+  color: var(--primary);
+  font-weight: 600;
+  background: var(--primary-lt);
+  border-color: #c7d2fe;
+}
+
+.sidebar-link.active .sidebar-icon {
+  color: var(--primary);
+}
+
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--bd-subtle);
+  background: #f1f5f9;          /* Slightly darker than sidebar for visual separation */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qpu-status-widget {
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: #1e1b4b;          /* Dark Indigo — intentional contrast in light sidebar */
+  border: 1px solid #312e81;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Top Header ── */
+.top-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--bd);
+  flex-shrink: 0;
+  z-index: 40;
+  box-shadow: var(--shadow-sm);
+}
+
+.engine-pill-group {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border: 1px solid var(--bd);
+  border-radius: var(--r-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.engine-pill {
+  padding: 4px 12px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--t3);
+  border-radius: var(--r-full);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.engine-pill.active {
+  background: #ffffff;
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Chat Stream Workspace ── */
+.chat-workspace {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+.chat-stream-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+.chat-stream-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 32px 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.chat-hero-banner {
+  border-radius: var(--r-lg);
+  border: 1px solid var(--bd);
+  padding: 24px 28px;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.chat-bubble-user {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 13.5px;
+  line-height: 1.55;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+}
+
+.chat-bubble-assistant {
+  max-width: 86%;
+  padding: 18px 22px;
+  border-radius: 16px 16px 16px 4px;
+  background: #ffffff;
+  border: 1px solid var(--bd);
+  color: var(--t1);
+  font-size: 13.5px;
+  line-height: 1.65;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Collapsible Reasoning Steps ── */
+.reasoning-trace {
+  margin-top: 14px;
+  border-radius: var(--r-md);
+  background: #f8fafc;
+  border: 1px solid var(--bd);
+  overflow: hidden;
+}
+
+.reasoning-trace summary {
+  padding: 9px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t2);
+  user-select: none;
+  background: #ffffff;
+  transition: background var(--transition);
+}
+
+.reasoning-trace summary:hover {
+  background: #f1f5f9;
+}
+
+.reasoning-content {
+  padding: 14px;
+  border-top: 1px solid var(--bd-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Floating Input Dock ── */
+.floating-input-dock {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 780px;
+  z-index: 30;
+}
+
+.dock-card {
+  background: #ffffff;
+  border: 1px solid var(--bd-hi);
+  border-radius: var(--r-xl);
+  padding: 8px 12px 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.dock-slider-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 12px;
+  border-right: 1px solid var(--bd);
+  flex-shrink: 0;
+}
+
+/* ── Right Telemetry Drawer ── */
+.telemetry-drawer {
+  width: 320px;
+  height: 100%;
+  border-left: 1px solid var(--bd);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  z-index: 30;
+  box-shadow: var(--shadow-sm);
+}
+
+.stepper-node {
+  display: flex;
+  gap: 12px;
+  position: relative;
+}
+
+.stepper-line {
+  position: absolute;
+  left: 11px;
+  top: 24px;
+  bottom: -16px;
+  width: 2px;
+  background: var(--bd);
+}
+
+.stepper-line.completed {
+  background: var(--emerald);
+}
+
+.stepper-icon-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.stepper-icon-box.done {
+  background: var(--emerald-lt);
+  border: 1px solid var(--emerald);
+  color: var(--emerald);
+}
+
+.stepper-icon-box.active {
+  background: var(--primary-lt);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.stepper-icon-box.pending {
+  background: #f1f5f9;
+  border: 1px solid var(--bd);
+  color: var(--t4);
+}

@@ -1,0 +1,99 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "name": "Graphene",
+      "type": "Entity",
+      "id": "Graphene"
+    },
+    {
+      "name": "Carbon",
+      "type": "Entity",
+      "id": "Carbon"
+    },
+    {
+      "name": "Honeycomb Lattice",
+      "type": "Entity",
+      "id": "Honeycomb Lattice"
+    },
+    {
+      "name": "Electrical Conductivity",
+      "type": "Entity",
+      "id": "Electrical Conductivity"
+    },
+    {
+      "name": "High Strength",
+      "type": "Entity",
+      "id": "High Strength"
+    },
+    {
+      "name": "Quantum Hall Effect",
+      "type": "Entity",
+      "id": "Quantum Hall Effect"
+    }
+  ],
+  "edges": [
+    {
+      "relation": "composed_of",
+      "source": "Graphene",
+      "target": "Carbon",
+      "key": 0
+    },
+    {
+      "relation": "composed_of",
+      "source": "Graphene",
+      "target": "Carbon",
+      "key": 1
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "Electrical Conductivity",
+      "key": 0
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "Electrical Conductivity",
+      "key": 1
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "High Strength",
+      "key": 0
+    },
+    {
+      "relation": "exhibits",
+      "source": "Graphene",
+      "target": "High Strength",
+      "key": 1
+    },
+    {
+      "relation": "arranged_in",
+      "source": "Carbon",
+      "target": "Honeycomb Lattice",
+      "key": 0
+    },
+    {
+      "relation": "arranged_in",
+      "source": "Carbon",
+      "target": "Honeycomb Lattice",
+      "key": 1
+    },
+    {
+      "relation": "observed_in",
+      "source": "Quantum Hall Effect",
+      "target": "Graphene",
+      "key": 0
+    },
+    {
+      "relation": "observed_in",
+      "source": "Quantum Hall Effect",
+      "target": "Graphene",
+      "key": 1
+    }
+  ]
+}
