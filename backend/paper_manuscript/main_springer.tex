@@ -32,15 +32,15 @@
 }
 
 \institute{
-    \inst{1*}Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
-    \inst{2*}Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
-    \inst{3*}Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
-    \inst{4*}Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India.
+    Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
+    Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
+    Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India. \and
+    Computer Science and Engineering, Kalasalingam Academy of Research and Education, Anand Nagar, Krishnankovil, 626126, Tamilnadu, India.
 }
 
 \maketitle
 
-\vspace{0.2cm}
+\vspace{0.1cm}
 \begin{center}
 \small
 *Corresponding author(s). E-mail(s): \href{mailto:gurusigaamani@klu.ac.in}{\textcolor{blue}{gurusigaamani@klu.ac.in}};\\
@@ -48,7 +48,7 @@ Contributing authors: \href{mailto:99230041087@klu.ac.in}{\textcolor{blue}{99230
 \href{mailto:99230040953@klu.ac.in}{\textcolor{blue}{99230040953@klu.ac.in}};\\
 \textsuperscript{$\dagger$}These authors contributed equally to this work.
 \end{center}
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \begin{abstract}
 Large Language Models (LLMs) using Retrieval-Augmented Generation (RAG) suffer a significant loss in performance when addressing multi-hop relational query questions over large, complex knowledge graphs of biological and medical information. RAG models based on classical GraphRAG are limited by their reliance on Markovian random walk approaches such as Personalized PageRank and/or community clustering. These methods lose their diffusion probabilities at a rate proportional to the square root of time ($\mathcal{O}(\sqrt{t})$) and can become trapped in the high-degree hub nodes of the network. This paper proposes \textbf{Q-GraphRAG}, a hybrid quantum-classical retrieval architecture for accelerating multi-hop topological search within knowledge graphs. Q-GraphRAG uses Continuous-Time Quantum Walks (CTQW) to explore the topology of a graph derived from a Heisenberg spin Hamiltonian. Exploiting quantum superposition and constructive interference in a $2^N$-dimensional Hilbert space allows Q-GraphRAG to propagate its wavepackets through the network ballistically ($\mathcal{O}(t)$) and perform efficient multi-hop topological searches. We evaluate Q-GraphRAG using a curated benchmark of 50 items spanning four domains: clinical oncology (PubMedQA), precision medicine (PrimeKG), antimicrobial resistance (ChEMBL), and quantum condensed matter physics. The results demonstrate that Q-GraphRAG improves the Retrieval Precision @ 5 of the dense vector baseline model by an average of \textbf{+11.8\%} ($p < 0.01$) and increases the Answer F1 score of multi-hop reasoning tasks by \textbf{+57.7\%}. Finally, compilation and transpilation of our graph Hamiltonian evolution circuits into native OpenQASM 2.0 specifications on IBM's Heavy-Hex superconducting QPU demonstrates an experimental state fidelity of $\mathbf{\mathcal{F} = 0.9926}$.
@@ -326,6 +326,8 @@ The system's limitations stem from classical memory scaling and NISQ noise:
 We introduced \textbf{Q-GraphRAG}, a hybrid quantum-classical Retrieval-Augmented Generation framework leveraging Continuous-Time Quantum Walks (CTQW) over graph Heisenberg spin Hamiltonians. By exploiting quantum interference, Q-GraphRAG achieves ballistic propagation ($\mathcal{O}(t)$), resolving classical hub-trapping with an \textbf{+11.8\% gain in Precision @ 5} ($p < 0.01$), \textbf{+11.6\% gain in Recall @ 5}, and \textbf{+73.7\% Answer F1 advantage at 3-hop depth}, validated on physical IBM Quantum hardware with $\mathbf{\mathcal{F} = 0.9926}$. Future work includes parameterized VQE graph embeddings and Fault-Tolerant Quantum Computing for $N \ge 50$ qubits.
 
 \begin{thebibliography}{25}
+\small
+\setlength{\itemsep}{2pt}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
