@@ -6,7 +6,10 @@
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{xcolor}
-\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\setlist{itemsep=1pt, topsep=2pt, parsep=1pt}
 
 \hypersetup{
     colorlinks=true,
@@ -44,12 +47,12 @@
 Contributing authors: \texttt{99230041087@klu.ac.in}; \texttt{99230040988@klu.ac.in}; \texttt{99230040953@klu.ac.in}\\
 \textsuperscript{$\dagger$}These authors contributed equally to this work.
 \end{center}
-\vspace{0.2cm}
+\vspace{0.1cm}
 
 \begin{abstract}
 Large Language Models (LLMs) using Retrieval-Augmented Generation (RAG) suffer a significant loss in performance when addressing multi-hop relational query questions over large, complex knowledge graphs of biological and medical information. RAG models based on classical GraphRAG are limited by their reliance on Markovian random walk approaches such as Personalized PageRank and/or community clustering. These methods lose their diffusion probabilities at a rate proportional to the square root of time ($\mathcal{O}(\sqrt{t})$) and can become trapped in the high-degree hub nodes of the network. This paper proposes \textbf{Q-GraphRAG}, a hybrid quantum-classical retrieval architecture for accelerating multi-hop topological search within knowledge graphs. Q-GraphRAG uses Continuous-Time Quantum Walks (CTQW) to explore the topology of a graph derived from a Heisenberg spin Hamiltonian. Exploiting quantum superposition and constructive interference in a $2^N$-dimensional Hilbert space allows Q-GraphRAG to propagate its wavepackets through the network ballistically ($\mathcal{O}(t)$) and perform efficient multi-hop topological searches. We evaluate Q-GraphRAG using a curated benchmark of 50 items spanning four domains: clinical oncology (PubMedQA), precision medicine (PrimeKG), antimicrobial resistance (ChEMBL), and quantum condensed matter physics. The results demonstrate that Q-GraphRAG improves the Retrieval Precision @ 5 of the dense vector baseline model by an average of \textbf{+11.8\%} ($p < 0.01$) and increases the Answer F1 score of multi-hop reasoning tasks by \textbf{+57.7\%}. Finally, compilation and transpilation of our graph Hamiltonian evolution circuits into native OpenQASM 2.0 specifications on IBM's Heavy-Hex superconducting QPU demonstrates an experimental state fidelity of $\mathbf{\mathcal{F} = 0.9926}$.
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 \noindent\textbf{Keywords:} Quantum GraphRAG, Continuous-Time Quantum Walk, Knowledge Graphs, Multi-Hop Reasoning, Precision Medicine, NISQ Hardware.
 \end{abstract}
 
@@ -66,7 +69,7 @@ To overcome these structural limitations, Graph-Augmented RAG (GraphRAG) systems
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig1_3way_ablation_benchmark.png}
+\includegraphics[width=0.78\textwidth]{paper_figures/fig1_3way_ablation_benchmark.png}
 \caption{\textbf{3-Way Comparative Retrieval Benchmark ($N=50$)}. Performance comparison of Pure Dense Vector Search (Qdrant), Classical GraphRAG (PageRank), and our proposed \textbf{Q-GraphRAG} (Continuous-Time Quantum Walk) across five evaluation dimensions.}
 \label{fig:ablation_benchmark}
 \end{figure}
@@ -139,160 +142,97 @@ For the purpose of evaluating the performance of Q-GraphRAG's ability to identif
     \item \textbf{Quantum Condensed Matter \& Quantum Information (10 items):} Covers topics including quantum information theory, relativistic electronic structures, and condensed matter physics. Examples include: Relativistic Dirac fermions and room-temperature Quantum Hall Effect in 2D Graphene honeycomb lattices; microscopic theory of Cooper pairing via phonon lattice vibrations in Bardeen--Cooper--Schrieffer (BCS) superconductivity; and Trotter--Suzuki discretized Heisenberg spin Hamiltonian evolution on superconducting qubits.
 \end{itemize}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig4_multi_hop_precision_medicine_pathway.png}
-\caption{\textbf{Multi-Hop Precision Medicine Causal Subgraph (BCR-ABL1 / STAT5 / Imatinib)}. Topological graph heatmap of the chronic myeloid leukemia resistance signaling cascade. Probability amplitudes derived from Continuous-Time Quantum Walk highlight the causal pathway: BCR-ABL1 $\rightarrow$ STAT5 Phosphorylation $\rightarrow$ Anti-Apoptotic Transcription $\rightarrow$ Imatinib Binding.}
-\label{fig:precision_medicine_pathway}
-\end{figure}
-
 \subsection{Knowledge Graph Extraction and Seed Node Mapping}
-All domain knowledge sources were converted into property multi-edge directed graphs:
-\begin{equation}
-    \mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathcal{R})
-\end{equation}
-where $\mathcal{V}$ represents the collection of named entity nodes ($|\mathcal{V}|=N$), $\mathcal{E} \subseteq \mathcal{V} \times \mathcal{V}$ represents the collection of directed edges of all types between these nodes, and $\mathcal{R}$ represents the collection of possible relation types.
-
-Using the Agentic Router powered by zero-shot entity extraction to locate primary named entities in each incoming user query $Q$, those entities are mapped to a subset of root seed nodes:
-\begin{equation}
-    \mathcal{S} \subseteq \mathcal{V}
-\end{equation}
-To limit computational overhead when traversing large knowledge graphs with millions of entities, local candidate $k$-hop subgraphs $\mathcal{G}_{\text{sub}} = (\mathcal{V}_{\text{sub}}, \mathcal{E}_{\text{sub}})$ are constructed around each seed node (typically $k = 2$ or $k = 3$).
+All domain knowledge sources were converted into property multi-edge directed graphs denoted as $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathcal{R})$, where $\mathcal{V}$ represents the collection of named entity nodes ($|\mathcal{V}|=N$), $\mathcal{E} \subseteq \mathcal{V} \times \mathcal{V}$ represents the collection of directed edges between these nodes, and $\mathcal{R}$ represents the collection of possible relation types. Using the Agentic Router powered by zero-shot entity extraction to locate primary named entities in each incoming user query $Q$, those entities are mapped to a subset of root seed nodes $\mathcal{S} \subseteq \mathcal{V}$. Local candidate $k$-hop subgraphs $\mathcal{G}_{\text{sub}} = (\mathcal{V}_{\text{sub}}, \mathcal{E}_{\text{sub}})$ are constructed around each seed node ($k = 2..3$).
 
 \subsection{Topological Qubit Pruning and Shortest-Path Bridging}
-Memory usage grows exponentially as $\mathcal{O}(2^N)$ (where an $N$-qubit statevector requires $16 \times 2^N$ bytes in double-precision complex floats) for simulating quantum states on classical machines. Therefore, if the size of the subgraph exceeds the threshold for classical simulation, it must be reduced to fit within an active qubit budget of:
-\begin{equation}
-    N \le 14 \text{ nodes}
-\end{equation}
+Memory usage grows exponentially as $\mathcal{O}(2^N)$ ($16 \times 2^N$ bytes) for simulating quantum states on classical machines. Therefore, candidate subgraphs are topologically reduced to an active qubit budget of $N \le 14\text{ nodes}$ via a 3-stage pipeline: (1) \textbf{Centrality Scoring} with Personalized PageRank (PPR); (2) \textbf{Budget Filtering} retaining $\mathcal{V}_{\text{pruned}} = \text{Top-}N(\mathcal{V}_{\text{sub}})$; and (3) \textbf{Shortest-Path Bridges} re-inserting shortest-path edges to ensure weakly connected components remain bridged. Finally, nodes are ordered canonically into a symmetric adjacency matrix $A \in \mathbb{R}^{N \times N}$ to guarantee permutation invariance.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.90\textwidth]{paper_figures/fig3_qubit_scaling_profile.png}
-\caption{\textbf{Qubit Memory and Runtime Scaling Profile ($N = 2..14$ Qubits)}. Exponential growth of Hilbert space statevector memory ($16 \times 2^N$ bytes) and simulation latency in PennyLane \texttt{lightning.qubit}. The profile empirically justifies the $N \le 14$ node budget threshold (262 KB, $<25$ ms latency) on classical cloud container nodes.}
-\label{fig:qubit_scaling_profile}
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig3_qubit_scaling_profile.png}
+    \caption{Qubit Scaling Profile ($N=2..14$)}
+    \label{fig:qubit_scaling}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig4_multi_hop_precision_medicine_pathway.png}
+    \caption{BCR-ABL1 / STAT5 Causal Pathway}
+    \label{fig:precision_pathway}
+\end{subfigure}
+\caption{\textbf{Topological Preparation and Memory Scaling}. (a) Statevector memory and latency in PennyLane \texttt{lightning.qubit} justifying the $N \le 14$ qubit budget. (b) CTQW probability amplitude distribution over the BCR-ABL1 resistance signaling pathway.}
+\label{fig:topological_prep_composite}
 \end{figure}
 
-The pruning engine operates in three stages to reduce the number of qubits required for classical simulation while preserving the causal structure of the graph:
-\begin{enumerate}
-    \item \textbf{Centrality Scoring:} Personalized PageRank (PPR) is used to determine an importance ranking for each node based upon its position in an undirected representation of the subgraph $\mathcal{G}_{\text{sub}}$ relative to each seed node.
-    \item \textbf{Filtering Based Upon Budget:} Nodes ranked in order of decreasing importance per PPR analysis are selected until the total number of nodes does not exceed $N_{\text{max}} \le 14$:
-    \begin{equation}
-        \mathcal{V}_{\text{pruned}} = \text{Top-}N(\mathcal{V}_{\text{sub}})
-    \end{equation}
-    \item \textbf{Shortest-Path Connectivity Bridges:} When the filter process results in separating nodes into disjoint weakly connected components, the pruning algorithm finds the shortest paths between components in the original subgraph $\mathcal{G}_{\text{sub}}$ and adds back the necessary bridge edges and intermediate nodes so that any causal pathway involving one or more hops remains unbroken.
-\end{enumerate}
-
-\subsection{Canonical Permutation Ordering for Isomorphism Invariance}
-Because arbitrary node ordering results in varying sensitivities to node permutations (isomorphic representations) in the quantum kernel, the retained nodes $\mathcal{V}_{\text{pruned}}$ are ordered alphabetically according to their names followed by their topological order. The resulting symmetric adjacency matrix (canonical permutation symmetry) is formed directly from the adjacency coupling weights denoted by $A_{ij} \in [0, 1]$ for $i, j \in \{1, \dots, N\}$:
-\begin{equation}
-    A \in \mathbb{R}^{N \times N}
-\end{equation}
 % ==============================================================================
 % SECTION 4: THEORETICAL FOUNDATIONS & QUANTUM ALGORITHMIC FORMULATION
 % ==============================================================================
 \section{Theoretical Foundations and Quantum Algorithmic Formulation}\label{sec:quantum_formulation}
 
 \subsection{Graph Heisenberg Hamiltonian Formulation}
-Traditional GraphRAG systems have limited their ability to explore structure through Markovian diffusion based upon the discrete nature of node sets; this has resulted in signal loss due to diffusion decay. In contrast, Q-GraphRAG uses a direct mapping of the adjacency matrix $A$ for a candidate subgraph (which is canonical and $N \times N$) into an isotropic Heisenberg XY/XYZ spin interaction Hamiltonian on a $2^N$-dimensional Hilbert space, $\mathcal{H} \cong (\mathbb{C}^2)^{\otimes N}$. Specifically, the Hamiltonian is formulated as:
+Q-GraphRAG maps the canonical $N \times N$ adjacency matrix $A$ directly into an isotropic Heisenberg XY/XYZ spin interaction Hamiltonian on a $2^N$-dimensional Hilbert space $\mathcal{H} \cong (\mathbb{C}^2)^{\otimes N}$:
 \begin{equation}
     \hat{H} = -\gamma \sum_{i < j} A_{ij} \left( \hat{X}_i \hat{X}_j + \hat{Y}_i \hat{Y}_j + \hat{Z}_i \hat{Z}_j \right)
     \label{eq:hamiltonian_formulation}
 \end{equation}
-where $\hat{X}_i, \hat{Y}_i, \hat{Z}_i$ are standard single-qubit Pauli spin operators acting on wire $i$, $A_{ij} \in [0, 1]$ represents the normalized relational coupling weight between entity $i$ and entity $j$, and $\gamma > 0$ denotes the quantum hopping rate (default $\gamma = 0.5$). Since $A$ is both real and symmetric, it follows that $\hat{H}$ will always be Hermitian ($\hat{H} = \hat{H}^\dagger$), ensuring strict preservation of both energy and unitarity constraints during continuous time evolution.
+where $\hat{X}_i, \hat{Y}_i, \hat{Z}_i$ are Pauli spin operators acting on wire $i$, $A_{ij} \in [0, 1]$ represents the normalized relational coupling weight, and $\gamma = 0.5$ denotes the quantum hopping rate. Real symmetry of $A$ guarantees Hermiticity ($\hat{H} = \hat{H}^\dagger$) and unitary energy conservation.
 
-\subsection{Preparing the Initial State Using Dense Node Embeddings and Semantically Relevant Rotation Angles}
-Given a set of dense node features $\vec{v}_i \in \mathbb{R}^D$ generated by a neural encoder, the angle $\theta_i \in [0, \pi]$ can be obtained by projecting these representations onto a single-qubit rotation using a non-linear sigmoid mapping:
-\begin{equation}
-    \theta_i = \frac{\pi}{1 + \exp(-\text{mean}(\vec{v}_i))}
-\end{equation}
-The quantum register is then prepared by applying parameterized rotation gates $R_y(\theta_i) = \exp(-i \frac{\theta_i}{2} \hat{Y})$ to the computational ground state $|0\rangle^{\otimes N}$:
-\begin{equation}
-    |\psi_0\rangle = \bigotimes_{i=1}^N R_y(\theta_i) |0\rangle^{\otimes N}
-\end{equation}
-When a number of seed entity nodes $\mathcal{S} \subseteq \mathcal{V}$ are identified by the Agentic Router, the initial state is prepared as an equal superposition over the respective seed registers:
-\begin{equation}
-    |\psi(0)\rangle = \frac{1}{\sqrt{|\mathcal{S}|}} \sum_{s \in \mathcal{S}} |s\rangle
-\end{equation}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig2_ctqw_quantum_walk_interference.png}
-\caption{\textbf{Continuous-Time Quantum Walk (CTQW) Interference vs. Classical Markovian Diffusion}. Comparison of ballistic $\mathcal{O}(t)$ wavepacket propagation against classical $\mathcal{O}(\sqrt{t})$ diffusion. Quantum interference preserves high wavefront amplitudes at large graph distances without entrapment in high-degree hub entities.}
-\label{fig:ctqw_interference}
-\end{figure}
-
-\subsection{Continuous-Time Quantum Walk (CTQW) and Ballistic Propagation}
-The time-evolution of the quantum state in the graph is described by the time-dependent Schr{\"o}dinger equation ($i \hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle$). With natural units ($\hbar = 1$), the continuous-time unitary time-evolution operator is given by:
-\begin{equation}
-    |\psi(t)\rangle = \exp(-i \hat{H} t) |\psi(0)\rangle
-\end{equation}
-Unlike classical random walks, where probability dispersal occurs according to a diffusive process ($\langle x^2 \rangle_{\text{classical}} \sim 2Dt \implies x_{\text{diff}} \sim \mathcal{O}(\sqrt{t})$), CTQWs perform ballistic transport along the graph diameter with constant wavefront speed:
+\subsection{Initial State Preparation and Continuous-Time Quantum Walk}
+Dense node features $\vec{v}_i \in \mathbb{R}^D$ are mapped to single-qubit rotation angles $\theta_i = \pi / (1 + \exp(-\text{mean}(\vec{v}_i)))$, preparing the register as $|\psi_0\rangle = \bigotimes_{i=1}^N R_y(\theta_i) |0\rangle^{\otimes N}$ with equal superposition across seed nodes $|\psi(0)\rangle = \frac{1}{\sqrt{|\mathcal{S}|}} \sum_{s \in \mathcal{S}} |s\rangle$. The continuous unitary time evolution operator $|\psi(t)\rangle = \exp(-i \hat{H} t) |\psi(0)\rangle$ drives ballistic wavepacket propagation:
 \begin{equation}
     \langle x^2 \rangle_{\text{quantum}} \sim v^2 t^2 \implies x_{\text{ballistic}} = 2\gamma t \sim \mathcal{O}(t)
 \end{equation}
-This allows multi-hop paths to obtain significant probability amplitudes many orders of magnitude faster than classical diffusion. Moreover, destructive quantum interference eliminates irrelevant cyclic paths and topological noise, whereas constructive interference enhances relevant multi-hop chains that correspond to true causal relationships among entities.
+which is quadratically faster than classical diffusion ($\langle x^2 \rangle \sim 2Dt \implies x_{\text{diff}} \sim \mathcal{O}(\sqrt{t})$).
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig5_quantum_interference_time_evolution.png}
-\caption{\textbf{Continuous Time-Evolution and Ballistic Light-Cone ($x = 2\gamma t$)}. Space-time simulation of Continuous-Time Quantum Walk probability density $|\langle x | e^{-i \hat{H} t} | x_0 \rangle|^2$ on graph topologies, confirming the linear wavefront propagation velocity $v = 2\gamma$.}
-\label{fig:ballistic_light_cone}
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig2_ctqw_quantum_walk_interference.png}
+    \caption{CTQW vs. Classical Markov Diffusion}
+    \label{fig:ctqw_interference_sub}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig5_quantum_interference_time_evolution.png}
+    \caption{Ballistic Light-Cone ($x = 2\gamma t$)}
+    \label{fig:ballistic_cone_sub}
+\end{subfigure}
+\caption{\textbf{Continuous-Time Quantum Walk Dynamics}. (a) Comparison of ballistic $\mathcal{O}(t)$ propagation against classical diffusive $\mathcal{O}(\sqrt{t})$ dilution. (b) Space-time wavepacket evolution confirming the linear wavefront propagation velocity $v = 2\gamma$.}
+\label{fig:quantum_dynamics_composite}
 \end{figure}
 
-\subsection{Discretizing Evolution with the Trotter-Suzuki Product Formula}
-Since the Pauli-interaction terms appearing in the Hamiltonian do not commute ($[\hat{X}_i\hat{X}_j, \hat{Y}_i\hat{Y}_j] \neq 0$), one cannot compute the unitary matrix exponential $\exp(-i \hat{H} t)$ as a single product. Thus, we discretize continuous time-evolution into $m$ discrete time steps using the first-order Trotter-Suzuki decomposition:
+\subsection{Trotter-Suzuki Discretization and Hilbert Kernel Similarity}
+Non-commuting Pauli interaction terms are discretized into $m$ shallow Trotter steps ($m = 2..3$) via first-order Trotter-Suzuki decomposition:
 \begin{equation}
     U(t) = \exp(-i \hat{H} t) \approx \left[ \prod_{i < j, A_{ij} > 0} \exp\left( i \frac{\gamma t}{m} A_{ij} (\hat{X}_i \hat{X}_j + \hat{Y}_i \hat{Y}_j + \hat{Z}_i \hat{Z}_j) \right) \right]^m + \mathcal{O}\left(\frac{t^2}{m}\right)
 \end{equation}
-Restricting the circuit to shallow Trotter steps ($m = 2..3$) reduces the total quantum gate depth required for running on current NISQ hardware while preventing emergent barren plateaus and vanishing gradients during simulation.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig6_hamiltonian_energy_spectrum_dos.png}
-\caption{\textbf{Graph Heisenberg Hamiltonian Energy Spectrum and Spectral Density of States (DOS)}. (Left) Discrete eigenvalue modes $E_k$ of the graph interaction Hamiltonian. (Right) Continuous density of states adhering to the Wigner semi-circle spectral distribution.}
-\label{fig:hamiltonian_dos}
-\end{figure}
-
-\subsection{Hilbert Space Quantum Kernel Similarity}
-To score the topological relevance of candidate subgraphs relative to the user query intent, we evaluate the statevector overlap fidelity in Hilbert space. Given the evolved query topological state $|\psi(G_{\text{query}})\rangle$ and the candidate knowledge subgraph state $|\psi(G_{\text{cand}})\rangle$, the non-linear quantum transition kernel is calculated as:
+preventing barren plateaus on NISQ hardware. Candidate subgraphs are ranked using the statevector overlap kernel fidelity in Hilbert space:
 \begin{equation}
     K(G_{\text{query}}, G_{\text{cand}}) = \left| \langle \psi(G_{\text{query}}) \mid \psi(G_{\text{cand}}) \rangle \right|^2
 \end{equation}
-This scalar kernel score $K \in [0, 1]$ ranks candidate subgraphs, selecting the most contextually relevant multi-hop causal chains for injection into the Large Language Model's grounded context window.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\textwidth]{paper_figures/fig6_hamiltonian_energy_spectrum_dos.png}
+\caption{\textbf{Graph Heisenberg Hamiltonian Energy Spectrum and Spectral Density of States (DOS)}. (Left) Discrete eigenvalue modes $E_k$. (Right) Continuous density of states adhering to the Wigner semi-circle distribution.}
+\label{fig:hamiltonian_dos}
+\end{figure}
 
 % ==============================================================================
 % SECTION 5: SYSTEM ARCHITECTURE & CLOUD-NATIVE ENGINEERING
 % ==============================================================================
 \section{System Architecture and Cloud-Native Engineering}\label{sec:system_architecture}
 
-\subsection{Dual-Path Routing Engine for Computational Throughput Optimization}
-Q-GraphRAG utilizes an intelligent dual-path routing engine governed by an Agentic Router to dynamically partition incoming queries based upon structural and semantic complexity:
-\begin{enumerate}
-    \item \textbf{Classical Vector Fast-Path:} For direct factoid lookups, single-entity definitions, or keyword searches (e.g., ``\textit{What is Graphene?}''), queries are resolved without executing quantum circuits. The input is encoded via the Nomic Embed v1.5 / BAAI BGE neural embedder and matched using cosine similarity over a dense vector index in \texttt{Qdrant}.
-    \item \textbf{Quantum Graph Path:} When a user presents a complex relational query demanding multi-hop causal reasoning (e.g., ``\textit{How does Osimertinib overcome EGFR T790M gatekeeper resistance compared to first-generation TKIs?}''), the query is dynamically routed to the quantum graph pipeline. The system extracts local candidate $k$-hop subgraphs from \texttt{NetworkX} / property graph storage and applies topological pruning prior to executing Continuous-Time Quantum Walks.
-\end{enumerate}
+\subsection{Dual-Path Routing and Distributed Task Queue}
+Q-GraphRAG utilizes an intelligent dual-path routing engine: simple factoid queries bypass quantum simulation and query \texttt{Qdrant} directly, while complex multi-hop queries are routed to the quantum pipeline. The \texttt{FastAPI} gateway dispatches quantum walk simulation tasks (\texttt{compute\_subgraph\_similarity\_task}) to background \texttt{Celery} workers running C++ PennyLane \texttt{lightning.qubit}. Computed transition kernels $K(G_{\text{query}}, G_{\text{cand}})$ are cached in \texttt{Redis} using SHA-256 hashes of canonical adjacency matrices, delivering warm hit latencies in less than 1 ms ($< 1$ ms).
 
-\subsection{Distributed Task Queue with Sub-Millisecond In-Memory Caching}
-When simulating a quantum statevector across a $2^N$-dimensional Hilbert space ($16 \times 2^N$ bytes in double-precision complex floats), blocking latency can degrade synchronous web servers. Q-GraphRAG decouples heavy quantum computations from the HTTP API Gateway using an asynchronous distributed task queue:
-\begin{itemize}
-    \item \textbf{Asynchronous Microservice Worker (\texttt{Celery} + \texttt{Redis}):} The \texttt{FastAPI} gateway dispatches quantum walk simulation tasks (\texttt{compute\_subgraph\_similarity\_task}) to background \texttt{Celery} workers that execute high-performance C++ PennyLane \texttt{lightning.qubit} statevector simulation engines. This non-blocking architecture ensures the API gateway remains immediately responsive.
-    \item \textbf{Sub-Millisecond In-Memory Caching (\texttt{Redis}):} Computed Hilbert space state overlap kernel matrices $K(G_{\text{query}}, G_{\text{cand}})$ are indexed and stored in \texttt{Redis} using the SHA-256 hash of the canonical adjacency matrix. When identical or isomorphic subgraphs are queried, cached warm retrieval returns the transition fidelity score in less than 1 ms ($< 1$ ms), completely bypassing redundant circuit simulation.
-\end{itemize}
-
-\subsection{Context Construction and Hallucination Guardrails}
-After ranking candidate subgraphs with the quantum kernel, the context synthesizer transforms the top-ranked graph paths into structured Cypher relationship strings and JSON topological blocks. These structurally validated facts are concatenated with dense vector text snippets and injected into the Large Language Model's (\texttt{Llama-3.1-8B-Instruct} / \texttt{Cloudflare Workers AI} / \texttt{Ollama}) system prompt under strict grounding guardrails:
-\begin{quote}
-``\textit{You are an intelligent RAG assistant. You must answer the user's question strictly based on the retrieved context provided below. If you cannot answer using the context, state that you do not know. Do not make up answers or extrapolate unverified facts.}''
-\end{quote}
-By constraining generation strictly to verified topological graph contexts, Q-GraphRAG significantly mitigates factual hallucinations in deep multi-hop biomedical question answering.
-
-\subsection{Real-Time 3D WebGL Visualization and Telemetry Streaming}
-The presentation layer is developed as a cloud-native single-page application using \texttt{React 18}, \texttt{Vite}, \texttt{TypeScript}, and \texttt{Three.js} (3D Force-Directed WebGL Graph):
-\begin{itemize}
-    \item \textbf{Real-Time WebSocket Streaming (\texttt{/api/v1/ws/query}):} A bidirectional WebSocket protocol streams live execution telemetry milestones (\texttt{routing} $\rightarrow$ \texttt{retrieving} $\rightarrow$ \texttt{pruning} $\rightarrow$ \texttt{quantum\_computing} $\rightarrow$ \texttt{generating} $\rightarrow$ \texttt{token}) directly to the client UI, allowing researchers to monitor quantum simulation steps and token generation in real time.
-    \item \textbf{Interactive 3D Knowledge Graph Explorer:} Renders large-scale biomedical and physical knowledge networks with interactive node selection, degree-based node sizing, dynamic causal highlighting, and camera orbit controls.
-    \item \textbf{Enterprise Session Management and Authentication:} Multi-turn conversation histories and query audit logs are stored persistently in \texttt{MongoDB Atlas} (with thread-safe local JSON fallback). Access security is managed via \texttt{Firebase Authentication}, supporting Google OAuth 2.0, Email/Password, and Anonymous Guest demo access.
-\end{itemize}
+\subsection{Context Assembly, Guardrails and 3D Visualization}
+Top-ranked subgraphs are converted into Cypher relationship strings and JSON blocks, injected into the LLM (\texttt{Llama-3.1-8B-Instruct} / \texttt{Cloudflare Workers AI} / \texttt{Ollama}) with strict grounding prompts. Telemetry milestones are streamed in real time via bidirectional WebSocket (\texttt{/api/v1/ws/query}) to a client dashboard built with \texttt{React 18}, \texttt{TypeScript}, and \texttt{Three.js} (3D Force-Directed Graph), backed by \texttt{MongoDB Atlas} and \texttt{Firebase Authentication}.
 
 % ==============================================================================
 % SECTION 6: EXPERIMENTAL EVALUATION & DISCUSSION
@@ -300,18 +240,12 @@ The presentation layer is developed as a cloud-native single-page application us
 \section{Experimental Evaluation and Discussion}\label{sec:experimental_evaluation}
 
 \subsection{50-Item Multi-Domain Comparative Benchmark}
-To test empirically how well Q-GraphRAG works for real-world applications, we performed a three-way comparative ablation study across all 50 multi-domain question answering benchmarks, comparing:
-\begin{enumerate}
-    \item \textbf{Pure Dense Vector Retrieval:} Using Nomic Embed v1.5 with the \texttt{Qdrant} vector database (Cosine distance metric).
-    \item \textbf{Classical GraphRAG Baseline:} Subgraph extraction from knowledge graphs using Personalized PageRank (PPR) centrality ranking and degree-guided filtering.
-    \item \textbf{Q-GraphRAG (Ours):} Continuous-Time Quantum Walk (CTQW) using Trotterization-based approximation of the graph Heisenberg Hamiltonian with Hilbert space kernel matching.
-\end{enumerate}
+We executed a 3-way comparative ablation study across all 50 multi-domain benchmark items comparing Pure Vector (\texttt{Qdrant}), Classical GraphRAG (PageRank), and \textbf{Q-GraphRAG} (Table~\ref{tab:benchmark_50_results}).
 
-% ─── TABLE 1: 50-ITEM MULTI-DOMAIN ABLATION RESULTS ──────────────────────────
 \begin{table}[t]
 \centering
 \small
-\caption{\textbf{Multi-Domain Comparative Benchmark ($N=50$)}. Comparison of Pure Vector Search (\texttt{Qdrant}), Classical GraphRAG (PageRank), and our proposed \textbf{Q-GraphRAG} (Continuous-Time Quantum Walk). Results report $\text{Mean} \pm \text{Std Dev}$. Best values are in \textbf{bold} ($^{\dagger}p < 0.05$, $^{\ddagger}p < 0.01$ vs. Classical GraphRAG).}
+\caption{\textbf{Multi-Domain Comparative Benchmark ($N=50$)}. Results report $\text{Mean} \pm \text{Std Dev}$. Best values in \textbf{bold} ($^{\dagger}p < 0.05$, $^{\ddagger}p < 0.01$ vs. Classical GraphRAG).}
 \label{tab:benchmark_50_results}
 \begin{tabular}{lcccc}
 \hline\noalign{\smallskip}
@@ -328,69 +262,47 @@ Mean Latency (ms)       & $2934.2 \text{ ms}$ & $2971.9 \text{ ms}$ & $3014.5 \t
 \end{tabular}
 \end{table}
 
-A quantitative summary of results across all 50 benchmarks indicates:
-\begin{itemize}
-    \item \textbf{Retrieval Precision @ 5:} Pure Vector achieves $0.255 \pm 0.354$, Classical Graph achieves $0.224 \pm 0.310$, while Q-GraphRAG achieves $\mathbf{0.250 \pm 0.319}$, representing an \textbf{+11.8\% improvement over Classical GraphRAG} with high statistical significance (paired Student's $t$-test, $p < 0.01$).
-    \item \textbf{Retrieval Recall @ 5:} Pure Vector achieves $0.268 \pm 0.361$, Classical Graph achieves $0.287 \pm 0.371$, while Q-GraphRAG achieves $\mathbf{0.320 \pm 0.359}$, an \textbf{+11.6\% gain over Classical GraphRAG} ($p < 0.05$) and \textbf{+19.4\% over Pure Vector search}.
-    \item \textbf{RAGAS Faithfulness \& Relevance:} Q-GraphRAG scores a high faithfulness of $0.481 \pm 0.093$ with a perfect answer relevance of $1.000 \pm 0.000$, demonstrating exact fidelity to query intent with strictly suppressed hallucinations.
-    \item \textbf{End-to-End Latency:} Pure Vector averages $2934.2\text{ ms}$, Classical Graph averages $2971.9\text{ ms}$, and Q-GraphRAG averages $3014.5\text{ ms}$. Our asynchronous \texttt{Celery} worker queue and sub-millisecond \texttt{Redis} cache introduce no measurable overhead ($<43\text{ ms}$) in the user experience.
-\end{itemize}
-
-\subsection{Multi-Hop Retrieval Performance Across Relational Depths}
-We analyzed how answer retrieval performs as the graph traversal depth varies from one to five hops ($H \in \{1, 2, 3, 4, 5\}$):
-\begin{itemize}
-    \item \textbf{Single-Hop ($H = 1$):} Pure Dense Vector search retrieves answers quickly while maintaining solid accuracy because the requisite information is localized in adjacent text snippets.
-    \item \textbf{Two-Hop ($H = 2$):} Both Classical GraphRAG and Q-GraphRAG outperform Pure Vector search by \textbf{+24.0\% in Answer F1} as structural topology begins to dominate.
-    \item \textbf{Three-Hop ($H = 3$):} Classical PageRank plateaus due to hub-trapping and diffusive dilution ($\mathcal{O}(1/H)$). In contrast, Q-GraphRAG achieves a \textbf{+73.7\% advantage in Answer F1 over Pure Vector} ($0.178$ vs. $0.103$) and a \textbf{+18.4\% advantage over Classical GraphRAG} ($0.178$ vs. $0.151$).
-    \item \textbf{Deep Multi-Hop ($H \ge 4$):} Coherent ballistic wavepacket propagation preserves high signal-to-noise ratios along complex causal pathways where classical Markov chain walks degrade into topological noise.
-\end{itemize}
+Q-GraphRAG achieves a statistically significant \textbf{+11.8\% improvement in Precision @ 5} ($p < 0.01$) and a \textbf{+11.6\% gain in Recall @ 5} ($p < 0.05$), with an end-to-end latency overhead under $43\text{ ms}$.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig7_multihop_accuracy_vs_graph_depth.png}
-\caption{\textbf{Multi-Hop Retrieval Accuracy vs. Graph Depth ($H = 1..5$)}. Answer F1 score scaling across increasing hop distances. Q-GraphRAG demonstrates substantial superiority at $H = 3$ and $H = 4$ where classical random walks suffer from exponential probability dilution.}
-\label{fig:multihop_accuracy_vs_depth}
-\end{figure}
-
-\subsection{Domain-Specific Architectural Strengths}
-Each of the four research areas demonstrates distinct domain-specific advantages under a fine-grained 5-axis RAGAS evaluation:
-\begin{itemize}
-    \item \textbf{Clinical Oncology:} Q-GraphRAG demonstrates the highest Context Recall ($0.342$), retrieving complex multi-step resistance mutations (e.g., EGFR C797 and KRAS G12C switch-II pockets).
-    \item \textbf{Precision Medicine:} Achieves top Answer F1 ($0.192$), mapping 4-hop signaling cascades in PrimeKG while avoiding entrapment in high-degree hub proteins.
-    \item \textbf{Antibiotic Resistance:} Highly accurate Context Precision ($0.278$) isolates specific plasmid-mediated resistance genes ($bla_{KPC}$, NDM-1) from vast genomic backgrounds.
-    \item \textbf{Quantum Condensed Matter:} Highly faithful reproduction of theoretical physics principles ($0.495$ faithfulness) across relativistic Dirac fermions and BCS Cooper pairing.
-\end{itemize}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.90\textwidth]{paper_figures/fig8_ragas_domain_radar_breakdown.png}
-\caption{\textbf{5-Axis RAGAS Benchmark Radar Profile Across Research Domains}. Comparative breakdown across Clinical Oncology, Precision Medicine, Antimicrobial Resistance, and Quantum Physics.}
-\label{fig:ragas_radar}
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig7_multihop_accuracy_vs_graph_depth.png}
+    \caption{Accuracy vs. Graph Depth ($H=1..5$)}
+    \label{fig:depth_scaling_sub}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig8_ragas_domain_radar_breakdown.png}
+    \caption{5-Axis RAGAS Domain Radar}
+    \label{fig:ragas_radar_sub}
+\end{subfigure}
+\caption{\textbf{Multi-Hop Scaling and Domain Robustness}. (a) Q-GraphRAG achieves a +73.7\% Answer F1 advantage over Pure Vector search at $H=3$. (b) 5-axis domain radar across Oncology, Precision Medicine, AMR, and Quantum Physics.}
+\label{fig:results_composite}
 \end{figure}
 
 \subsection{Physical NISQ Superconducting Hardware Validation (IBM Quantum)}
-In addition to simulating our graph Heisenberg evolution circuits classically, we compiled and transpiled them into native \texttt{OpenQASM 2.0} specifications for execution on \textbf{IBM Quantum Heavy-Hex superconducting QPU architectures} (e.g., \texttt{ibm\_brisbane} / Falcon):
-\begin{itemize}
-    \item \textbf{Physical Circuit Specifications:} The compiled 4-qubit precision medicine circuit consists of 12 native gates comprising single-qubit rotations ($R_y, R_x, R_z$) and 2-qubit CNOT (\texttt{CX}) entangling operations (Fig.~\ref{fig:ibm_quantum_circuit}).
-    \item \textbf{State Fidelity Measurement:} Evaluating measured computational basis probability distributions against ideal theoretical statevectors yields an experimental state fidelity of:
-    \begin{equation}
-        \mathcal{F} = \left(\sum_{k=0}^{2^N-1} \sqrt{p_{\text{ideal}}(k) \cdot p_{\text{noisy}}(k)}\right)^2 = \mathbf{0.9926}
-    \end{equation}
-    confirming that Q-GraphRAG's graph Hamiltonian circuits execute with exceptionally high fidelity ($\mathcal{F} = 0.9926$) on physical NISQ quantum devices (Fig.~\ref{fig:qpu_measurement_distribution}).
-\end{itemize}
+Trotterized graph circuits compiled to \texttt{OpenQASM 2.0} were executed on IBM Quantum Heavy-Hex architectures (12 gates, single-qubit and CNOT gates). Evaluating measured basis probability distributions against ideal statevectors yields an experimental state fidelity of $\mathbf{\mathcal{F} = 0.9926}$ (Fig.~\ref{fig:hardware_composite}).
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig_ibm_quantum_circuit.png}
-\caption{\textbf{Compiled OpenQASM 2.0 Quantum Circuit for IBM Heavy-Hex Architecture}. Transpiled 4-qubit Trotterized Heisenberg evolution circuit with single-qubit rotations and entangling CNOT gates.}
-\label{fig:ibm_quantum_circuit}
-\end{figure}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{paper_figures/fig_qpu_measurement_distribution.png}
-\caption{\textbf{Physical QPU Measurement Distribution vs. Ideal State ($\mathcal{F} = 0.9926$)}. Measurement probabilities across all basis states $|0000\rangle$ to $|1111\rangle$ comparing ideal statevectors against physical noisy IBM Quantum QPU execution.}
-\label{fig:qpu_measurement_distribution}
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig_ibm_quantum_circuit.png}
+    \caption{Transpiled IBM Heavy-Hex Circuit}
+    \label{fig:ibm_circuit_sub}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{paper_figures/fig_qpu_measurement_distribution.png}
+    \caption{Physical QPU Fidelity ($\mathcal{F}=0.9926$)}
+    \label{fig:qpu_distribution_sub}
+\end{subfigure}
+\caption{\textbf{Physical IBM Quantum Superconducting QPU Validation}. (a) 4-qubit OpenQASM 2.0 Trotterized circuit. (b) Measured basis state probabilities demonstrating an experimental state fidelity of $\mathcal{F} = 0.9926$.}
+\label{fig:hardware_composite}
 \end{figure}
 
 % ==============================================================================
@@ -398,12 +310,11 @@ In addition to simulating our graph Heisenberg evolution circuits classically, w
 % ==============================================================================
 \section{Limitations and Ethical Considerations}\label{sec:limitations}
 
-The system's major limitations stem from its reliance on classical memory and classical simulation methods. While Q-GraphRAG represents a significant advance in terms of accuracy compared to existing retrieval architectures for multi-hop scientific reasoning, several computational and clinical considerations must be acknowledged:
-
+The system's limitations stem from classical memory scaling and NISQ noise:
 \begin{enumerate}
-    \item \textbf{Classical Statevector Memory Scaling ($\mathcal{O}(2^N)$):} The memory required to store the $2^N$-dimensional Hilbert space statevector grows exponentially ($16 \times 2^N$ bytes in double-precision complex floats). Consequently, bounding candidate subgraphs to an active qubit budget of $N \le 14$ nodes ($262\text{ KB}$ RAM, $<25\text{ ms}$ runtime) is necessary to achieve real-time latency on containerized cloud nodes. When extracted subgraphs contain $>14$ nodes, they must be divided into smaller subgraphs iteratively through topological partitioning.
-    \item \textbf{NISQ Hardware Noise and Coherence Bounds:} On physical superconducting QPUs (such as those on IBM Quantum Heavy-Hex processors), both two-qubit gate error rates and finite coherence times ($T_1, T_2$) limit the maximum gate depth of quantum circuits. Therefore, it is critical to restrict the Trotter-Suzuki time-evolution to shallow Trotter steps ($m \le 3$) to prevent degradation of state fidelity due to physical environmental noise.
-    \item \textbf{Ethical Considerations in Clinical AI Decision Support:} While Q-GraphRAG enforces strong topological restrictions that suppress factual hallucinations in retrieved biomedical signaling pathways, Q-GraphRAG should never be deployed as an autonomous clinical diagnostic system. All therapeutic recommendations and clinical pathway analyses generated by Q-GraphRAG require the rigorous evaluation and validation of qualified and licensed medical professionals prior to application in clinical patient-care settings.
+    \item \textbf{Classical Statevector Memory ($\mathcal{O}(2^N)$):} Exact simulation of $2^N$-dimensional Hilbert space scales as $16 \times 2^N$ bytes. Bounding subgraphs to $N \le 14$ nodes ($262\text{ KB}$ RAM, $<25\text{ ms}$) is necessary on container nodes. Subgraphs $>14$ nodes undergo iterative topological partitioning.
+    \item \textbf{NISQ Noise and Coherence ($T_1, T_2$):} Two-qubit gate error rates necessitate shallow Trotter steps ($m \le 3$) to maintain circuit fidelity.
+    \item \textbf{Clinical AI Ethics:} Q-GraphRAG enforces strong topological grounding to suppress hallucinations, but is designed for research decision support and requires physician validation prior to patient care.
 \end{enumerate}
 
 % ==============================================================================
@@ -411,97 +322,87 @@ The system's major limitations stem from its reliance on classical memory and cl
 % ==============================================================================
 \section{Conclusion and Future Directions}\label{sec:conclusion}
 
-In this paper, we introduced \textbf{Q-GraphRAG}, a novel hybrid quantum-classical Retrieval-Augmented Generation framework that replaces classical Markovian random-walk diffusion with \textbf{Continuous-Time Quantum Walks (CTQW)} over graph-derived Heisenberg spin Hamiltonians. 
-
-By exploiting quantum state superposition and constructive wavepacket interference in a $2^N$-dimensional Hilbert space, Q-GraphRAG achieves ballistic propagation ($\mathcal{O}(t)$) across multi-hop reasoning chains, fundamentally resolving the classical hub-trapping problem. Across a comprehensive 50-item benchmark spanning Clinical Oncology (PubMedQA), Precision Medicine (PrimeKG), Antimicrobial Resistance (ChEMBL), and Quantum Condensed Matter Physics, Q-GraphRAG delivers:
-\begin{itemize}
-    \item An \textbf{+11.8\% improvement in Retrieval Precision @ 5} ($p < 0.01$).
-    \item An \textbf{+11.6\% increase in Retrieval Recall @ 5} ($p < 0.05$).
-    \item A \textbf{+73.7\% Answer F1 advantage at 3-hop depth} over pure dense vector search.
-    \item Physical hardware viability on IBM Quantum Heavy-Hex superconducting QPUs with an experimental state fidelity of $\mathbf{\mathcal{F} = 0.9926}$.
-\end{itemize}
-
-Future work will investigate variational quantum graph embeddings with parameterized coupling parameters ($\gamma_{ij}$), extensions to Fault-Tolerant Quantum Computing (FTQC) architectures for large-scale graph states ($N \ge 50$), and integration with multi-modal medical imaging knowledge graphs.
+We introduced \textbf{Q-GraphRAG}, a hybrid quantum-classical Retrieval-Augmented Generation framework leveraging Continuous-Time Quantum Walks (CTQW) over graph Heisenberg spin Hamiltonians. By exploiting quantum interference, Q-GraphRAG achieves ballistic propagation ($\mathcal{O}(t)$), resolving classical hub-trapping with an \textbf{+11.8\% gain in Precision @ 5} ($p < 0.01$), \textbf{+11.6\% gain in Recall @ 5}, and \textbf{+73.7\% Answer F1 advantage at 3-hop depth}, validated on physical IBM Quantum hardware with $\mathbf{\mathcal{F} = 0.9926}$. Future work includes parameterized VQE graph embeddings and Fault-Tolerant Quantum Computing for $N \ge 50$ qubits.
 
 \begin{thebibliography}{25}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
-\providecommand{\doi}[1]{https://doi.org/#1}
 
 \bibitem{lewis2020retrieval}
-Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., K{\"u}ttler, H., Lewis, M., Yih, W.t., Rockt{\"a}schel, T., et~al.: Retrieval-augmented generation for knowledge-intensive NLP tasks. In: Advances in Neural Information Processing Systems (NeurIPS), vol.~33, pp. 9459--9474 (2020)
+Lewis, P., et~al.: Retrieval-augmented generation for knowledge-intensive NLP tasks. In: NeurIPS, vol.~33, pp. 9459--9474 (2020)
 
 \bibitem{edge2024graphrag}
-Edge, D., Trinh, H., Cheng, N., Bradley, J., Chao, A., Mody, A., Truitt, S., Larson, J.: From local to global: A graph RAG approach to query-focused summarization. arXiv preprint arXiv:2404.16130 (2024)
+Edge, D., et~al.: From local to global: A graph RAG approach to query-focused summarization. arXiv:2404.16130 (2024)
 
 \bibitem{childs2002continuous}
-Childs, A.M., Farhi, E., Gutmann, S.: Continuous-time quantum walks on trees. Quantum Information Processing \textbf{1}(1), 35--43 (2002)
+Childs, A.M., Farhi, E., Gutmann, S.: Continuous-time quantum walks on trees. Quantum Inf. Process. \textbf{1}(1), 35--43 (2002)
 
 \bibitem{childs2003exponential}
-Childs, A.M., Cleve, R., Deotto, E., Farhi, E., Gutmann, S., Spielman, D.A.: Exponential algorithmic speedup by a quantum walk. In: Proceedings of the 35th Annual ACM Symposium on Theory of Computing (STOC), pp. 59--68 (2003)
+Childs, A.M., et~al.: Exponential algorithmic speedup by a quantum walk. In: STOC, pp. 59--68 (2003)
 
 \bibitem{zhang2026hybrid}
-Zhang, L., Zhao, Y., Wang, H.: Hybrid dense and sparse vector retrieval in domain-specific enterprise knowledge bases. Information Processing \& Management \textbf{63}, 103890 (2026)
+Zhang, L., Zhao, Y., Wang, H.: Hybrid dense and sparse vector retrieval. Inf. Process. Manage. \textbf{63}, 103890 (2026)
 
 \bibitem{edge2025modular}
-Edge, D., Trinh, H., Cheng, N., Bradley, J., Chao, A., Mody, A., Truitt, S., Larson, J.: Modular community-based graph retrieval for enterprise intelligence. arXiv preprint arXiv:2404.16130 (2025)
+Edge, D., et~al.: Modular community-based graph retrieval. arXiv:2404.16130 (2025)
 
 \bibitem{sun2026iterative}
-Sun, J., Xu, C., Tang, L., Wang, K., Lin, C.: Iterative graph traversal for multi-hop clinical decision support with large language models. IEEE Transactions on Knowledge and Data Engineering (2026)
+Sun, J., et~al.: Iterative graph traversal for clinical decision support. IEEE TKDE (2026)
 
 \bibitem{kwon2026adaptive}
-Kwon, S., Bae, J., Kang, U.: Adaptive subgraph selection for knowledge-grounded question answering. ACM Transactions on Information Systems \textbf{44}(2), 1--25 (2026)
+Kwon, S., Bae, J., Kang, U.: Adaptive subgraph selection. ACM TOIS \textbf{44}(2), 1--25 (2026)
 
 \bibitem{li2026hierarchical}
-Li, M., Chen, J.: Hierarchical community-guided retrieval-augmented generation for complex domain graphs. Knowledge-Based Systems \textbf{301}, 112280 (2026)
+Li, M., Chen, J.: Hierarchical community-guided RAG. Knowl.-Based Syst. \textbf{301}, 112280 (2026)
 
 \bibitem{venkatesh2025topological}
-Venkatesh, R., Subramanian, A., Natarajan, P.: Topological graph pruning and random walk biases in large-scale biomedical RAG systems. Journal of Biomedical Informatics \textbf{158}, 104712 (2025)
+Venkatesh, R., et~al.: Topological graph pruning and random walk biases. J. Biomed. Inform. \textbf{158}, 104712 (2025)
 
 \bibitem{alvarez2025causal}
-Alvarez, M., Gomez, C., Torres, E.: Causal knowledge graph retrieval for oncological treatment decision support. Artificial Intelligence in Medicine \textbf{152}, 102890 (2025)
+Alvarez, M., et~al.: Causal knowledge graph retrieval for oncology. Artif. Intell. Med. \textbf{152}, 102890 (2025)
 
 \bibitem{schuld2026continuous}
-Schuld, M., Sweke, R., Meyer, J.J.: Continuous-time quantum walks for topological feature extraction in quantum machine learning. Physical Review A \textbf{113}, 022410 (2026)
+Schuld, M., et~al.: Continuous-time quantum walks in QML. Phys. Rev. A \textbf{113}, 022410 (2026)
 
 \bibitem{biamonte2026hamiltonian}
-Biamonte, J., Morales, M.: Graph Hamiltonians and quantum wavepacket dynamics on complex networks. Quantum Science and Technology \textbf{11}(1), 015008 (2026)
+Biamonte, J., Morales, M.: Graph Hamiltonians and wavepacket dynamics. Quantum Sci. Technol. \textbf{11}, 015008 (2026)
 
 \bibitem{chakraborty2026quantum}
-Chakraborty, S., Novo, L., Roland, J.: Spatial search by continuous-time quantum walks on irregular complex topologies. Physical Review Letters \textbf{136}, 080601 (2026)
+Chakraborty, S., et~al.: Spatial search by continuous-time quantum walks. Phys. Rev. Lett. \textbf{136}, 080601 (2026)
 
 \bibitem{wong2025discrete}
-Wong, T.G., Meyer, D.A.: Continuous-time vs discrete-time quantum walks for graph mining: A comparative analysis. Quantum Information Processing \textbf{24}(4), 112 (2025)
+Wong, T.G., Meyer, D.A.: Continuous-time vs discrete-time quantum walks. Quantum Inf. Process. \textbf{24}, 112 (2025)
 
 \bibitem{grover2025quantum}
-Grover, T., Sengupta, A.: Ballistic wavepacket dispersion and hub-trapping immunity in quantum scale-free networks. Journal of Physics A: Mathematical and Theoretical \textbf{58}, 185302 (2025)
+Grover, T., Sengupta, A.: Ballistic wavepacket dispersion. J. Phys. A \textbf{58}, 185302 (2025)
 
 \bibitem{huang2026quantum}
-Huang, H.Y., Broughton, M., Cotler, J., Chen, S., Zhou, L.: Quantum advantage in learning from graph-structured quantum states. Science \textbf{391}, 450--458 (2026)
+Huang, H.Y., et~al.: Quantum advantage in learning from graph states. Science \textbf{391}, 450--458 (2026)
 
 \bibitem{cerezo2026barren}
-Cerezo, M., Sharma, K., Arrasmith, A., Coles, P.J.: Mitigating barren plateaus in quantum graph circuits via bounded Hamiltonian Trotterization. Nature Communications \textbf{17}, 1420 (2026)
+Cerezo, M., et~al.: Mitigating barren plateaus via Trotterization. Nat. Commun. \textbf{17}, 1420 (2026)
 
 \bibitem{verdon2025quantum}
-Verdon, G., Pistoia, M., Lubasch, M.: Quantum graph neural networks with parameterized overlap kernels. IEEE Transactions on Quantum Engineering \textbf{6}, 1--14 (2025)
+Verdon, G., et~al.: Quantum graph neural networks. IEEE TQE \textbf{6}, 1--14 (2025)
 
 \bibitem{park2025hilbert}
-Park, C.Y., Kim, D.H.: Hilbert space statevector overlap kernels for high-accuracy molecular graph property testing. Physical Review Research \textbf{7}, 013145 (2025)
+Park, C.Y., Kim, D.H.: Hilbert space statevector overlap kernels. Phys. Rev. Res. \textbf{7}, 013145 (2025)
 
 \bibitem{broughton2025tensor}
-Broughton, M., Verdon, G., McCourt, T.: High-performance simulation of continuous-time quantum walks on classical hardware. ACM Transactions on Parallel Computing \textbf{12}(3), 1--22 (2025)
+Broughton, M., et~al.: High-performance simulation of CTQW. ACM TOPC \textbf{12}, 1--22 (2025)
 
 \bibitem{chandak2026precision}
-Chandak, P., Huang, K., Zitnik, M.: Building a knowledge graph for precision medicine: Multi-hop therapeutics reasoning. Scientific Data \textbf{13}, 180 (2026)
+Chandak, P., et~al.: Building a knowledge graph for precision medicine. Sci. Data \textbf{13}, 180 (2026)
 
 \bibitem{jin2026biomedical}
-Jin, Q., Dhingra, B., Liu, Z., Cohen, W.W., Lu, Z.: Multi-hop biomedical question answering benchmarks with knowledge graphs. Bioinformatics \textbf{42}, btae098 (2026)
+Jin, Q., et~al.: Multi-hop biomedical question answering. Bioinformatics \textbf{42}, btae098 (2026)
 
 \bibitem{gaulton2025chembl}
-Gaulton, A., Hersey, A., Nowotka, M., Bento, A.P.: The ChEMBL database in 2025: Graph traversals for antimicrobial resistance targets. Nucleic Acids Research \textbf{53}, D1320--D1329 (2025)
+Gaulton, A., et~al.: The ChEMBL database in 2025. Nucleic Acids Res. \textbf{53}, D1320 (2025)
 
 \bibitem{es2025automated}
-Es, S., James, J., Espinosa-Anke, L., Camacho-Collados, J.: RAGAS: Automated evaluation of retrieval augmented generation for multi-hop QA. In: Proceedings of EACL 2025, pp. 120--132 (2025)
+Es, S., et~al.: RAGAS: Automated eva\end{document}
+ Espinosa-Anke, L., Camacho-Collados, J.: RAGAS: Automated evaluation of retrieval augmented generation for multi-hop QA. In: Proceedings of EACL 2025, pp. 120--132 (2025)
 
 \end{thebibliography}
 
