@@ -1,17 +1,19 @@
+import os
 import time
 import uuid
 import asyncio
 import logging
+import io
+import csv
+import json
 import numpy as np
 import networkx as nx
 from contextlib import asynccontextmanager
 from functools import lru_cache
 from typing import Dict, Any, List, Optional
 from fastapi import FastAPI, BackgroundTasks, WebSocket, WebSocketDisconnect, Depends, UploadFile, File, HTTPException
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-import io
-import csv
-import json
 from pydantic import BaseModel
 
 from app.core.config import settings
@@ -56,8 +58,28 @@ def get_embedder() -> object:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting Q-GraphRAG...")
-    # Collection is created lazily on first upsert with the correct embedding dimension.
-    # No hardcoded vector_size needed here.
+    try:
+        graph_svc = get_graph_service()
+        if len(graph_svc.graph) < 10:
+            logger.info("Knowledge Graph is empty or minimal. Seeding curated biomedical & physics datasets...")
+            from app.evaluation.data_loader import PUBMEDQA_CURATED, PRIMEKG_CURATED, CHEMBL_CURATED
+            from app.evaluation.ablation_pipeline import DOMAIN_BENCHMARKS
+            
+            # Seed from domain benchmarks
+            for key, data in DOMAIN_BENCHMARKS.items():
+                triplets = data.get("triplets", [])
+                if triplets:
+                    graph_svc.add_triplets(triplets, metadata={"source": f"benchmark_{key}"})
+            
+            # Seed curated datasets
+            for ds in [PUBMEDQA_CURATED, PRIMEKG_CURATED, CHEMBL_CURATED]:
+                for item in ds:
+                    triplets = item.get("triplets", [])
+                    if triplets:
+                        graph_svc.add_triplets(triplets, metadata={"source": "curated_biomedical"})
+            logger.info(f"Knowledge Graph auto-seeded with {len(graph_svc.graph)} nodes and {graph_svc.graph.number_of_edges()} edges.")
+    except Exception as e:
+        logger.warning(f"Auto-seed warning on startup: {e}")
     yield
     logger.info("Shutting down Q-GraphRAG.")
 
@@ -692,12 +714,24 @@ def get_qubit_scalability():
     """Profiles quantum state vector growth & simulation latency for N = 2..14 qubits."""
     return profile_qubit_scaling(max_n=14)
 
-import os
-from fastapi.staticfiles import StaticFiles
+# Robust static directory resolution for paper_figures
+backend_base = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+candidate_fig_dirs = [
+    os.path.join(backend_base, "paper_figures"),
+    os.path.abspath("paper_figures"),
+    os.path.abspath("backend/paper_figures"),
+]
+figures_dir = os.path.join(backend_base, "paper_figures")
+for c in candidate_fig_dirs:
+    if os.path.exists(c):
+        figures_dir = c
+        break
 
-figures_dir = os.path.abspath("paper_figures")
 if os.path.exists(figures_dir):
     app.mount("/api/v1/research/figures/static", StaticFiles(directory=figures_dir), name="paper_figures")
+    logger.info(f"Mounted publication figures from: {figures_dir}")
+else:
+    logger.warning(f"Publication figures directory not found at: {figures_dir}")
 
 @app.get("/api/v1/research/paper/manifest")
 def get_paper_manifest():

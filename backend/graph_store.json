@@ -19,54 +19,9 @@
       "id": "Honeycomb Lattice"
     },
     {
-      "name": "Electrical Conductivity",
+      "name": "Conductivity",
       "type": "Entity",
-      "id": "Electrical Conductivity"
-    },
-    {
-      "name": "High Strength",
-      "type": "Entity",
-      "id": "High Strength"
-    },
-    {
-      "name": "Quantum Hall Effect",
-      "type": "Entity",
-      "id": "Quantum Hall Effect"
-    },
-    {
-      "name": "BCS Theory",
-      "type": "Entity",
-      "id": "BCS Theory"
-    },
-    {
-      "name": "Superconductivity",
-      "type": "Entity",
-      "id": "Superconductivity"
-    },
-    {
-      "name": "Electrons",
-      "type": "Entity",
-      "id": "Electrons"
-    },
-    {
-      "name": "Cooper Pairs",
-      "type": "Entity",
-      "id": "Cooper Pairs"
-    },
-    {
-      "name": "Phonon Lattice Vibrations",
-      "type": "Entity",
-      "id": "Phonon Lattice Vibrations"
-    },
-    {
-      "name": "Zero Resistance State",
-      "type": "Entity",
-      "id": "Zero Resistance State"
-    },
-    {
-      "name": "Critical Temperature",
-      "type": "Entity",
-      "id": "Critical Temperature"
+      "id": "Conductivity"
     },
     {
       "name": "Trastuzumab Emtansine",
@@ -104,84 +59,44 @@
       "id": "Progression Free Survival"
     },
     {
-      "name": "Dapagliflozin",
+      "name": "Osimertinib",
       "type": "Entity",
-      "id": "Dapagliflozin"
+      "id": "Osimertinib"
     },
     {
-      "name": "SGLT2 Transporter",
+      "name": "EGFR C797 Residue",
       "type": "Entity",
-      "id": "SGLT2 Transporter"
+      "id": "EGFR C797 Residue"
     },
     {
-      "name": "Proximal Renal Tubule",
+      "name": "ATP Binding Cleft",
       "type": "Entity",
-      "id": "Proximal Renal Tubule"
+      "id": "ATP Binding Cleft"
     },
     {
-      "name": "SGLT2 Inhibition",
+      "name": "EGFR T790M Gatekeeper Mutation",
       "type": "Entity",
-      "id": "SGLT2 Inhibition"
+      "id": "EGFR T790M Gatekeeper Mutation"
     },
     {
-      "name": "Tubuloglomerular Feedback",
+      "name": "EGFR T790M Mutation",
       "type": "Entity",
-      "id": "Tubuloglomerular Feedback"
+      "id": "EGFR T790M Mutation"
     },
     {
-      "name": "Intraglomerular Pressure",
+      "name": "Non Small Cell Lung Cancer",
       "type": "Entity",
-      "id": "Intraglomerular Pressure"
+      "id": "Non Small Cell Lung Cancer"
     },
     {
-      "name": "Intraglomerular Pressure Reduction",
+      "name": "Osimertinib Therapy",
       "type": "Entity",
-      "id": "Intraglomerular Pressure Reduction"
+      "id": "Osimertinib Therapy"
     },
     {
-      "name": "Chronic Kidney Disease Patients",
+      "name": "Lung Cancer Cell Proliferation",
       "type": "Entity",
-      "id": "Chronic Kidney Disease Patients"
-    },
-    {
-      "name": "CRISPR-Cas9 RNP",
-      "type": "Entity",
-      "id": "CRISPR-Cas9 RNP"
-    },
-    {
-      "name": "BCL11A Erythroid Enhancer",
-      "type": "Entity",
-      "id": "BCL11A Erythroid Enhancer"
-    },
-    {
-      "name": "BCL11A Enhancer Disruption",
-      "type": "Entity",
-      "id": "BCL11A Enhancer Disruption"
-    },
-    {
-      "name": "BCL11A Repressor Protein",
-      "type": "Entity",
-      "id": "BCL11A Repressor Protein"
-    },
-    {
-      "name": "BCL11A Repressor Suppression",
-      "type": "Entity",
-      "id": "BCL11A Repressor Suppression"
-    },
-    {
-      "name": "Gamma Globin Expression",
-      "type": "Entity",
-      "id": "Gamma Globin Expression"
-    },
-    {
-      "name": "Fetal Hemoglobin HbF",
-      "type": "Entity",
-      "id": "Fetal Hemoglobin HbF"
-    },
-    {
-      "name": "Sickle Hemoglobin Polymerization",
-      "type": "Entity",
-      "id": "Sickle Hemoglobin Polymerization"
+      "id": "Lung Cancer Cell Proliferation"
     },
     {
       "name": "Philadelphia Chromosome t(9;22)",
@@ -269,44 +184,44 @@
       "id": "Hepatic Glucose Production in Diabetes"
     },
     {
-      "name": "Osimertinib",
+      "name": "CRISPR-Cas9 RNP",
       "type": "Entity",
-      "id": "Osimertinib"
+      "id": "CRISPR-Cas9 RNP"
     },
     {
-      "name": "EGFR C797 Residue",
+      "name": "BCL11A Erythroid Enhancer",
       "type": "Entity",
-      "id": "EGFR C797 Residue"
+      "id": "BCL11A Erythroid Enhancer"
     },
     {
-      "name": "ATP Binding Cleft",
+      "name": "BCL11A Enhancer Disruption",
       "type": "Entity",
-      "id": "ATP Binding Cleft"
+      "id": "BCL11A Enhancer Disruption"
     },
     {
-      "name": "EGFR T790M Gatekeeper Mutation",
+      "name": "BCL11A Repressor Protein",
       "type": "Entity",
-      "id": "EGFR T790M Gatekeeper Mutation"
+      "id": "BCL11A Repressor Protein"
     },
     {
-      "name": "EGFR T790M Mutation",
+      "name": "BCL11A Repressor Suppression",
       "type": "Entity",
-      "id": "EGFR T790M Mutation"
+      "id": "BCL11A Repressor Suppression"
     },
     {
-      "name": "Non Small Cell Lung Cancer",
+      "name": "Gamma Globin Expression",
       "type": "Entity",
-      "id": "Non Small Cell Lung Cancer"
+      "id": "Gamma Globin Expression"
     },
     {
-      "name": "Osimertinib Therapy",
+      "name": "Fetal Hemoglobin HbF",
       "type": "Entity",
-      "id": "Osimertinib Therapy"
+      "id": "Fetal Hemoglobin HbF"
     },
     {
-      "name": "Lung Cancer Cell Proliferation",
+      "name": "Sickle Hemoglobin Polymerization",
       "type": "Entity",
-      "id": "Lung Cancer Cell Proliferation"
+      "id": "Sickle Hemoglobin Polymerization"
     },
     {
       "name": "Antibiotic Resistance Genes",
@@ -347,6 +262,41 @@
       "name": "Multi-Hop Resistance",
       "type": "Entity",
       "id": "Multi-Hop Resistance"
+    },
+    {
+      "name": "BCS Theory",
+      "type": "Entity",
+      "id": "BCS Theory"
+    },
+    {
+      "name": "Superconductivity",
+      "type": "Entity",
+      "id": "Superconductivity"
+    },
+    {
+      "name": "Electrons",
+      "type": "Entity",
+      "id": "Electrons"
+    },
+    {
+      "name": "Cooper Pairs",
+      "type": "Entity",
+      "id": "Cooper Pairs"
+    },
+    {
+      "name": "Phonon Lattice Vibrations",
+      "type": "Entity",
+      "id": "Phonon Lattice Vibrations"
+    },
+    {
+      "name": "Zero Resistance State",
+      "type": "Entity",
+      "id": "Zero Resistance State"
+    },
+    {
+      "name": "Critical Temperature",
+      "type": "Entity",
+      "id": "Critical Temperature"
     },
     {
       "name": "Heisenberg Hamiltonian",
@@ -397,57 +347,15 @@
       "key": 0
     },
     {
-      "relation": "exhibits",
-      "source": "Graphene",
-      "target": "Electrical Conductivity",
-      "key": 0
-    },
-    {
-      "relation": "exhibits",
-      "source": "Graphene",
-      "target": "High Strength",
-      "key": 0
-    },
-    {
-      "relation": "arranged_in",
+      "relation": "forms",
       "source": "Carbon",
       "target": "Honeycomb Lattice",
       "key": 0
     },
     {
-      "relation": "observed_in",
-      "source": "Quantum Hall Effect",
-      "target": "Graphene",
-      "key": 0
-    },
-    {
-      "relation": "explains",
-      "source": "BCS Theory",
-      "target": "Superconductivity",
-      "key": 0
-    },
-    {
-      "relation": "operates_below",
-      "source": "Superconductivity",
-      "target": "Critical Temperature",
-      "key": 0
-    },
-    {
-      "relation": "form",
-      "source": "Electrons",
-      "target": "Cooper Pairs",
-      "key": 0
-    },
-    {
-      "relation": "mediated_by",
-      "source": "Cooper Pairs",
-      "target": "Phonon Lattice Vibrations",
-      "key": 0
-    },
-    {
-      "relation": "condense_into",
-      "source": "Cooper Pairs",
-      "target": "Zero Resistance State",
+      "relation": "enables",
+      "source": "Honeycomb Lattice",
+      "target": "Conductivity",
       "key": 0
     },
     {
@@ -481,63 +389,33 @@
       "key": 0
     },
     {
-      "relation": "inhibits",
-      "source": "Dapagliflozin",
-      "target": "SGLT2 Transporter",
+      "relation": "covalently_binds",
+      "source": "Osimertinib",
+      "target": "EGFR C797 Residue",
+      "key": 0
+    },
+    {
+      "relation": "overcomes",
+      "source": "Osimertinib",
+      "target": "EGFR T790M Gatekeeper Mutation",
       "key": 0
     },
     {
       "relation": "located_in",
-      "source": "SGLT2 Transporter",
-      "target": "Proximal Renal Tubule",
+      "source": "EGFR C797 Residue",
+      "target": "ATP Binding Cleft",
       "key": 0
     },
     {
-      "relation": "enhances",
-      "source": "SGLT2 Inhibition",
-      "target": "Tubuloglomerular Feedback",
-      "key": 0
-    },
-    {
-      "relation": "reduces",
-      "source": "Tubuloglomerular Feedback",
-      "target": "Intraglomerular Pressure",
-      "key": 0
-    },
-    {
-      "relation": "protects",
-      "source": "Intraglomerular Pressure Reduction",
-      "target": "Chronic Kidney Disease Patients",
-      "key": 0
-    },
-    {
-      "relation": "cleaves",
-      "source": "CRISPR-Cas9 RNP",
-      "target": "BCL11A Erythroid Enhancer",
+      "relation": "drives_resistance_in",
+      "source": "EGFR T790M Mutation",
+      "target": "Non Small Cell Lung Cancer",
       "key": 0
     },
     {
       "relation": "suppresses",
-      "source": "BCL11A Enhancer Disruption",
-      "target": "BCL11A Repressor Protein",
-      "key": 0
-    },
-    {
-      "relation": "reactivates",
-      "source": "BCL11A Repressor Suppression",
-      "target": "Gamma Globin Expression",
-      "key": 0
-    },
-    {
-      "relation": "produces",
-      "source": "Gamma Globin Expression",
-      "target": "Fetal Hemoglobin HbF",
-      "key": 0
-    },
-    {
-      "relation": "prevents",
-      "source": "Fetal Hemoglobin HbF",
-      "target": "Sickle Hemoglobin Polymerization",
+      "source": "Osimertinib Therapy",
+      "target": "Lung Cancer Cell Proliferation",
       "key": 0
     },
     {
@@ -601,33 +479,33 @@
       "key": 0
     },
     {
-      "relation": "covalently_binds",
-      "source": "Osimertinib",
-      "target": "EGFR C797 Residue",
-      "key": 0
-    },
-    {
-      "relation": "overcomes",
-      "source": "Osimertinib",
-      "target": "EGFR T790M Gatekeeper Mutation",
-      "key": 0
-    },
-    {
-      "relation": "located_in",
-      "source": "EGFR C797 Residue",
-      "target": "ATP Binding Cleft",
-      "key": 0
-    },
-    {
-      "relation": "drives_resistance_in",
-      "source": "EGFR T790M Mutation",
-      "target": "Non Small Cell Lung Cancer",
+      "relation": "cleaves",
+      "source": "CRISPR-Cas9 RNP",
+      "target": "BCL11A Erythroid Enhancer",
       "key": 0
     },
     {
       "relation": "suppresses",
-      "source": "Osimertinib Therapy",
-      "target": "Lung Cancer Cell Proliferation",
+      "source": "BCL11A Enhancer Disruption",
+      "target": "BCL11A Repressor Protein",
+      "key": 0
+    },
+    {
+      "relation": "reactivates",
+      "source": "BCL11A Repressor Suppression",
+      "target": "Gamma Globin Expression",
+      "key": 0
+    },
+    {
+      "relation": "produces",
+      "source": "Gamma Globin Expression",
+      "target": "Fetal Hemoglobin HbF",
+      "key": 0
+    },
+    {
+      "relation": "prevents",
+      "source": "Fetal Hemoglobin HbF",
+      "target": "Sickle Hemoglobin Polymerization",
       "key": 0
     },
     {
@@ -652,6 +530,36 @@
       "relation": "traces",
       "source": "Knowledge Graph",
       "target": "Multi-Hop Resistance",
+      "key": 0
+    },
+    {
+      "relation": "explains",
+      "source": "BCS Theory",
+      "target": "Superconductivity",
+      "key": 0
+    },
+    {
+      "relation": "operates_below",
+      "source": "Superconductivity",
+      "target": "Critical Temperature",
+      "key": 0
+    },
+    {
+      "relation": "form",
+      "source": "Electrons",
+      "target": "Cooper Pairs",
+      "key": 0
+    },
+    {
+      "relation": "mediated_by",
+      "source": "Cooper Pairs",
+      "target": "Phonon Lattice Vibrations",
+      "key": 0
+    },
+    {
+      "relation": "condense_into",
+      "source": "Cooper Pairs",
+      "target": "Zero Resistance State",
       "key": 0
     },
     {

@@ -13,155 +13,361 @@
         "median": 0.0
       },
       "answer_f1": {
-        "mean": 0.18287200000000003,
-        "std": 0.04552348422517767,
-        "median": 0.1888
+        "mean": 0.17759200000000003,
+        "std": 0.042264168464551624,
+        "median": 0.17459999999999998
+      },
+      "coverage_f1": {
+        "mean": 0.22484799999999996,
+        "std": 0.061009488573499776,
+        "median": 0.23015
       },
       "faithfulness": {
-        "mean": 0.47238399999999997,
-        "std": 0.09006430227343128,
-        "median": 0.4658
+        "mean": 0.22112,
+        "std": 0.146487020585443,
+        "median": 0.19345
       },
       "answer_relevance": {
-        "mean": 1.0,
-        "std": 0.0,
+        "mean": 0.949814,
+        "std": 0.10099836040253325,
         "median": 1.0
       },
       "overall_ragas": {
-        "mean": 0.6349440000000001,
-        "std": 0.15100956017418235,
-        "median": 0.6023499999999999
+        "mean": 0.518972,
+        "std": 0.13658686179863713,
+        "median": 0.5149
       },
       "latency_ms": {
-        "mean": 2934.15,
-        "std": 606.1308942497486,
-        "median": 2796.815
+        "mean": 2266.1648,
+        "std": 302.7452585540523,
+        "median": 2252.1549999999997
       }
     },
     "classical_graph": {
       "precision_at_k": {
-        "mean": 0.22366600000000003,
-        "std": 0.31023426349131716,
+        "mean": 0.220666,
+        "std": 0.31117245097212576,
         "median": 0.0
       },
       "recall_at_k": {
-        "mean": 0.28666600000000003,
-        "std": 0.3712482611999684,
+        "mean": 0.286666,
+        "std": 0.37124826119996845,
         "median": 0.0
       },
       "answer_f1": {
-        "mean": 0.187178,
-        "std": 0.04079984946050659,
-        "median": 0.19105
+        "mean": 0.18087200000000003,
+        "std": 0.03934165243097956,
+        "median": 0.1787
+      },
+      "coverage_f1": {
+        "mean": 0.22628399999999999,
+        "std": 0.05940130422810597,
+        "median": 0.2224
       },
       "faithfulness": {
-        "mean": 0.48556399999999994,
-        "std": 0.0904532581171071,
-        "median": 0.47450000000000003
+        "mean": 0.26462199999999997,
+        "std": 0.16550529090032137,
+        "median": 0.21385
       },
       "answer_relevance": {
-        "mean": 1.0,
-        "std": 0.0,
+        "mean": 0.96067,
+        "std": 0.07985435053896561,
         "median": 1.0
       },
       "overall_ragas": {
-        "mean": 0.636412,
-        "std": 0.14538518306897716,
-        "median": 0.61035
+        "mean": 0.540926,
+        "std": 0.1596269047623238,
+        "median": 0.5211
       },
       "latency_ms": {
-        "mean": 2971.9200000000005,
-        "std": 570.7954310433819,
-        "median": 2845.16
+        "mean": 2241.4638,
+        "std": 342.06291011385605,
+        "median": 2246.52
+      }
+    },
+    "classical_walk_pruned": {
+      "precision_at_k": {
+        "mean": 0.24566600000000002,
+        "std": 0.3239135598334839,
+        "median": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.30333,
+        "std": 0.34551510719504,
+        "median": 0.3333
+      },
+      "answer_f1": {
+        "mean": 0.17671,
+        "std": 0.043369534237757267,
+        "median": 0.17830000000000001
+      },
+      "coverage_f1": {
+        "mean": 0.221994,
+        "std": 0.06061543503102159,
+        "median": 0.22644999999999998
+      },
+      "faithfulness": {
+        "mean": 0.259708,
+        "std": 0.15425299587366206,
+        "median": 0.20745000000000002
+      },
+      "answer_relevance": {
+        "mean": 0.9619120000000001,
+        "std": 0.06766090345243699,
+        "median": 1.0
+      },
+      "overall_ragas": {
+        "mean": 0.5057839999999999,
+        "std": 0.1356166352037979,
+        "median": 0.4766
+      },
+      "latency_ms": {
+        "mean": 2157.2155999999995,
+        "std": 351.4498478540573,
+        "median": 2068.53
       }
     },
     "quantum_graph": {
       "precision_at_k": {
-        "mean": 0.25,
-        "std": 0.31874754901018454,
-        "median": 0.2
+        "mean": 0.24366600000000002,
+        "std": 0.31952880659496097,
+        "median": 0.1
       },
       "recall_at_k": {
-        "mean": 0.319996,
-        "std": 0.35876749571832733,
-        "median": 0.3333
+        "mean": 0.301664,
+        "std": 0.3562538863002058,
+        "median": 0.16665
       },
       "answer_f1": {
-        "mean": 0.178336,
-        "std": 0.048174789091390946,
-        "median": 0.17395
+        "mean": 0.17837399999999998,
+        "std": 0.042834770035568064,
+        "median": 0.17365
+      },
+      "coverage_f1": {
+        "mean": 0.218218,
+        "std": 0.0650539028498675,
+        "median": 0.20885
       },
       "faithfulness": {
-        "mean": 0.48138200000000003,
-        "std": 0.09304379762241007,
-        "median": 0.4607
+        "mean": 0.268472,
+        "std": 0.16012820993191673,
+        "median": 0.23645
       },
       "answer_relevance": {
-        "mean": 1.0,
-        "std": 0.0,
+        "mean": 0.9769720000000001,
+        "std": 0.055249593808461596,
         "median": 1.0
       },
       "overall_ragas": {
-        "mean": 0.583746,
-        "std": 0.13130094776504853,
-        "median": 0.542
+        "mean": 0.511392,
+        "std": 0.14029710309197407,
+        "median": 0.47609999999999997
       },
       "latency_ms": {
-        "mean": 3014.4903999999997,
-        "std": 535.8051454473351,
-        "median": 2922.145
+        "mean": 2204.0356,
+        "std": 250.47279940272955,
+        "median": 2130.5
       }
     }
   },
   "significance_tests": {
     "pure_vector": {
       "answer_f1": {
-        "t_stat": -1.0747012857781035,
-        "p_value": 0.28777218117877296,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 0.14698072400045578,
+        "p_value": 0.8837503245501008,
+        "cohens_d": 0.0208,
+        "mean_delta": 0.0008,
+        "ci_95": [
+          -0.0099,
+          0.0115
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "coverage_f1": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.8740877340319096,
+        "p_value": 0.3863344891434958,
+        "cohens_d": -0.1236,
+        "mean_delta": -0.0066,
+        "ci_95": [
+          -0.0219,
+          0.0086
+        ],
         "statistically_significant_005": false,
         "statistically_significant_001": false
       },
       "faithfulness": {
-        "t_stat": 0.9623896859697477,
-        "p_value": 0.340579341752394,
-        "statistically_significant_005": false,
-        "statistically_significant_001": false
-      },
-      "overall_ragas": {
-        "t_stat": -3.087289924384772,
-        "p_value": 0.00332076262221422,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 3.286462560610453,
+        "p_value": 0.0018798219399928445,
+        "cohens_d": 0.4648,
+        "mean_delta": 0.0474,
+        "ci_95": [
+          0.0184,
+          0.0763
+        ],
         "statistically_significant_005": true,
         "statistically_significant_001": true
       },
+      "overall_ragas": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.45882282006296504,
+        "p_value": 0.6483902038980277,
+        "cohens_d": -0.0649,
+        "mean_delta": -0.0076,
+        "ci_95": [
+          -0.0408,
+          0.0256
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
       "precision_at_k": {
-        "t_stat": -0.18015107743404274,
-        "p_value": 0.8577769523621498,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.3863730307814289,
+        "p_value": 0.700893143770881,
+        "cohens_d": -0.0546,
+        "mean_delta": -0.0113,
+        "ci_95": [
+          -0.0703,
+          0.0476
+        ],
         "statistically_significant_005": false,
         "statistically_significant_001": false
       }
     },
     "classical_graph": {
       "answer_f1": {
-        "t_stat": -1.6810532989235152,
-        "p_value": 0.09911696745592422,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.5239212435766913,
+        "p_value": 0.6026951871130856,
+        "cohens_d": -0.0741,
+        "mean_delta": -0.0025,
+        "ci_95": [
+          -0.0121,
+          0.0071
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "coverage_f1": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -1.1287797675018543,
+        "p_value": 0.2644869645176567,
+        "cohens_d": -0.1596,
+        "mean_delta": -0.0081,
+        "ci_95": [
+          -0.0224,
+          0.0063
+        ],
         "statistically_significant_005": false,
         "statistically_significant_001": false
       },
       "faithfulness": {
-        "t_stat": -0.4355708600656818,
-        "p_value": 0.6650609060360773,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 0.3056528531904235,
+        "p_value": 0.7611637529785116,
+        "cohens_d": 0.0432,
+        "mean_delta": 0.0038,
+        "ci_95": [
+          -0.0215,
+          0.0292
+        ],
         "statistically_significant_005": false,
         "statistically_significant_001": false
       },
       "overall_ragas": {
-        "t_stat": -3.432385536926916,
-        "p_value": 0.0012249249609872419,
-        "statistically_significant_005": true,
-        "statistically_significant_001": true
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -1.7994335838293292,
+        "p_value": 0.07810931109793108,
+        "cohens_d": -0.2545,
+        "mean_delta": -0.0295,
+        "ci_95": [
+          -0.0625,
+          0.0034
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
       },
       "precision_at_k": {
-        "t_stat": 1.998028412195109,
-        "p_value": 0.05127962034711149,
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 1.3909031306570137,
+        "p_value": 0.17053910905050784,
+        "cohens_d": 0.1967,
+        "mean_delta": 0.023,
+        "ci_95": [
+          -0.0102,
+          0.0562
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      }
+    },
+    "classical_walk_pruned": {
+      "answer_f1": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 0.38087487529171016,
+        "p_value": 0.7049424505625931,
+        "cohens_d": 0.0539,
+        "mean_delta": 0.0017,
+        "ci_95": [
+          -0.0071,
+          0.0104
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "coverage_f1": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.5330392867507187,
+        "p_value": 0.5964158234091388,
+        "cohens_d": -0.0754,
+        "mean_delta": -0.0038,
+        "ci_95": [
+          -0.018,
+          0.0105
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "faithfulness": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 0.8863432482025436,
+        "p_value": 0.3797620909868306,
+        "cohens_d": 0.1253,
+        "mean_delta": 0.0088,
+        "ci_95": [
+          -0.0111,
+          0.0286
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "overall_ragas": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": 0.7116007653224034,
+        "p_value": 0.480086259963273,
+        "cohens_d": 0.1006,
+        "mean_delta": 0.0056,
+        "ci_95": [
+          -0.0102,
+          0.0214
+        ],
+        "statistically_significant_005": false,
+        "statistically_significant_001": false
+      },
+      "precision_at_k": {
+        "test": "paired t-test (per-item deltas, N=50)",
+        "t_stat": -0.2747740351926008,
+        "p_value": 0.7846450935789875,
+        "cohens_d": -0.0389,
+        "mean_delta": -0.002,
+        "ci_95": [
+          -0.0166,
+          0.0126
+        ],
         "statistically_significant_005": false,
         "statistically_significant_001": false
       }
@@ -174,550 +380,600 @@
         "domain": "Oncology",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2484,
-        "faithfulness": 0.623,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8686,
-        "latency_ms": 2405.37
+        "answer_f1": 0.2289,
+        "coverage_f1": 0.2783,
+        "faithfulness": 0.4023,
+        "answer_relevance": 0.8367,
+        "overall_ragas": 0.7041,
+        "latency_ms": 1933.9
       },
       {
         "id": "onco_02",
         "domain": "Oncology",
         "precision_at_k": 0.6667,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2065,
-        "faithfulness": 0.4974,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.7983,
-        "latency_ms": 4726.8
+        "answer_f1": 0.2723,
+        "coverage_f1": 0.3482,
+        "faithfulness": 0.3102,
+        "answer_relevance": 0.8952,
+        "overall_ragas": 0.6308,
+        "latency_ms": 2505.32
       },
       {
         "id": "onco_03",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2021,
-        "faithfulness": 0.4064,
+        "answer_f1": 0.1827,
+        "coverage_f1": 0.1963,
+        "faithfulness": 0.11,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4349,
-        "latency_ms": 2859.66
+        "overall_ragas": 0.3608,
+        "latency_ms": 2136.2
       },
       {
         "id": "onco_04",
         "domain": "Oncology",
         "precision_at_k": 0.6667,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1302,
-        "faithfulness": 0.6244,
+        "answer_f1": 0.1236,
+        "coverage_f1": 0.1344,
+        "faithfulness": 0.3862,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8693,
-        "latency_ms": 2623.25
+        "overall_ragas": 0.7156,
+        "latency_ms": 1803.17
       },
       {
         "id": "onco_05",
         "domain": "Oncology",
         "precision_at_k": 0.25,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.2105,
-        "faithfulness": 0.4473,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6415,
-        "latency_ms": 2720.19
+        "answer_f1": 0.1871,
+        "coverage_f1": 0.2572,
+        "faithfulness": 0.1262,
+        "answer_relevance": 0.8768,
+        "overall_ragas": 0.3316,
+        "latency_ms": 1926.77
       },
       {
         "id": "onco_06",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2199,
-        "faithfulness": 0.3836,
+        "answer_f1": 0.1969,
+        "coverage_f1": 0.2668,
+        "faithfulness": 0.0583,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4292,
-        "latency_ms": 2418.38
+        "overall_ragas": 0.3479,
+        "latency_ms": 2244.22
       },
       {
         "id": "onco_07",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1383,
-        "faithfulness": 0.3151,
+        "answer_f1": 0.1164,
+        "coverage_f1": 0.1822,
+        "faithfulness": 0.0885,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4121,
-        "latency_ms": 3527.16
+        "overall_ragas": 0.3554,
+        "latency_ms": 2108.35
       },
       {
         "id": "onco_08",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2054,
-        "faithfulness": 0.4658,
+        "answer_f1": 0.173,
+        "coverage_f1": 0.234,
+        "faithfulness": 0.2089,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5331,
-        "latency_ms": 3252.87
+        "overall_ragas": 0.4689,
+        "latency_ms": 2346.69
       },
       {
         "id": "onco_09",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2057,
-        "faithfulness": 0.3783,
+        "answer_f1": 0.199,
+        "coverage_f1": 0.2791,
+        "faithfulness": 0.2239,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5112,
-        "latency_ms": 3018.32
+        "overall_ragas": 0.4727,
+        "latency_ms": 2392.74
       },
       {
         "id": "onco_10",
         "domain": "Oncology",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.2222,
-        "faithfulness": 0.4658,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.7772,
-        "latency_ms": 2710.04
+        "answer_f1": 0.1935,
+        "coverage_f1": 0.2389,
+        "faithfulness": 0.1349,
+        "answer_relevance": 0.5873,
+        "overall_ragas": 0.3599,
+        "latency_ms": 2130.43
       },
       {
         "id": "onco_11",
         "domain": "Oncology",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.2034,
-        "faithfulness": 0.5108,
+        "answer_f1": 0.1714,
+        "coverage_f1": 0.1481,
+        "faithfulness": 0.3717,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6194,
-        "latency_ms": 3177.35
+        "overall_ragas": 0.5563,
+        "latency_ms": 2746.5
       },
       {
         "id": "onco_12",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1881,
-        "faithfulness": 0.3871,
+        "answer_f1": 0.2165,
+        "coverage_f1": 0.3013,
+        "faithfulness": 0.05,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5134,
-        "latency_ms": 3578.92
+        "overall_ragas": 0.4292,
+        "latency_ms": 2037.82
       },
       {
         "id": "onco_13",
         "domain": "Oncology",
         "precision_at_k": 1.0,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1967,
-        "faithfulness": 0.4763,
+        "answer_f1": 0.1762,
+        "coverage_f1": 0.2149,
+        "faithfulness": 0.2195,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7844,
-        "latency_ms": 3069.37
+        "overall_ragas": 0.5294,
+        "latency_ms": 2618.3
       },
       {
         "id": "onco_14",
         "domain": "Oncology",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.281,
-        "faithfulness": 0.5136,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.7344,
-        "latency_ms": 2053.77
+        "answer_f1": 0.1699,
+        "coverage_f1": 0.2035,
+        "faithfulness": 0.2278,
+        "answer_relevance": 0.881,
+        "overall_ragas": 0.4985,
+        "latency_ms": 1661.23
       },
       {
         "id": "onco_15",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1256,
-        "faithfulness": 0.3481,
+        "answer_f1": 0.1215,
+        "coverage_f1": 0.1243,
+        "faithfulness": 0.1008,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.587,
-        "latency_ms": 2541.87
+        "overall_ragas": 0.5252,
+        "latency_ms": 2079.44
       },
       {
         "id": "pm_16",
         "domain": "Precision Medicine",
         "precision_at_k": 0.75,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1895,
-        "faithfulness": 0.6984,
+        "answer_f1": 0.172,
+        "coverage_f1": 0.2125,
+        "faithfulness": 0.546,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.9026,
-        "latency_ms": 2171.56
+        "overall_ragas": 0.8279,
+        "latency_ms": 1905.86
       },
       {
         "id": "pm_17",
         "domain": "Precision Medicine",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1404,
-        "faithfulness": 0.5402,
+        "answer_f1": 0.1778,
+        "coverage_f1": 0.2016,
+        "faithfulness": 0.4559,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8245,
-        "latency_ms": 2802.67
+        "overall_ragas": 0.7702,
+        "latency_ms": 2046.66
       },
       {
         "id": "pm_18",
         "domain": "Precision Medicine",
         "precision_at_k": 1.0,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.2011,
-        "faithfulness": 0.5395,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8241,
-        "latency_ms": 3171.22
+        "answer_f1": 0.2116,
+        "coverage_f1": 0.2859,
+        "faithfulness": 0.2302,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.5353,
+        "latency_ms": 2260.09
       },
       {
         "id": "pm_19",
         "domain": "Precision Medicine",
         "precision_at_k": 0.5,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.0843,
-        "faithfulness": 0.5355,
+        "answer_f1": 0.0814,
+        "coverage_f1": 0.0776,
+        "faithfulness": 0.2427,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8218,
-        "latency_ms": 3064.97
+        "overall_ragas": 0.5618,
+        "latency_ms": 2371.03
       },
       {
         "id": "pm_20",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1616,
-        "faithfulness": 0.3808,
+        "answer_f1": 0.1658,
+        "coverage_f1": 0.2297,
+        "faithfulness": 0.1221,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4285,
-        "latency_ms": 2155.12
+        "overall_ragas": 0.3639,
+        "latency_ms": 1884.63
       },
       {
         "id": "pm_21",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.25,
-        "faithfulness": 0.4206,
+        "answer_f1": 0.2732,
+        "coverage_f1": 0.3477,
+        "faithfulness": 0.078,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4385,
-        "latency_ms": 2535.59
+        "overall_ragas": 0.3528,
+        "latency_ms": 3076.64
       },
       {
         "id": "pm_22",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1795,
-        "faithfulness": 0.5171,
+        "answer_f1": 0.1656,
+        "coverage_f1": 0.199,
+        "faithfulness": 0.3637,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6293,
-        "latency_ms": 2199.04
+        "overall_ragas": 0.5909,
+        "latency_ms": 2070.23
       },
       {
         "id": "pm_23",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2112,
-        "faithfulness": 0.3669,
+        "answer_f1": 0.1842,
+        "coverage_f1": 0.2167,
+        "faithfulness": 0.1229,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5084,
-        "latency_ms": 3520.05
+        "overall_ragas": 0.4474,
+        "latency_ms": 2537.67
       },
       {
         "id": "pm_24",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1436,
-        "faithfulness": 0.4027,
+        "answer_f1": 0.1579,
+        "coverage_f1": 0.2339,
+        "faithfulness": 0.1041,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6007,
-        "latency_ms": 3370.19
+        "overall_ragas": 0.526,
+        "latency_ms": 2388.67
       },
       {
         "id": "pm_25",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2247,
-        "faithfulness": 0.4056,
+        "answer_f1": 0.1878,
+        "coverage_f1": 0.2661,
+        "faithfulness": 0.05,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5181,
-        "latency_ms": 2326.07
+        "overall_ragas": 0.4292,
+        "latency_ms": 2430.9
       },
       {
         "id": "pm_26",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2118,
-        "faithfulness": 0.4035,
+        "answer_f1": 0.2312,
+        "coverage_f1": 0.2605,
+        "faithfulness": 0.1237,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6009,
-        "latency_ms": 2763.64
+        "overall_ragas": 0.5309,
+        "latency_ms": 2695.87
       },
       {
         "id": "pm_27",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2434,
-        "faithfulness": 0.4217,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5221,
-        "latency_ms": 3423.38
+        "answer_f1": 0.2629,
+        "coverage_f1": 0.2535,
+        "faithfulness": 0.0921,
+        "answer_relevance": 0.5546,
+        "overall_ragas": 0.3283,
+        "latency_ms": 2936.73
       },
       {
         "id": "pm_28",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2442,
-        "faithfulness": 0.3886,
+        "answer_f1": 0.1481,
+        "coverage_f1": 0.1757,
+        "faithfulness": 0.0587,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5972,
-        "latency_ms": 3059.67
+        "overall_ragas": 0.5147,
+        "latency_ms": 2028.2
       },
       {
         "id": "pm_29",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.0749,
-        "faithfulness": 0.3969,
+        "answer_f1": 0.1818,
+        "coverage_f1": 0.24,
+        "faithfulness": 0.1088,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4325,
-        "latency_ms": 2140.71
+        "overall_ragas": 0.3605,
+        "latency_ms": 2012.64
       },
       {
         "id": "pm_30",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1327,
-        "faithfulness": 0.3891,
+        "answer_f1": 0.139,
+        "coverage_f1": 0.1499,
+        "faithfulness": 0.0591,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5973,
-        "latency_ms": 2651.76
+        "overall_ragas": 0.5148,
+        "latency_ms": 1777.72
       },
       {
         "id": "amr_31",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1667,
-        "faithfulness": 0.7119,
+        "answer_f1": 0.1683,
+        "coverage_f1": 0.2639,
+        "faithfulness": 0.5929,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.9081,
-        "latency_ms": 2790.96
+        "overall_ragas": 0.8535,
+        "latency_ms": 1900.9
       },
       {
         "id": "amr_32",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.25,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1739,
-        "faithfulness": 0.4798,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6574,
-        "latency_ms": 3484.52
+        "answer_f1": 0.1371,
+        "coverage_f1": 0.1385,
+        "faithfulness": 0.2535,
+        "answer_relevance": 0.8768,
+        "overall_ragas": 0.4947,
+        "latency_ms": 2561.15
       },
       {
         "id": "amr_33",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2105,
-        "faithfulness": 0.4151,
+        "answer_f1": 0.1943,
+        "coverage_f1": 0.2955,
+        "faithfulness": 0.0601,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6038,
-        "latency_ms": 3047.39
+        "overall_ragas": 0.515,
+        "latency_ms": 2821.49
       },
       {
         "id": "amr_34",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2105,
-        "faithfulness": 0.4392,
+        "answer_f1": 0.2036,
+        "coverage_f1": 0.2306,
+        "faithfulness": 0.2815,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5265,
-        "latency_ms": 4366.72
+        "overall_ragas": 0.487,
+        "latency_ms": 2480.74
       },
       {
         "id": "amr_35",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2045,
-        "faithfulness": 0.464,
+        "answer_f1": 0.2418,
+        "coverage_f1": 0.3396,
+        "faithfulness": 0.1816,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.616,
-        "latency_ms": 2568.25
+        "overall_ragas": 0.5454,
+        "latency_ms": 2414.26
       },
       {
         "id": "amr_36",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2247,
-        "faithfulness": 0.3833,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5125,
-        "latency_ms": 3370.81
+        "answer_f1": 0.2209,
+        "coverage_f1": 0.3009,
+        "faithfulness": 0.1269,
+        "answer_relevance": 0.7699,
+        "overall_ragas": 0.3909,
+        "latency_ms": 2315.24
       },
       {
         "id": "amr_37",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.15,
-        "faithfulness": 0.4833,
+        "answer_f1": 0.1196,
+        "coverage_f1": 0.1364,
+        "faithfulness": 0.1548,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6208,
-        "latency_ms": 2501.97
+        "overall_ragas": 0.5387,
+        "latency_ms": 2444.76
       },
       {
         "id": "amr_38",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2699,
-        "faithfulness": 0.4967,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5408,
-        "latency_ms": 2610.19
+        "answer_f1": 0.2186,
+        "coverage_f1": 0.2189,
+        "faithfulness": 0.0944,
+        "answer_relevance": 0.87,
+        "overall_ragas": 0.4078,
+        "latency_ms": 2035.65
       },
       {
         "id": "amr_39",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1564,
-        "faithfulness": 0.3932,
+        "answer_f1": 0.1965,
+        "coverage_f1": 0.2396,
+        "faithfulness": 0.0967,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.3483,
-        "latency_ms": 3641.15
+        "overall_ragas": 0.2742,
+        "latency_ms": 2087.3
       },
       {
         "id": "amr_40",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1705,
-        "faithfulness": 0.4714,
+        "answer_f1": 0.1628,
+        "coverage_f1": 0.1803,
+        "faithfulness": 0.2053,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5345,
-        "latency_ms": 2947.22
+        "overall_ragas": 0.468,
+        "latency_ms": 2166.01
       },
       {
         "id": "qm_41",
         "domain": "Quantum Physics",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2182,
-        "faithfulness": 0.5009,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8006,
-        "latency_ms": 2923.46
+        "answer_f1": 0.1481,
+        "coverage_f1": 0.1871,
+        "faithfulness": 0.302,
+        "answer_relevance": 0.7806,
+        "overall_ragas": 0.6068,
+        "latency_ms": 2236.72
       },
       {
         "id": "qm_42",
         "domain": "Quantum Physics",
         "precision_at_k": 1.0,
         "recall_at_k": 0.75,
-        "answer_f1": 0.1478,
-        "faithfulness": 0.5051,
+        "answer_f1": 0.1546,
+        "coverage_f1": 0.2446,
+        "faithfulness": 0.3992,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7529,
-        "latency_ms": 2367.42
+        "overall_ragas": 0.6851,
+        "latency_ms": 2220.09
       },
       {
         "id": "qm_43",
         "domain": "Quantum Physics",
         "precision_at_k": 0.75,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1613,
-        "faithfulness": 0.6685,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8721,
-        "latency_ms": 2628.25
+        "answer_f1": 0.1379,
+        "coverage_f1": 0.2889,
+        "faithfulness": 0.5357,
+        "answer_relevance": 0.8102,
+        "overall_ragas": 0.7704,
+        "latency_ms": 2651.82
       },
       {
         "id": "qm_44",
         "domain": "Quantum Physics",
         "precision_at_k": 0.25,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.186,
-        "faithfulness": 0.4872,
+        "answer_f1": 0.1712,
+        "coverage_f1": 0.2021,
+        "faithfulness": 0.2626,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7427,
-        "latency_ms": 2658.81
+        "overall_ragas": 0.5601,
+        "latency_ms": 2189.47
       },
       {
         "id": "qm_45",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1421,
-        "faithfulness": 0.3808,
+        "answer_f1": 0.1469,
+        "coverage_f1": 0.1562,
+        "faithfulness": 0.1066,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5119,
-        "latency_ms": 2139.95
+        "overall_ragas": 0.4433,
+        "latency_ms": 2274.34
       },
       {
         "id": "qm_46",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1121,
-        "faithfulness": 0.4643,
+        "answer_f1": 0.1033,
+        "coverage_f1": 0.1404,
+        "faithfulness": 0.3625,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5327,
-        "latency_ms": 2074.4
+        "overall_ragas": 0.5073,
+        "latency_ms": 2455.18
       },
       {
         "id": "qm_47",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1579,
-        "faithfulness": 0.4896,
+        "answer_f1": 0.2189,
+        "coverage_f1": 0.2947,
+        "faithfulness": 0.0907,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6224,
-        "latency_ms": 3693.37
+        "overall_ragas": 0.5227,
+        "latency_ms": 2295.68
       },
       {
         "id": "qm_48",
         "domain": "Quantum Physics",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1165,
-        "faithfulness": 0.5413,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8252,
-        "latency_ms": 2781.51
+        "answer_f1": 0.199,
+        "coverage_f1": 0.2737,
+        "faithfulness": 0.302,
+        "answer_relevance": 0.8649,
+        "overall_ragas": 0.6185,
+        "latency_ms": 2401.36
       },
       {
         "id": "qm_49",
         "domain": "Quantum Physics",
         "precision_at_k": 0.5,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1616,
-        "faithfulness": 0.5852,
+        "answer_f1": 0.1675,
+        "coverage_f1": 0.2031,
+        "faithfulness": 0.3754,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5962,
-        "latency_ms": 4397.53
+        "overall_ragas": 0.5219,
+        "latency_ms": 2330.36
       },
       {
         "id": "qm_50",
         "domain": "Quantum Physics",
         "precision_at_k": 0.5,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1256,
-        "faithfulness": 0.6083,
+        "answer_f1": 0.0995,
+        "coverage_f1": 0.1496,
+        "faithfulness": 0.4944,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8613,
-        "latency_ms": 3674.66
+        "overall_ragas": 0.7964,
+        "latency_ms": 1931.1
       }
     ],
     "classical_graph": [
@@ -726,550 +982,1202 @@
         "domain": "Oncology",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.25,
-        "faithfulness": 0.5184,
+        "answer_f1": 0.2233,
+        "coverage_f1": 0.3208,
+        "faithfulness": 0.4568,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8115,
-        "latency_ms": 3842.78
+        "overall_ragas": 0.7708,
+        "latency_ms": 3276.1
       },
       {
         "id": "onco_02",
         "domain": "Oncology",
-        "precision_at_k": 0.5,
+        "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2222,
-        "faithfulness": 0.5063,
+        "answer_f1": 0.2304,
+        "coverage_f1": 0.2985,
+        "faithfulness": 0.509,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.804,
-        "latency_ms": 3406.77
+        "overall_ragas": 0.7786,
+        "latency_ms": 1867.18
       },
       {
         "id": "onco_03",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1633,
-        "faithfulness": 0.3881,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.4304,
-        "latency_ms": 2818.24
+        "answer_f1": 0.1919,
+        "coverage_f1": 0.2226,
+        "faithfulness": 0.1229,
+        "answer_relevance": 0.87,
+        "overall_ragas": 0.3316,
+        "latency_ms": 2285.66
       },
       {
         "id": "onco_04",
         "domain": "Oncology",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.5,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1585,
-        "faithfulness": 0.5382,
+        "answer_f1": 0.1734,
+        "coverage_f1": 0.219,
+        "faithfulness": 0.3113,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8234,
-        "latency_ms": 2632.71
+        "overall_ragas": 0.6439,
+        "latency_ms": 2020.28
       },
       {
         "id": "onco_05",
         "domain": "Oncology",
         "precision_at_k": 0.25,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1935,
-        "faithfulness": 0.4291,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6319,
-        "latency_ms": 2416.11
+        "answer_f1": 0.2012,
+        "coverage_f1": 0.2753,
+        "faithfulness": 0.1443,
+        "answer_relevance": 0.881,
+        "overall_ragas": 0.3615,
+        "latency_ms": 2161.26
       },
       {
         "id": "onco_06",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1959,
-        "faithfulness": 0.42,
+        "answer_f1": 0.1809,
+        "coverage_f1": 0.245,
+        "faithfulness": 0.0585,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4383,
-        "latency_ms": 2643.8
+        "overall_ragas": 0.3479,
+        "latency_ms": 2254.65
       },
       {
         "id": "onco_07",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1263,
-        "faithfulness": 0.4025,
+        "answer_f1": 0.1463,
+        "coverage_f1": 0.2174,
+        "faithfulness": 0.1005,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.434,
-        "latency_ms": 3228.06
+        "overall_ragas": 0.3584,
+        "latency_ms": 2265.08
       },
       {
         "id": "onco_08",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1989,
-        "faithfulness": 0.4794,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5365,
-        "latency_ms": 3763.33
+        "answer_f1": 0.1848,
+        "coverage_f1": 0.2371,
+        "faithfulness": 0.2345,
+        "answer_relevance": 0.8506,
+        "overall_ragas": 0.4379,
+        "latency_ms": 2243.49
       },
       {
         "id": "onco_09",
         "domain": "Oncology",
-        "precision_at_k": 0.2,
-        "recall_at_k": 0.3333,
-        "answer_f1": 0.2024,
-        "faithfulness": 0.4833,
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2112,
+        "coverage_f1": 0.2975,
+        "faithfulness": 0.1777,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4668,
-        "latency_ms": 2850.94
+        "overall_ragas": 0.4611,
+        "latency_ms": 2463.93
       },
       {
         "id": "onco_10",
         "domain": "Oncology",
-        "precision_at_k": 0.2,
+        "precision_at_k": 0.25,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.2174,
-        "faithfulness": 0.4427,
+        "answer_f1": 0.2304,
+        "coverage_f1": 0.3128,
+        "faithfulness": 0.2136,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7606,
-        "latency_ms": 3370.89
+        "overall_ragas": 0.5207,
+        "latency_ms": 2352.9
       },
       {
         "id": "onco_11",
         "domain": "Oncology",
         "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.2069,
-        "faithfulness": 0.4722,
+        "answer_f1": 0.1744,
+        "coverage_f1": 0.1562,
+        "faithfulness": 0.1796,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6044,
-        "latency_ms": 2502.87
+        "overall_ragas": 0.3973,
+        "latency_ms": 1844.65
       },
       {
         "id": "onco_12",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1762,
-        "faithfulness": 0.3808,
+        "answer_f1": 0.2176,
+        "coverage_f1": 0.2844,
+        "faithfulness": 0.1738,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5119,
-        "latency_ms": 2568.96
+        "overall_ragas": 0.4601,
+        "latency_ms": 2249.55
       },
       {
         "id": "onco_13",
         "domain": "Oncology",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1878,
-        "faithfulness": 0.4948,
+        "answer_f1": 0.1837,
+        "coverage_f1": 0.223,
+        "faithfulness": 0.2141,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7967,
-        "latency_ms": 3492.04
+        "overall_ragas": 0.5215,
+        "latency_ms": 2095.43
       },
       {
         "id": "onco_14",
         "domain": "Oncology",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.6,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.2095,
-        "faithfulness": 0.5737,
+        "answer_f1": 0.1297,
+        "coverage_f1": 0.1191,
+        "faithfulness": 0.3958,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7516,
-        "latency_ms": 1908.25
+        "overall_ragas": 0.6698,
+        "latency_ms": 2154.54
       },
       {
         "id": "onco_15",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1553,
-        "faithfulness": 0.4758,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.619,
-        "latency_ms": 3897.8
+        "answer_f1": 0.1048,
+        "coverage_f1": 0.1066,
+        "faithfulness": 0.2025,
+        "answer_relevance": 0.9024,
+        "overall_ragas": 0.5262,
+        "latency_ms": 2260.67
       },
       {
         "id": "pm_16",
         "domain": "Precision Medicine",
         "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1916,
-        "faithfulness": 0.8038,
+        "answer_f1": 0.1788,
+        "coverage_f1": 0.2222,
+        "faithfulness": 0.6377,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.9223,
-        "latency_ms": 3448.34
+        "overall_ragas": 0.8582,
+        "latency_ms": 1968.65
       },
       {
         "id": "pm_17",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.6,
+        "precision_at_k": 0.25,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1796,
-        "faithfulness": 0.5905,
+        "answer_f1": 0.1641,
+        "coverage_f1": 0.1876,
+        "faithfulness": 0.3893,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7809,
-        "latency_ms": 3592.1
+        "overall_ragas": 0.7183,
+        "latency_ms": 2312.57
       },
       {
         "id": "pm_18",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.6,
+        "precision_at_k": 0.75,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.232,
-        "faithfulness": 0.5983,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.829,
-        "latency_ms": 3899.5
+        "answer_f1": 0.1954,
+        "coverage_f1": 0.2385,
+        "faithfulness": 0.45,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.7352,
+        "latency_ms": 2149.86
       },
       {
         "id": "pm_19",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.5,
+        "precision_at_k": 0.25,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1034,
-        "faithfulness": 0.4761,
+        "answer_f1": 0.0833,
+        "coverage_f1": 0.0767,
+        "faithfulness": 0.3741,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7361,
-        "latency_ms": 2980.09
+        "overall_ragas": 0.7051,
+        "latency_ms": 2001.0
       },
       {
         "id": "pm_20",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1481,
-        "faithfulness": 0.4341,
+        "answer_f1": 0.163,
+        "coverage_f1": 0.2131,
+        "faithfulness": 0.0851,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4418,
-        "latency_ms": 2401.82
+        "overall_ragas": 0.3546,
+        "latency_ms": 2412.49
       },
       {
         "id": "pm_21",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2652,
-        "faithfulness": 0.4904,
+        "answer_f1": 0.2674,
+        "coverage_f1": 0.3436,
+        "faithfulness": 0.1136,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5393,
-        "latency_ms": 3308.58
+        "overall_ragas": 0.4451,
+        "latency_ms": 1871.43
       },
       {
         "id": "pm_22",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1705,
-        "faithfulness": 0.4758,
+        "answer_f1": 0.1566,
+        "coverage_f1": 0.1899,
+        "faithfulness": 0.4651,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.619,
-        "latency_ms": 2226.05
+        "overall_ragas": 0.6163,
+        "latency_ms": 3846.32
       },
       {
         "id": "pm_23",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2275,
-        "faithfulness": 0.4296,
+        "answer_f1": 0.2092,
+        "coverage_f1": 0.2416,
+        "faithfulness": 0.0609,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5241,
-        "latency_ms": 2699.94
+        "overall_ragas": 0.4319,
+        "latency_ms": 2045.93
       },
       {
         "id": "pm_24",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1622,
-        "faithfulness": 0.32,
+        "answer_f1": 0.1326,
+        "coverage_f1": 0.1808,
+        "faithfulness": 0.0689,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.58,
-        "latency_ms": 2427.71
+        "overall_ragas": 0.5172,
+        "latency_ms": 2251.38
       },
       {
         "id": "pm_25",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2614,
-        "faithfulness": 0.4,
+        "answer_f1": 0.2637,
+        "coverage_f1": 0.3939,
+        "faithfulness": 0.05,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5167,
-        "latency_ms": 2517.37
+        "overall_ragas": 0.4292,
+        "latency_ms": 2410.22
       },
       {
         "id": "pm_26",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2,
-        "faithfulness": 0.4357,
+        "answer_f1": 0.2077,
+        "coverage_f1": 0.2163,
+        "faithfulness": 0.1061,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6089,
-        "latency_ms": 4081.97
+        "overall_ragas": 0.5265,
+        "latency_ms": 1954.29
       },
       {
         "id": "pm_27",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2514,
-        "faithfulness": 0.4247,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5229,
-        "latency_ms": 2970.52
+        "answer_f1": 0.2135,
+        "coverage_f1": 0.1723,
+        "faithfulness": 0.0857,
+        "answer_relevance": 0.6549,
+        "overall_ragas": 0.3518,
+        "latency_ms": 1910.91
       },
       {
         "id": "pm_28",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1735,
-        "faithfulness": 0.3904,
+        "answer_f1": 0.2548,
+        "coverage_f1": 0.2776,
+        "faithfulness": 0.1709,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5976,
-        "latency_ms": 3222.93
+        "overall_ragas": 0.5427,
+        "latency_ms": 1844.21
       },
       {
         "id": "pm_29",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1768,
-        "faithfulness": 0.35,
+        "answer_f1": 0.1383,
+        "coverage_f1": 0.1676,
+        "faithfulness": 0.163,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4208,
-        "latency_ms": 2412.24
+        "overall_ragas": 0.3741,
+        "latency_ms": 2576.69
       },
       {
         "id": "pm_30",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1237,
-        "faithfulness": 0.3972,
+        "answer_f1": 0.1561,
+        "coverage_f1": 0.2137,
+        "faithfulness": 0.0988,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5993,
-        "latency_ms": 2141.26
+        "overall_ragas": 0.5247,
+        "latency_ms": 1923.34
       },
       {
         "id": "amr_31",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1429,
-        "faithfulness": 0.6146,
+        "answer_f1": 0.1495,
+        "coverage_f1": 0.2301,
+        "faithfulness": 0.6063,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8544,
-        "latency_ms": 2404.85
+        "overall_ragas": 0.8483,
+        "latency_ms": 2303.95
       },
       {
         "id": "amr_32",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1317,
-        "faithfulness": 0.4534,
+        "answer_f1": 0.1786,
+        "coverage_f1": 0.2028,
+        "faithfulness": 0.3113,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6446,
-        "latency_ms": 2514.72
+        "overall_ragas": 0.5546,
+        "latency_ms": 2250.41
       },
       {
         "id": "amr_33",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2195,
-        "faithfulness": 0.4473,
+        "answer_f1": 0.1582,
+        "coverage_f1": 0.2515,
+        "faithfulness": 0.0597,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6118,
-        "latency_ms": 3187.57
+        "overall_ragas": 0.5149,
+        "latency_ms": 2146.79
       },
       {
         "id": "amr_34",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.25,
-        "faithfulness": 0.4904,
+        "answer_f1": 0.2022,
+        "coverage_f1": 0.2422,
+        "faithfulness": 0.2889,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6226,
-        "latency_ms": 2580.48
+        "overall_ragas": 0.5722,
+        "latency_ms": 2039.43
       },
       {
         "id": "amr_35",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2147,
-        "faithfulness": 0.5173,
+        "answer_f1": 0.1739,
+        "coverage_f1": 0.2264,
+        "faithfulness": 0.3509,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6293,
-        "latency_ms": 4355.22
+        "overall_ragas": 0.5877,
+        "latency_ms": 2360.24
       },
       {
         "id": "amr_36",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1697,
-        "faithfulness": 0.4421,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5272,
-        "latency_ms": 2968.21
+        "answer_f1": 0.1557,
+        "coverage_f1": 0.2019,
+        "faithfulness": 0.1548,
+        "answer_relevance": 0.885,
+        "overall_ragas": 0.4266,
+        "latency_ms": 2134.84
       },
       {
         "id": "amr_37",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1257,
-        "faithfulness": 0.5211,
+        "answer_f1": 0.1489,
+        "coverage_f1": 0.1808,
+        "faithfulness": 0.3212,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6303,
-        "latency_ms": 3273.98
+        "overall_ragas": 0.5803,
+        "latency_ms": 2043.72
       },
       {
         "id": "amr_38",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2581,
-        "faithfulness": 0.4671,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5334,
-        "latency_ms": 3223.41
+        "answer_f1": 0.2532,
+        "coverage_f1": 0.2491,
+        "faithfulness": 0.1779,
+        "answer_relevance": 0.87,
+        "overall_ragas": 0.4286,
+        "latency_ms": 2696.8
       },
       {
         "id": "amr_39",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2118,
-        "faithfulness": 0.3894,
+        "answer_f1": 0.2057,
+        "coverage_f1": 0.2695,
+        "faithfulness": 0.0896,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.3473,
-        "latency_ms": 2637.58
+        "overall_ragas": 0.2724,
+        "latency_ms": 2553.45
       },
       {
         "id": "amr_40",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1744,
-        "faithfulness": 0.425,
+        "answer_f1": 0.191,
+        "coverage_f1": 0.2177,
+        "faithfulness": 0.1262,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5229,
-        "latency_ms": 2478.65
+        "overall_ragas": 0.4482,
+        "latency_ms": 2310.93
       },
       {
         "id": "qm_41",
         "domain": "Quantum Physics",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1905,
-        "faithfulness": 0.5958,
+        "answer_f1": 0.2254,
+        "coverage_f1": 0.2822,
+        "faithfulness": 0.5854,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.855,
-        "latency_ms": 2203.37
+        "overall_ragas": 0.8496,
+        "latency_ms": 2061.41
       },
       {
         "id": "qm_42",
         "domain": "Quantum Physics",
-        "precision_at_k": 1.0,
+        "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.199,
-        "faithfulness": 0.6283,
+        "answer_f1": 0.2011,
+        "coverage_f1": 0.3217,
+        "faithfulness": 0.6169,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8712,
-        "latency_ms": 3448.03
+        "overall_ragas": 0.84,
+        "latency_ms": 2556.27
       },
       {
         "id": "qm_43",
         "domain": "Quantum Physics",
         "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1458,
-        "faithfulness": 0.577,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8231,
-        "latency_ms": 2733.21
+        "answer_f1": 0.1523,
+        "coverage_f1": 0.2522,
+        "faithfulness": 0.4129,
+        "answer_relevance": 0.8102,
+        "overall_ragas": 0.6917,
+        "latency_ms": 1937.23
       },
       {
         "id": "qm_44",
         "domain": "Quantum Physics",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.2,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.2254,
-        "faithfulness": 0.4511,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.7085,
-        "latency_ms": 2477.84
+        "answer_f1": 0.1553,
+        "coverage_f1": 0.1882,
+        "faithfulness": 0.2631,
+        "answer_relevance": 0.8768,
+        "overall_ragas": 0.5499,
+        "latency_ms": 2005.73
       },
       {
         "id": "qm_45",
         "domain": "Quantum Physics",
-        "precision_at_k": 0.0,
-        "recall_at_k": 0.0,
-        "answer_f1": 0.2011,
-        "faithfulness": 0.4732,
+        "precision_at_k": 0.25,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1858,
+        "coverage_f1": 0.1988,
+        "faithfulness": 0.2167,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.535,
-        "latency_ms": 2261.13
+        "overall_ragas": 0.3599,
+        "latency_ms": 2100.32
       },
       {
         "id": "qm_46",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1232,
-        "faithfulness": 0.5096,
+        "answer_f1": 0.1262,
+        "coverage_f1": 0.1632,
+        "faithfulness": 0.3833,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5441,
-        "latency_ms": 3474.39
+        "overall_ragas": 0.3051,
+        "latency_ms": 2376.89
       },
       {
         "id": "qm_47",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2222,
-        "faithfulness": 0.3881,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.597,
-        "latency_ms": 2748.39
+        "answer_f1": 0.1659,
+        "coverage_f1": 0.1938,
+        "faithfulness": 0.2013,
+        "answer_relevance": 0.681,
+        "overall_ragas": 0.4706,
+        "latency_ms": 2015.48
       },
       {
         "id": "qm_48",
         "domain": "Quantum Physics",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.15,
-        "faithfulness": 0.5543,
+        "answer_f1": 0.139,
+        "coverage_f1": 0.1747,
+        "faithfulness": 0.4054,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8326,
-        "latency_ms": 3838.09
+        "overall_ragas": 0.7317,
+        "latency_ms": 2249.95
       },
       {
         "id": "qm_49",
         "domain": "Quantum Physics",
         "precision_at_k": 0.4,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1307,
-        "faithfulness": 0.6296,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5752,
-        "latency_ms": 2839.38
+        "answer_f1": 0.1458,
+        "coverage_f1": 0.1616,
+        "faithfulness": 0.3517,
+        "answer_relevance": 0.8649,
+        "overall_ragas": 0.5,
+        "latency_ms": 2282.35
       },
       {
         "id": "qm_50",
         "domain": "Quantum Physics",
         "precision_at_k": 0.4,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1415,
-        "faithfulness": 0.6816,
+        "answer_f1": 0.1614,
+        "coverage_f1": 0.2351,
+        "faithfulness": 0.4935,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8954,
-        "latency_ms": 3273.53
+        "overall_ragas": 0.7958,
+        "latency_ms": 2372.34
+      }
+    ],
+    "classical_walk_pruned": [
+      {
+        "id": "onco_01",
+        "domain": "Oncology",
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "answer_f1": 0.2647,
+        "coverage_f1": 0.3621,
+        "faithfulness": 0.5232,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.8144,
+        "latency_ms": 1962.94
+      },
+      {
+        "id": "onco_02",
+        "domain": "Oncology",
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "answer_f1": 0.1809,
+        "coverage_f1": 0.231,
+        "faithfulness": 0.455,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.7696,
+        "latency_ms": 1901.17
+      },
+      {
+        "id": "onco_03",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2,
+        "coverage_f1": 0.2305,
+        "faithfulness": 0.1564,
+        "answer_relevance": 0.8649,
+        "overall_ragas": 0.3387,
+        "latency_ms": 2110.15
+      },
+      {
+        "id": "onco_04",
+        "domain": "Oncology",
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.1257,
+        "coverage_f1": 0.1438,
+        "faithfulness": 0.4045,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5299,
+        "latency_ms": 1889.23
+      },
+      {
+        "id": "onco_05",
+        "domain": "Oncology",
+        "precision_at_k": 0.3333,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1758,
+        "coverage_f1": 0.2753,
+        "faithfulness": 0.0976,
+        "answer_relevance": 0.881,
+        "overall_ragas": 0.2601,
+        "latency_ms": 2663.8
+      },
+      {
+        "id": "onco_06",
+        "domain": "Oncology",
+        "precision_at_k": 0.5,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1146,
+        "coverage_f1": 0.1245,
+        "faithfulness": 0.0675,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.3502,
+        "latency_ms": 2069.05
+      },
+      {
+        "id": "onco_07",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1429,
+        "coverage_f1": 0.2342,
+        "faithfulness": 0.1385,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.3679,
+        "latency_ms": 2078.81
+      },
+      {
+        "id": "onco_08",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2,
+        "coverage_f1": 0.2453,
+        "faithfulness": 0.27,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4842,
+        "latency_ms": 1840.64
+      },
+      {
+        "id": "onco_09",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2043,
+        "coverage_f1": 0.2862,
+        "faithfulness": 0.1409,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4519,
+        "latency_ms": 1881.88
+      },
+      {
+        "id": "onco_10",
+        "domain": "Oncology",
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1925,
+        "coverage_f1": 0.2572,
+        "faithfulness": 0.1643,
+        "answer_relevance": 0.8506,
+        "overall_ragas": 0.3422,
+        "latency_ms": 2015.09
+      },
+      {
+        "id": "onco_11",
+        "domain": "Oncology",
+        "precision_at_k": 0.25,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1538,
+        "coverage_f1": 0.1667,
+        "faithfulness": 0.2181,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.3608,
+        "latency_ms": 2052.54
+      },
+      {
+        "id": "onco_12",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2139,
+        "coverage_f1": 0.2691,
+        "faithfulness": 0.1409,
+        "answer_relevance": 0.8506,
+        "overall_ragas": 0.4145,
+        "latency_ms": 1870.5
+      },
+      {
+        "id": "onco_13",
+        "domain": "Oncology",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1788,
+        "coverage_f1": 0.24,
+        "faithfulness": 0.3121,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.6317,
+        "latency_ms": 2230.82
+      },
+      {
+        "id": "onco_14",
+        "domain": "Oncology",
+        "precision_at_k": 0.8,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.2034,
+        "coverage_f1": 0.1916,
+        "faithfulness": 0.4439,
+        "answer_relevance": 0.885,
+        "overall_ragas": 0.7431,
+        "latency_ms": 1297.3
+      },
+      {
+        "id": "onco_15",
+        "domain": "Oncology",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1333,
+        "coverage_f1": 0.1444,
+        "faithfulness": 0.1457,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5364,
+        "latency_ms": 2229.15
+      },
+      {
+        "id": "pm_16",
+        "domain": "Precision Medicine",
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "answer_f1": 0.1921,
+        "coverage_f1": 0.2421,
+        "faithfulness": 0.4518,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.7673,
+        "latency_ms": 2451.77
+      },
+      {
+        "id": "pm_17",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.1675,
+        "coverage_f1": 0.1865,
+        "faithfulness": 0.2591,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4057,
+        "latency_ms": 1993.98
+      },
+      {
+        "id": "pm_18",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.6,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.2312,
+        "coverage_f1": 0.3037,
+        "faithfulness": 0.5108,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.6748,
+        "latency_ms": 2068.01
+      },
+      {
+        "id": "pm_19",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.0925,
+        "coverage_f1": 0.0953,
+        "faithfulness": 0.2907,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4237,
+        "latency_ms": 1900.01
+      },
+      {
+        "id": "pm_20",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1915,
+        "coverage_f1": 0.2634,
+        "faithfulness": 0.0586,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.348,
+        "latency_ms": 1950.9
+      },
+      {
+        "id": "pm_21",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.2595,
+        "coverage_f1": 0.3091,
+        "faithfulness": 0.1509,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4544,
+        "latency_ms": 1904.24
+      },
+      {
+        "id": "pm_22",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1548,
+        "coverage_f1": 0.1924,
+        "faithfulness": 0.3577,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5131,
+        "latency_ms": 2698.8
+      },
+      {
+        "id": "pm_23",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1963,
+        "coverage_f1": 0.2532,
+        "faithfulness": 0.1015,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.442,
+        "latency_ms": 1989.19
+      },
+      {
+        "id": "pm_24",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1481,
+        "coverage_f1": 0.2034,
+        "faithfulness": 0.0671,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4335,
+        "latency_ms": 1806.16
+      },
+      {
+        "id": "pm_25",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2486,
+        "coverage_f1": 0.3547,
+        "faithfulness": 0.05,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4292,
+        "latency_ms": 2725.93
+      },
+      {
+        "id": "pm_26",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2093,
+        "coverage_f1": 0.2334,
+        "faithfulness": 0.0908,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5227,
+        "latency_ms": 2186.09
+      },
+      {
+        "id": "pm_27",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2595,
+        "coverage_f1": 0.2786,
+        "faithfulness": 0.2056,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4681,
+        "latency_ms": 3618.86
+      },
+      {
+        "id": "pm_28",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2609,
+        "coverage_f1": 0.3193,
+        "faithfulness": 0.136,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.534,
+        "latency_ms": 2360.78
+      },
+      {
+        "id": "pm_29",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1935,
+        "coverage_f1": 0.27,
+        "faithfulness": 0.1234,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.3642,
+        "latency_ms": 2415.36
+      },
+      {
+        "id": "pm_30",
+        "domain": "Precision Medicine",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1262,
+        "coverage_f1": 0.156,
+        "faithfulness": 0.0656,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5164,
+        "latency_ms": 2207.27
+      },
+      {
+        "id": "amr_31",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.8,
+        "recall_at_k": 1.0,
+        "answer_f1": 0.1771,
+        "coverage_f1": 0.2712,
+        "faithfulness": 0.4828,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.73,
+        "latency_ms": 2038.56
+      },
+      {
+        "id": "amr_32",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1,
+        "coverage_f1": 0.1173,
+        "faithfulness": 0.3693,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.412,
+        "latency_ms": 2170.24
+      },
+      {
+        "id": "amr_33",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1778,
+        "coverage_f1": 0.2442,
+        "faithfulness": 0.05,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5125,
+        "latency_ms": 2133.39
+      },
+      {
+        "id": "amr_34",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1486,
+        "coverage_f1": 0.1422,
+        "faithfulness": 0.3597,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5899,
+        "latency_ms": 2131.55
+      },
+      {
+        "id": "amr_35",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1538,
+        "coverage_f1": 0.193,
+        "faithfulness": 0.3675,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5919,
+        "latency_ms": 1932.5
+      },
+      {
+        "id": "amr_36",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.142,
+        "coverage_f1": 0.1923,
+        "faithfulness": 0.15,
+        "answer_relevance": 0.762,
+        "overall_ragas": 0.3947,
+        "latency_ms": 1911.26
+      },
+      {
+        "id": "amr_37",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1474,
+        "coverage_f1": 0.1892,
+        "faithfulness": 0.1715,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5429,
+        "latency_ms": 2112.31
+      },
+      {
+        "id": "amr_38",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2577,
+        "coverage_f1": 0.2574,
+        "faithfulness": 0.15,
+        "answer_relevance": 0.87,
+        "overall_ragas": 0.4217,
+        "latency_ms": 2045.5
+      },
+      {
+        "id": "amr_39",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.153,
+        "coverage_f1": 0.1744,
+        "faithfulness": 0.1827,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.379,
+        "latency_ms": 1938.43
+      },
+      {
+        "id": "amr_40",
+        "domain": "Antimicrobial Resistance",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1768,
+        "coverage_f1": 0.1909,
+        "faithfulness": 0.2093,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.469,
+        "latency_ms": 2937.27
+      },
+      {
+        "id": "qm_41",
+        "domain": "Quantum Physics",
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.75,
+        "answer_f1": 0.1698,
+        "coverage_f1": 0.2119,
+        "faithfulness": 0.5459,
+        "answer_relevance": 0.7806,
+        "overall_ragas": 0.7823,
+        "latency_ms": 2241.14
+      },
+      {
+        "id": "qm_42",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.75,
+        "answer_f1": 0.1818,
+        "coverage_f1": 0.3137,
+        "faithfulness": 0.4822,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5345,
+        "latency_ms": 2244.72
+      },
+      {
+        "id": "qm_43",
+        "domain": "Quantum Physics",
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "answer_f1": 0.1311,
+        "coverage_f1": 0.2038,
+        "faithfulness": 0.5833,
+        "answer_relevance": 0.8102,
+        "overall_ragas": 0.8083,
+        "latency_ms": 2655.63
+      },
+      {
+        "id": "qm_44",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.1284,
+        "coverage_f1": 0.1684,
+        "faithfulness": 0.346,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.4499,
+        "latency_ms": 2568.22
+      },
+      {
+        "id": "qm_45",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1856,
+        "coverage_f1": 0.2061,
+        "faithfulness": 0.1761,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.393,
+        "latency_ms": 2318.78
+      },
+      {
+        "id": "qm_46",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1058,
+        "coverage_f1": 0.1283,
+        "faithfulness": 0.4219,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.6055,
+        "latency_ms": 1953.76
+      },
+      {
+        "id": "qm_47",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1863,
+        "coverage_f1": 0.2427,
+        "faithfulness": 0.1548,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.5387,
+        "latency_ms": 2176.72
+      },
+      {
+        "id": "qm_48",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.1182,
+        "coverage_f1": 0.15,
+        "faithfulness": 0.3625,
+        "answer_relevance": 0.8649,
+        "overall_ragas": 0.4487,
+        "latency_ms": 1971.58
+      },
+      {
+        "id": "qm_49",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.181,
+        "coverage_f1": 0.2224,
+        "faithfulness": 0.41,
+        "answer_relevance": 1.0,
+        "overall_ragas": 0.499,
+        "latency_ms": 2003.54
+      },
+      {
+        "id": "qm_50",
+        "domain": "Quantum Physics",
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.6667,
+        "answer_f1": 0.1972,
+        "coverage_f1": 0.2173,
+        "faithfulness": 0.4117,
+        "answer_relevance": 0.9024,
+        "overall_ragas": 0.493,
+        "latency_ms": 2005.26
       }
     ],
     "quantum_graph": [
@@ -1278,374 +2186,408 @@
         "domain": "Oncology",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2591,
-        "faithfulness": 0.6445,
+        "answer_f1": 0.243,
+        "coverage_f1": 0.3226,
+        "faithfulness": 0.5266,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8788,
-        "latency_ms": 2556.13
+        "overall_ragas": 0.8165,
+        "latency_ms": 2669.72
       },
       {
         "id": "onco_02",
         "domain": "Oncology",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1858,
-        "faithfulness": 0.5618,
+        "answer_f1": 0.2162,
+        "coverage_f1": 0.2694,
+        "faithfulness": 0.3862,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5834,
-        "latency_ms": 2918.37
+        "overall_ragas": 0.6942,
+        "latency_ms": 2267.36
       },
       {
         "id": "onco_03",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2079,
-        "faithfulness": 0.3635,
+        "answer_f1": 0.2139,
+        "coverage_f1": 0.25,
+        "faithfulness": 0.1452,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4242,
-        "latency_ms": 3062.09
+        "overall_ragas": 0.3696,
+        "latency_ms": 1869.17
       },
       {
         "id": "onco_04",
         "domain": "Oncology",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.5,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1419,
-        "faithfulness": 0.6219,
+        "answer_f1": 0.1143,
+        "coverage_f1": 0.1232,
+        "faithfulness": 0.2702,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5984,
-        "latency_ms": 2532.56
+        "overall_ragas": 0.4938,
+        "latency_ms": 2031.3
       },
       {
         "id": "onco_05",
         "domain": "Oncology",
-        "precision_at_k": 0.25,
+        "precision_at_k": 0.3333,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1618,
-        "faithfulness": 0.3861,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.4657,
-        "latency_ms": 2846.72
+        "answer_f1": 0.1667,
+        "coverage_f1": 0.2439,
+        "faithfulness": 0.1031,
+        "answer_relevance": 0.881,
+        "overall_ragas": 0.2696,
+        "latency_ms": 2152.42
       },
       {
         "id": "onco_06",
         "domain": "Oncology",
-        "precision_at_k": 0.25,
+        "precision_at_k": 0.5,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1818,
-        "faithfulness": 0.4173,
+        "answer_f1": 0.1919,
+        "coverage_f1": 0.2682,
+        "faithfulness": 0.0588,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6043,
-        "latency_ms": 3500.09
+        "overall_ragas": 0.348,
+        "latency_ms": 2040.96
       },
       {
         "id": "onco_07",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1117,
-        "faithfulness": 0.3885,
+        "answer_f1": 0.1421,
+        "coverage_f1": 0.2187,
+        "faithfulness": 0.3686,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4304,
-        "latency_ms": 2674.37
+        "overall_ragas": 0.4255,
+        "latency_ms": 2009.69
       },
       {
         "id": "onco_08",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1889,
-        "faithfulness": 0.4489,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5289,
-        "latency_ms": 2852.26
+        "answer_f1": 0.24,
+        "coverage_f1": 0.3143,
+        "faithfulness": 0.2381,
+        "answer_relevance": 0.8506,
+        "overall_ragas": 0.4388,
+        "latency_ms": 1999.25
       },
       {
         "id": "onco_09",
         "domain": "Oncology",
-        "precision_at_k": 0.2,
-        "recall_at_k": 0.3333,
-        "answer_f1": 0.2048,
-        "faithfulness": 0.4646,
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.2045,
+        "coverage_f1": 0.2798,
+        "faithfulness": 0.2248,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5074,
-        "latency_ms": 3210.48
+        "overall_ragas": 0.4729,
+        "latency_ms": 2633.02
       },
       {
         "id": "onco_10",
         "domain": "Oncology",
         "precision_at_k": 0.4,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1649,
-        "faithfulness": 0.4511,
+        "answer_f1": 0.2222,
+        "coverage_f1": 0.3128,
+        "faithfulness": 0.1693,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4868,
-        "latency_ms": 4237.19
+        "overall_ragas": 0.3529,
+        "latency_ms": 2044.62
       },
       {
         "id": "onco_11",
         "domain": "Oncology",
-        "precision_at_k": 0.2,
+        "precision_at_k": 0.25,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1749,
-        "faithfulness": 0.4341,
+        "answer_f1": 0.1965,
+        "coverage_f1": 0.1895,
+        "faithfulness": 0.2932,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.408,
-        "latency_ms": 3080.39
+        "overall_ragas": 0.4036,
+        "latency_ms": 2245.01
       },
       {
         "id": "onco_12",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1675,
-        "faithfulness": 0.39,
+        "answer_f1": 0.1865,
+        "coverage_f1": 0.2263,
+        "faithfulness": 0.1688,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5142,
-        "latency_ms": 2752.86
+        "overall_ragas": 0.4589,
+        "latency_ms": 2227.99
       },
       {
         "id": "onco_13",
         "domain": "Oncology",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1371,
-        "faithfulness": 0.557,
+        "answer_f1": 0.1829,
+        "coverage_f1": 0.2256,
+        "faithfulness": 0.3867,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8341,
-        "latency_ms": 2925.92
+        "overall_ragas": 0.7161,
+        "latency_ms": 2120.4
       },
       {
         "id": "onco_14",
         "domain": "Oncology",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.8,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.3093,
-        "faithfulness": 0.6194,
+        "answer_f1": 0.1765,
+        "coverage_f1": 0.182,
+        "faithfulness": 0.4238,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.682,
-        "latency_ms": 2095.49
+        "overall_ragas": 0.738,
+        "latency_ms": 1800.86
       },
       {
         "id": "onco_15",
         "domain": "Oncology",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1294,
-        "faithfulness": 0.4611,
+        "answer_f1": 0.1209,
+        "coverage_f1": 0.1333,
+        "faithfulness": 0.1485,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6153,
-        "latency_ms": 2774.25
+        "overall_ragas": 0.5371,
+        "latency_ms": 2791.71
       },
       {
         "id": "pm_16",
         "domain": "Precision Medicine",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.2857,
-        "faithfulness": 0.7476,
+        "answer_f1": 0.2317,
+        "coverage_f1": 0.3,
+        "faithfulness": 0.6738,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.9222,
-        "latency_ms": 3935.8
+        "overall_ragas": 0.892,
+        "latency_ms": 2148.23
       },
       {
         "id": "pm_17",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.8,
+        "precision_at_k": 0.4,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.125,
-        "faithfulness": 0.4795,
+        "answer_f1": 0.1458,
+        "coverage_f1": 0.1484,
+        "faithfulness": 0.2004,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7865,
-        "latency_ms": 3369.64
+        "overall_ragas": 0.364,
+        "latency_ms": 2036.19
       },
       {
         "id": "pm_18",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.6,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.2022,
-        "faithfulness": 0.6713,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6091,
-        "latency_ms": 2866.86
+        "answer_f1": 0.2312,
+        "coverage_f1": 0.3019,
+        "faithfulness": 0.53,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.683,
+        "latency_ms": 2241.36
       },
       {
         "id": "pm_19",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.2,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.0914,
-        "faithfulness": 0.5117,
+        "answer_f1": 0.0761,
+        "coverage_f1": 0.0745,
+        "faithfulness": 0.4184,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6447,
-        "latency_ms": 4213.82
+        "overall_ragas": 0.4768,
+        "latency_ms": 2068.2
       },
       {
         "id": "pm_20",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1554,
-        "faithfulness": 0.4197,
+        "answer_f1": 0.1571,
+        "coverage_f1": 0.2069,
+        "faithfulness": 0.0587,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4382,
-        "latency_ms": 2895.2
+        "overall_ragas": 0.348,
+        "latency_ms": 2220.04
       },
       {
         "id": "pm_21",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2526,
-        "faithfulness": 0.4371,
+        "answer_f1": 0.2512,
+        "coverage_f1": 0.3229,
+        "faithfulness": 0.1654,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.526,
-        "latency_ms": 2581.89
+        "overall_ragas": 0.458,
+        "latency_ms": 2009.81
       },
       {
         "id": "pm_22",
         "domain": "Precision Medicine",
-        "precision_at_k": 0.0,
-        "recall_at_k": 0.0,
-        "answer_f1": 0.1529,
-        "faithfulness": 0.5268,
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333,
+        "answer_f1": 0.131,
+        "coverage_f1": 0.1431,
+        "faithfulness": 0.4571,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.3671,
-        "latency_ms": 3553.7
+        "overall_ragas": 0.3576,
+        "latency_ms": 2270.36
       },
       {
         "id": "pm_23",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2329,
-        "faithfulness": 0.4694,
+        "answer_f1": 0.1481,
+        "coverage_f1": 0.1336,
+        "faithfulness": 0.0845,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.534,
-        "latency_ms": 3024.33
+        "overall_ragas": 0.4378,
+        "latency_ms": 2060.98
       },
       {
         "id": "pm_24",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.173,
-        "faithfulness": 0.341,
+        "answer_f1": 0.1443,
+        "coverage_f1": 0.2284,
+        "faithfulness": 0.0587,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5019,
-        "latency_ms": 2553.27
+        "overall_ragas": 0.4314,
+        "latency_ms": 2085.76
       },
       {
         "id": "pm_25",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2573,
-        "faithfulness": 0.4197,
+        "answer_f1": 0.2759,
+        "coverage_f1": 0.4016,
+        "faithfulness": 0.05,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5216,
-        "latency_ms": 2534.99
+        "overall_ragas": 0.4292,
+        "latency_ms": 2346.16
       },
       {
         "id": "pm_26",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2428,
-        "faithfulness": 0.4119,
+        "answer_f1": 0.2326,
+        "coverage_f1": 0.2461,
+        "faithfulness": 0.0877,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.603,
-        "latency_ms": 4270.59
+        "overall_ragas": 0.5219,
+        "latency_ms": 2388.13
       },
       {
         "id": "pm_27",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1915,
-        "faithfulness": 0.4603,
+        "answer_f1": 0.2414,
+        "coverage_f1": 0.2104,
+        "faithfulness": 0.2348,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5317,
-        "latency_ms": 3286.48
+        "overall_ragas": 0.4754,
+        "latency_ms": 2049.77
       },
       {
         "id": "pm_28",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2486,
-        "faithfulness": 0.4463,
+        "answer_f1": 0.1711,
+        "coverage_f1": 0.1834,
+        "faithfulness": 0.1851,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6116,
-        "latency_ms": 2412.1
+        "overall_ragas": 0.5463,
+        "latency_ms": 2066.39
       },
       {
         "id": "pm_29",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1242,
-        "faithfulness": 0.5044,
+        "answer_f1": 0.1889,
+        "coverage_f1": 0.2538,
+        "faithfulness": 0.0877,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4594,
-        "latency_ms": 3792.02
+        "overall_ragas": 0.3552,
+        "latency_ms": 2308.14
       },
       {
         "id": "pm_30",
         "domain": "Precision Medicine",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1101,
-        "faithfulness": 0.3643,
+        "answer_f1": 0.1268,
+        "coverage_f1": 0.1504,
+        "faithfulness": 0.0657,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5911,
-        "latency_ms": 2752.14
+        "overall_ragas": 0.5164,
+        "latency_ms": 2140.6
       },
       {
         "id": "amr_31",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.8,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1429,
-        "faithfulness": 0.6619,
+        "answer_f1": 0.1435,
+        "coverage_f1": 0.2278,
+        "faithfulness": 0.5468,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.7473,
-        "latency_ms": 2956.78
+        "overall_ragas": 0.7707,
+        "latency_ms": 1951.51
       },
       {
         "id": "amr_32",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1609,
-        "faithfulness": 0.5005,
+        "answer_f1": 0.1333,
+        "coverage_f1": 0.1593,
+        "faithfulness": 0.3307,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4445,
-        "latency_ms": 2578.05
+        "overall_ragas": 0.399,
+        "latency_ms": 2810.04
       },
       {
         "id": "amr_33",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1868,
-        "faithfulness": 0.3944,
+        "answer_f1": 0.2,
+        "coverage_f1": 0.2937,
+        "faithfulness": 0.05,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5986,
-        "latency_ms": 2688.59
+        "overall_ragas": 0.5125,
+        "latency_ms": 2094.48
       },
       {
         "id": "amr_34",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1798,
-        "faithfulness": 0.5263,
+        "answer_f1": 0.1297,
+        "coverage_f1": 0.1154,
+        "faithfulness": 0.4,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.6316,
-        "latency_ms": 2440.76
+        "overall_ragas": 0.6,
+        "latency_ms": 2505.98
       },
       {
         "id": "amr_35",
@@ -1653,175 +2595,191 @@
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
         "answer_f1": 0.2174,
-        "faithfulness": 0.5127,
+        "coverage_f1": 0.2782,
+        "faithfulness": 0.375,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5449,
-        "latency_ms": 2389.94
+        "overall_ragas": 0.5938,
+        "latency_ms": 1971.44
       },
       {
         "id": "amr_36",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.184,
-        "faithfulness": 0.3128,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.4949,
-        "latency_ms": 3014.72
+        "answer_f1": 0.1379,
+        "coverage_f1": 0.1946,
+        "faithfulness": 0.1581,
+        "answer_relevance": 0.7699,
+        "overall_ragas": 0.3987,
+        "latency_ms": 1998.11
       },
       {
         "id": "amr_37",
         "domain": "Antimicrobial Resistance",
-        "precision_at_k": 0.2,
-        "recall_at_k": 0.3333,
-        "answer_f1": 0.173,
-        "faithfulness": 0.3548,
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1444,
+        "coverage_f1": 0.1808,
+        "faithfulness": 0.1193,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5887,
-        "latency_ms": 2760.06
+        "overall_ragas": 0.5298,
+        "latency_ms": 2803.46
       },
       {
         "id": "amr_38",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.2527,
-        "faithfulness": 0.4341,
+        "answer_f1": 0.2556,
+        "coverage_f1": 0.2683,
+        "faithfulness": 0.152,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5252,
-        "latency_ms": 2497.4
+        "overall_ragas": 0.4547,
+        "latency_ms": 2050.68
       },
       {
         "id": "amr_39",
         "domain": "Antimicrobial Resistance",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1868,
-        "faithfulness": 0.4097,
+        "answer_f1": 0.1676,
+        "coverage_f1": 0.2073,
+        "faithfulness": 0.1382,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4357,
-        "latency_ms": 2688.05
+        "overall_ragas": 0.3679,
+        "latency_ms": 1968.42
       },
       {
         "id": "amr_40",
         "domain": "Antimicrobial Resistance",
-        "precision_at_k": 0.2,
-        "recall_at_k": 0.3333,
-        "answer_f1": 0.1529,
-        "faithfulness": 0.4216,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.5221,
-        "latency_ms": 3171.99
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "answer_f1": 0.1494,
+        "coverage_f1": 0.1465,
+        "faithfulness": 0.1737,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.4318,
+        "latency_ms": 2393.59
       },
       {
         "id": "qm_41",
         "domain": "Quantum Physics",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1953,
-        "faithfulness": 0.55,
+        "answer_f1": 0.1704,
+        "coverage_f1": 0.1839,
+        "faithfulness": 0.3859,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8302,
-        "latency_ms": 2954.11
+        "overall_ragas": 0.7123,
+        "latency_ms": 2159.04
       },
       {
         "id": "qm_42",
         "domain": "Quantum Physics",
-        "precision_at_k": 1.0,
-        "recall_at_k": 1.0,
-        "answer_f1": 0.1791,
-        "faithfulness": 0.5964,
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.75,
+        "answer_f1": 0.1818,
+        "coverage_f1": 0.2806,
+        "faithfulness": 0.4919,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.8553,
-        "latency_ms": 4210.83
+        "overall_ragas": 0.5374,
+        "latency_ms": 2782.62
       },
       {
         "id": "qm_43",
         "domain": "Quantum Physics",
         "precision_at_k": 1.0,
         "recall_at_k": 1.0,
-        "answer_f1": 0.1458,
+        "answer_f1": 0.16,
+        "coverage_f1": 0.2344,
         "faithfulness": 0.5591,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.8353,
-        "latency_ms": 3078.98
+        "answer_relevance": 0.8102,
+        "overall_ragas": 0.7964,
+        "latency_ms": 2363.11
       },
       {
         "id": "qm_44",
         "domain": "Quantum Physics",
-        "precision_at_k": 0.4,
+        "precision_at_k": 0.2,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1581,
-        "faithfulness": 0.4132,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6946,
-        "latency_ms": 3552.09
+        "answer_f1": 0.1942,
+        "coverage_f1": 0.202,
+        "faithfulness": 0.3203,
+        "answer_relevance": 0.8768,
+        "overall_ragas": 0.5508,
+        "latency_ms": 1927.53
       },
       {
         "id": "qm_45",
         "domain": "Quantum Physics",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1837,
-        "faithfulness": 0.4237,
+        "answer_f1": 0.1762,
+        "coverage_f1": 0.1964,
+        "faithfulness": 0.175,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5089,
-        "latency_ms": 2636.67
+        "overall_ragas": 0.3916,
+        "latency_ms": 1926.4
       },
       {
         "id": "qm_46",
         "domain": "Quantum Physics",
         "precision_at_k": 0.0,
         "recall_at_k": 0.0,
-        "answer_f1": 0.1038,
-        "faithfulness": 0.5211,
+        "answer_f1": 0.1449,
+        "coverage_f1": 0.1813,
+        "faithfulness": 0.3887,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5391,
-        "latency_ms": 3080.21
+        "overall_ragas": 0.5139,
+        "latency_ms": 2108.58
       },
       {
         "id": "qm_47",
         "domain": "Quantum Physics",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1538,
-        "faithfulness": 0.4938,
-        "answer_relevance": 1.0,
-        "overall_ragas": 0.6235,
-        "latency_ms": 3097.47
+        "answer_f1": 0.1485,
+        "coverage_f1": 0.1733,
+        "faithfulness": 0.274,
+        "answer_relevance": 0.8867,
+        "overall_ragas": 0.5402,
+        "latency_ms": 2329.5
       },
       {
         "id": "qm_48",
         "domain": "Quantum Physics",
         "precision_at_k": 0.2,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.125,
-        "faithfulness": 0.5263,
+        "answer_f1": 0.1313,
+        "coverage_f1": 0.1852,
+        "faithfulness": 0.3965,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5458,
-        "latency_ms": 3710.94
+        "overall_ragas": 0.6831,
+        "latency_ms": 2261.24
       },
       {
         "id": "qm_49",
         "domain": "Quantum Physics",
         "precision_at_k": 0.4,
         "recall_at_k": 0.3333,
-        "answer_f1": 0.1414,
-        "faithfulness": 0.5848,
+        "answer_f1": 0.1684,
+        "coverage_f1": 0.1729,
+        "faithfulness": 0.3427,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.4979,
-        "latency_ms": 3164.13
+        "overall_ragas": 0.4709,
+        "latency_ms": 2382.85
       },
       {
         "id": "qm_50",
         "domain": "Quantum Physics",
         "precision_at_k": 0.4,
         "recall_at_k": 0.6667,
-        "answer_f1": 0.1212,
-        "faithfulness": 0.4511,
+        "answer_f1": 0.1929,
+        "coverage_f1": 0.164,
+        "faithfulness": 0.3758,
         "answer_relevance": 1.0,
-        "overall_ragas": 0.5132,
-        "latency_ms": 1990.75
+        "overall_ragas": 0.4856,
+        "latency_ms": 2069.6
       }
     ]
   }

@@ -375,57 +375,161 @@ class AblationPipeline:
                 logger.warning(f"Classical PageRank computation warning: {e}")
                 return vector_contexts
 
-    async def _quantum_graph_retrieval(self, query: str) -> Tuple[List[str], float]:
-        """Mode 3: Q-GraphRAG (Continuous-Time Quantum Walk Amplitude Ranking & Multi-Hop Pathway Synthesis)."""
+    async def _classical_walk_pruned_subgraph_retrieval(self, query: str) -> List[str]:
+        """
+        Mode 4: Classical Personalized Random Walk with Restart (RWR) on the SAME
+        pruned N<=14 subgraph used by Q-GraphRAG.
+
+        This is the key ablation baseline to isolate whether Q-GraphRAG's gains
+        come from the CTQW kernel specifically, or merely from the topological
+        pruning and seed selection pipeline (Section 3.3).
+
+        Implementation mirrors the quantum path identically up to the walk kernel:
+          - Same seed nodes (query-matching nodes)
+          - Same 2-hop subgraph extraction
+          - Same N<=14 pruning budget
+          - DIFFERS: Uses classical RWR steady-state probability instead of CTQW amplitudes
+        """
         vector_contexts = await self._pure_vector_retrieval(query)
         domain_data = resolve_domain_for_query(query)
-        
+
         with self.graph_service.lock.gen_rlock():
             graph = self.graph_service.graph
-            
+
+            # IDENTICAL to quantum path: find query-relevant seed nodes
+            query_words = set(query.lower().split())
+            matching_nodes = [
+                n for n in graph.nodes()
+                if any(qw in str(n).lower() for qw in query_words if len(qw) > 2)
+            ]
+
+            if not matching_nodes:
+                triplets_ctx = [
+                    f"Classical Pathway: {t['subject']} -> {t['predicate']} -> {t['object']}"
+                    for t in domain_data.get("triplets", [])
+                ]
+                return vector_contexts + triplets_ctx[:5]
+
+            # IDENTICAL to quantum path: merge 2-hop subgraphs from same seeds
+            subgraph = nx.MultiDiGraph()
+            for seed in matching_nodes[:3]:
+                sg = self.graph_service.extract_subgraph(seed, hops=2)
+                subgraph = nx.compose(subgraph, sg)
+
+            if len(subgraph) == 0:
+                triplets_ctx = [
+                    f"Classical Pathway: {t['subject']} -> {t['predicate']} -> {t['object']}"
+                    for t in domain_data.get("triplets", [])
+                ]
+                return vector_contexts + triplets_ctx[:5]
+
+            # IDENTICAL to quantum path: prune to same N<=14 qubit budget
+            pruned_subgraph = self.graph_service.prune_subgraph(subgraph, max_nodes=14)
+            nodes, _ = self.graph_service.get_canonical_adjacency_matrix(pruned_subgraph)
+
+            # DIFFERS: Classical Personalized RWR on the pruned subgraph
+            # Uses NetworkX PageRank as a proxy for RWR steady-state (alpha = restart prob)
+            try:
+                simple_graph = nx.DiGraph(pruned_subgraph)
+                personalization = {
+                    node: (1.0 if node in matching_nodes else 0.0)
+                    for node in simple_graph.nodes()
+                }
+                total_p = sum(personalization.values())
+                if total_p > 0:
+                    personalization = {k: v / total_p for k, v in personalization.items()}
+                else:
+                    personalization = {node: 1.0 / len(simple_graph) for node in simple_graph.nodes()}
+
+                # alpha=0.15 restart probability (standard RWR parameterisation)
+                rwr_scores = nx.pagerank(
+                    simple_graph, alpha=0.85,
+                    personalization=personalization,
+                    max_iter=200, tol=1e-5
+                )
+                top_nodes = [
+                    node for node, score in sorted(rwr_scores.items(), key=lambda x: x[1], reverse=True)
+                    if score > 0.01
+                ][:6]
+            except Exception as e:
+                logger.warning(f"Classical RWR on pruned subgraph warning: {e}")
+                top_nodes = nodes[:6]
+
+            # Extract relational contexts from top-ranked nodes (same format as quantum)
+            classical_contexts = []
+            for u, v, d in pruned_subgraph.edges(data=True):
+                if u in top_nodes or v in top_nodes:
+                    rel = d.get('relation', 'RELATED')
+                    classical_contexts.append(f"Classical Pathway: {u} -> {rel} -> {v}")
+            for node in top_nodes[:4]:
+                classical_contexts.append(f"Grounded Entity: {node}")
+
+            combined_contexts = classical_contexts[:3] + vector_contexts[:2] + classical_contexts[3:]
+            return combined_contexts[:7]
+
+    async def _quantum_graph_retrieval(self, query: str) -> Tuple[List[str], float, Dict[str, float]]:
+        """
+        Mode 3: Q-GraphRAG (Continuous-Time Quantum Walk Amplitude Ranking & Multi-Hop Pathway Synthesis).
+
+        Returns:
+            contexts: retrieved context strings
+            kernel_sim: quantum kernel similarity score
+            latency_breakdown: sub-component timing dict with keys:
+                - t_graph_extract_ms: subgraph extraction + pruning
+                - t_quantum_sim_ms:   CTQW kernel computation
+                - t_llm_note: LLM generation is measured outside this method
+        """
+        vector_contexts = await self._pure_vector_retrieval(query)
+        domain_data = resolve_domain_for_query(query)
+
+        with self.graph_service.lock.gen_rlock():
+            graph = self.graph_service.graph
+
             # Find query-relevant matching seed nodes
             query_words = set(query.lower().split())
             matching_nodes = [
                 n for n in graph.nodes()
                 if any(qw in str(n).lower() for qw in query_words if len(qw) > 2)
             ]
-            
+
             # If no query-relevant nodes found in current graph, use domain triplets
             if not matching_nodes:
                 triplets_ctx = [f"Quantum Pathway: {t['subject']} -> {t['predicate']} -> {t['object']}" for t in domain_data.get("triplets", [])]
-                return vector_contexts + triplets_ctx[:5], 1.0
+                return vector_contexts + triplets_ctx[:5], 1.0, {"t_graph_extract_ms": 0.0, "t_quantum_sim_ms": 0.0}
 
-            # Merge 2-hop subgraphs starting strictly from query-matching seeds
+            # ── Graph Extraction + Pruning ──────────────────────────────────────
+            _t_ge_start = time.time()
             subgraph = nx.MultiDiGraph()
             for seed in matching_nodes[:3]:
                 sg = self.graph_service.extract_subgraph(seed, hops=2)
                 subgraph = nx.compose(subgraph, sg)
-            
+
             if len(subgraph) == 0:
                 triplets_ctx = [f"Quantum Pathway: {t['subject']} -> {t['predicate']} -> {t['object']}" for t in domain_data.get("triplets", [])]
-                return vector_contexts + triplets_ctx[:5], 0.95
+                return vector_contexts + triplets_ctx[:5], 0.95, {"t_graph_extract_ms": (time.time() - _t_ge_start) * 1000, "t_quantum_sim_ms": 0.0}
 
-            # Prune to qubit budget (14 qubits)
             pruned_subgraph = self.graph_service.prune_subgraph(subgraph, max_nodes=14)
             nodes, A_cand = self.graph_service.get_canonical_adjacency_matrix(pruned_subgraph)
-            
+            t_graph_extract_ms = (time.time() - _t_ge_start) * 1000
+
             # Find seed indices in canonical matrix
             seed_indices = [idx for idx, n in enumerate(nodes) if n in matching_nodes]
             if not seed_indices:
                 seed_indices = [0]
 
-            # Compute CTQW quantum walk probability distribution over all subgraph nodes
+            # ── CTQW Quantum Kernel Computation ─────────────────────────────────
+            _t_qs_start = time.time()
             node_probs = self.quantum_kernel_service.compute_quantum_walk_node_probabilities(
                 A_cand, seed_indices=seed_indices, time=1.0, trotter_steps=3
             )
-            
+
             # Rank nodes by quantum probability
             if len(node_probs) == len(nodes):
                 ranked_indices = np.argsort(node_probs)[::-1]
                 top_ranked_nodes = [nodes[i] for i in ranked_indices if node_probs[i] > 0.01][:6]
             else:
                 top_ranked_nodes = nodes[:6]
-            
+
             # Calculate state overlap against ideal diagonal comparison
             A_query = np.eye(len(nodes))
             try:
@@ -437,6 +541,7 @@ class AblationPipeline:
                 )
             except Exception:
                 kernel_sim = 0.98
+            t_quantum_sim_ms = (time.time() - _t_qs_start) * 1000
 
             # Extract high-confidence quantum walk multi-hop relational pathways
             quantum_contexts = []
@@ -444,20 +549,34 @@ class AblationPipeline:
                 if u in top_ranked_nodes or v in top_ranked_nodes:
                     rel = d.get('relation', 'RELATED')
                     quantum_contexts.append(f"Quantum Pathway: {u} -> {rel} -> {v}")
-                    
+
             for node in top_ranked_nodes[:4]:
                 quantum_contexts.append(f"Grounded Entity: {node}")
 
             combined_contexts = quantum_contexts[:3] + vector_contexts[:2] + quantum_contexts[3:]
-            return combined_contexts[:7], float(kernel_sim)
+            latency_breakdown = {
+                "t_graph_extract_ms": round(t_graph_extract_ms, 3),
+                "t_quantum_sim_ms": round(t_quantum_sim_ms, 3),
+            }
+            return combined_contexts[:7], float(kernel_sim), latency_breakdown
 
     async def run_comparative_ablation(
-        self, 
-        query: str, 
-        reference_answer: Optional[str] = None, 
+        self,
+        query: str,
+        reference_answer: Optional[str] = None,
         ground_truth_facts: Optional[List[str]] = None
     ) -> Dict[str, Any]:
-        """Runs the query through all 3 modes and returns side-by-side comparative results with RAGAS metrics."""
+        """
+        Runs the query through all 4 ablation modes and returns side-by-side
+        comparative results with RAGAS metrics and per-component latency breakdown.
+
+        Modes:
+            1. pure_vector          — Dense vector search (Qdrant)
+            2. classical_graph      — PageRank on full graph
+            3. classical_walk_pruned — Classical RWR on same N<=14 pruned subgraph
+                                       (ablation baseline to isolate CTQW contribution)
+            4. quantum_graph        — Q-GraphRAG (CTQW on pruned N<=14 subgraph)
+        """
         domain_data = resolve_domain_for_query(query)
         ref_ans = reference_answer or domain_data["reference_answer"]
         gt_facts = ground_truth_facts or domain_data["ground_truth_facts"]
@@ -467,7 +586,7 @@ class AblationPipeline:
 
         results = {}
 
-        # 1. Pure Vector RAG
+        # ── Mode 1: Pure Vector RAG ──────────────────────────────────────────────
         t0 = time.time()
         v_contexts = await self._pure_vector_retrieval(query)
         v_answer = await self._generate_answer(query, v_contexts)
@@ -477,13 +596,14 @@ class AblationPipeline:
         results["pure_vector"] = {
             "mode": "Pure Vector RAG (Dense Qdrant)",
             "latency_ms": round(v_lat, 2),
+            "latency_breakdown": {"t_total_ms": round(v_lat, 2)},
             "answer": v_answer,
             "contexts_retrieved": len(v_contexts),
             **v_metrics,
             "ragas": v_ragas
         }
 
-        # 2. Classical GraphRAG
+        # ── Mode 2: Classical GraphRAG (full graph PageRank) ─────────────────────
         t0 = time.time()
         c_contexts = await self._classical_graph_retrieval(query)
         c_answer = await self._generate_answer(query, c_contexts)
@@ -491,24 +611,50 @@ class AblationPipeline:
         c_metrics = self.benchmark_engine.evaluate_response(c_answer, ref_ans, c_contexts, gt_facts)
         c_ragas = self.ragas_evaluator.compute_ragas_scores(query, c_answer, c_contexts, gt_facts)
         results["classical_graph"] = {
-            "mode": "Classical GraphRAG (PageRank)",
+            "mode": "Classical GraphRAG (PageRank, full graph)",
             "latency_ms": round(c_lat, 2),
+            "latency_breakdown": {"t_total_ms": round(c_lat, 2)},
             "answer": c_answer,
             "contexts_retrieved": len(c_contexts),
             **c_metrics,
             "ragas": c_ragas
         }
 
-        # 3. Q-GraphRAG (Quantum Walk)
+        # ── Mode 3: Classical RWR on Pruned Subgraph (ablation) ──────────────────
         t0 = time.time()
-        q_contexts, q_sim = await self._quantum_graph_retrieval(query)
+        rwr_contexts = await self._classical_walk_pruned_subgraph_retrieval(query)
+        rwr_answer = await self._generate_answer(query, rwr_contexts)
+        rwr_lat = (time.time() - t0) * 1000.0
+        rwr_metrics = self.benchmark_engine.evaluate_response(rwr_answer, ref_ans, rwr_contexts, gt_facts)
+        rwr_ragas = self.ragas_evaluator.compute_ragas_scores(query, rwr_answer, rwr_contexts, gt_facts)
+        results["classical_walk_pruned"] = {
+            "mode": "Classical RWR on Pruned Subgraph (N<=14, ablation)",
+            "latency_ms": round(rwr_lat, 2),
+            "latency_breakdown": {"t_total_ms": round(rwr_lat, 2)},
+            "answer": rwr_answer,
+            "contexts_retrieved": len(rwr_contexts),
+            **rwr_metrics,
+            "ragas": rwr_ragas
+        }
+
+        # ── Mode 4: Q-GraphRAG (CTQW on Pruned Subgraph) ────────────────────────
+        t0 = time.time()
+        q_contexts, q_sim, q_latency_parts = await self._quantum_graph_retrieval(query)
+        _t_llm_start = time.time()
         q_answer = await self._generate_answer(query, q_contexts)
+        t_llm_ms = (time.time() - _t_llm_start) * 1000.0
         q_lat = (time.time() - t0) * 1000.0
         q_metrics = self.benchmark_engine.evaluate_response(q_answer, ref_ans, q_contexts, gt_facts)
         q_ragas = self.ragas_evaluator.compute_ragas_scores(query, q_answer, q_contexts, gt_facts)
         results["quantum_graph"] = {
-            "mode": "Q-GraphRAG (Continuous-Time Quantum Walk)",
+            "mode": "Q-GraphRAG (Continuous-Time Quantum Walk, N<=14)",
             "latency_ms": round(q_lat, 2),
+            "latency_breakdown": {
+                "t_total_ms": round(q_lat, 2),
+                "t_graph_extract_ms": q_latency_parts["t_graph_extract_ms"],
+                "t_quantum_sim_ms": q_latency_parts["t_quantum_sim_ms"],
+                "t_llm_generate_ms": round(t_llm_ms, 2),
+            },
             "answer": q_answer,
             "contexts_retrieved": len(q_contexts),
             "quantum_kernel_similarity": round(q_sim, 4),

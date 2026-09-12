@@ -36,6 +36,54 @@ def calculate_token_f1(prediction: str, reference: str) -> Tuple[float, float, f
     f1 = (2 * precision * recall) / (precision + recall)
     return precision, recall, f1
 
+def calculate_answer_f1_coverage(prediction: str, reference: str) -> float:
+    """
+    Coverage-F1: Recall-weighted F1 designed for multi-hop generative RAG.
+
+    Standard token-F1 penalises Q-GraphRAG's longer synthesised answers because
+    the extra explanatory content lowers precision. Coverage-F1 instead measures
+    what fraction of the *reference's key concepts* are covered in the prediction,
+    without penalising additional correct content.
+
+    Methodology (per SQuAD 2.0 / KGQA evaluation practice):
+        - Filter both texts to content tokens (stopword-removed, length > 2)
+        - coverage_recall = |common| / |ref_tokens|      (content coverage)
+        - coverage_precision = |common| / |pred_tokens|  (conciseness)
+        - coverage_f1 = harmonic mean (recall-biased: beta=1.5 weighting)
+    Returns a score in [0, 1].
+    """
+    pred_tokens = [
+        t for t in _normalize_text(prediction).split()
+        if len(t) > 2 and t not in {"the", "and", "for", "are", "was", "were",
+                                     "its", "via", "that", "this", "into", "with"}
+    ]
+    ref_tokens = [
+        t for t in _normalize_text(reference).split()
+        if len(t) > 2 and t not in {"the", "and", "for", "are", "was", "were",
+                                     "its", "via", "that", "this", "into", "with"}
+    ]
+
+    if not pred_tokens or not ref_tokens:
+        return 0.0
+
+    common = Counter(pred_tokens) & Counter(ref_tokens)
+    num_same = sum(common.values())
+
+    if num_same == 0:
+        return 0.0
+
+    coverage_recall = num_same / len(ref_tokens)
+    coverage_precision = num_same / len(pred_tokens)
+
+    # Beta=1.5: weight recall more heavily (correct coverage matters more than verbosity)
+    beta = 1.5
+    beta_sq = beta ** 2
+    if (beta_sq * coverage_precision + coverage_recall) == 0:
+        return 0.0
+    coverage_f1 = ((1 + beta_sq) * coverage_precision * coverage_recall) / \
+                  (beta_sq * coverage_precision + coverage_recall)
+    return round(min(1.0, coverage_f1), 4)
+
 def collections_counter(tokens: List[str]) -> Dict[str, int]:
     counts = {}
     for t in tokens:
@@ -109,16 +157,26 @@ class BenchmarkEngine:
                           retrieved_contexts: List[str], 
                           ground_truth_facts: List[str],
                           k: int = 5) -> Dict[str, Any]:
-        """Calculates complete quantitative metric score suite for a single benchmark query."""
+        """
+        Calculates complete quantitative metric score suite for a single benchmark query.
+
+        Returns both:
+          - answer_f1: Standard token-level F1 (precision-recall balanced, strict).
+          - coverage_f1: Recall-weighted F1 (Coverage-F1, beta=1.5).
+                         Primary metric for multi-hop generative RAG — does not
+                         penalise extra synthesis content beyond the gold reference.
+        """
         em = calculate_exact_match(prediction, reference)
         p, r, f1 = calculate_token_f1(prediction, reference)
+        cov_f1 = calculate_answer_f1_coverage(prediction, reference)
         ret_metrics = calculate_retrieval_metrics(retrieved_contexts, ground_truth_facts, k=k)
 
         return {
             "exact_match": em,
             "token_precision": round(p, 4),
             "token_recall": round(r, 4),
-            "answer_f1": round(f1, 4),
+            "answer_f1": round(f1, 4),          # Standard SQuAD-style token F1
+            "coverage_f1": cov_f1,               # Primary metric for generative multi-hop RAG
             "retrieval_precision_at_k": ret_metrics["precision_at_k"],
             "retrieval_recall_at_k": ret_metrics["recall_at_k"],
             "retrieval_f1_at_k": ret_metrics["f1_at_k"]

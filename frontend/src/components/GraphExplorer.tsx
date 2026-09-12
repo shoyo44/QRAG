@@ -11,41 +11,64 @@ interface GraphExplorerProps {
 }
 
 const CATEGORIES = [
-  { key: 'all',     label: 'All Entities'       },
-  { key: 'core',    label: 'Core Architecture'  },
-  { key: 'physics', label: 'Quantum Physics'    },
-  { key: 'storage', label: 'Storage & DB'       },
-  { key: 'ai',      label: 'AI & Models'        },
+  { key: 'all',                label: 'All Entities'                   },
+  { key: 'biomedical',         label: 'Biomedical & Oncology'          },
+  { key: 'precision_medicine', label: 'Precision Medicine & Genomics'  },
+  { key: 'physics',            label: 'Quantum Physics'                },
+  { key: 'core',               label: 'Core Architecture'              },
+  { key: 'storage',            label: 'Storage & DB'                   },
 ];
 
 const DEFAULT_NODES = [
-  { id: 'Quantum Kernel',            name: 'Quantum Kernel',            val: 14, type: 'core',    theta: '0.785', desc: 'Core PennyLane CTQW simulator engine' },
-  { id: 'Heisenberg Hamiltonian',    name: 'Heisenberg Hamiltonian',    val: 11, type: 'physics',  theta: '1.240', desc: 'XY Interaction Hamiltonian matrix modelling graph topology' },
-  { id: 'PennyLane Simulator',       name: 'PennyLane Simulator',       val: 12, type: 'core',    theta: '0.523', desc: '14-qubit state-vector evolution execution environment' },
-  { id: 'NetworkX Graph Store',      name: 'NetworkX Graph Store',      val: 11, type: 'storage',  theta: '1.047', desc: 'In-memory multi-hop relational adjacency storage' },
-  { id: 'Qdrant Vector DB',          name: 'Qdrant Vector DB',          val: 10, type: 'storage',  theta: '0.912', desc: '768-dim dense embedding vector store & cosine index' },
-  { id: 'Cloudflare Workers AI',     name: 'Cloudflare Workers AI',     val: 10, type: 'ai',      theta: '1.414', desc: 'Grounded LLM synthesis & structured triplet reasoning' },
-  { id: 'Nomic Embeddings',          name: 'Nomic Embeddings',          val: 9,  type: 'storage',  theta: '0.628', desc: 'nomic-embed-text-v1.5 embedding generator' },
-  { id: 'Hilbert Space Overlap',     name: 'Hilbert Space Overlap',     val: 11, type: 'physics',  theta: '1.570', desc: 'Inner product |⟨ψ_q|ψ_G⟩|² amplitude calculator' },
-  { id: 'Trotter Unitary Evolution', name: 'Trotter Unitary Evolution', val: 11, type: 'physics',  theta: '0.850', desc: 'First-order Trotter-Suzuki decomposition e^{-iHt}' },
-  { id: 'Biomedical Resistance Gene',name: 'Biomedical Resistance Gene',val: 9,  type: 'physics',  theta: '1.110', desc: 'Multi-hop biomedical entity anchor in knowledge graph' },
-  { id: 'Superconducting Pathway',   name: 'Superconducting Pathway',   val: 10, type: 'physics',  theta: '0.420', desc: 'Physical NISQ hardware topology mapping' },
+  { id: 'Quantum Kernel',            name: 'Quantum Kernel',            val: 14, type: 'core',               theta: '0.785', desc: 'Core PennyLane CTQW simulator engine' },
+  { id: 'Heisenberg Hamiltonian',    name: 'Heisenberg Hamiltonian',    val: 11, type: 'physics',            theta: '1.240', desc: 'XY Interaction Hamiltonian matrix modelling graph topology' },
+  { id: 'PennyLane Simulator',       name: 'PennyLane Simulator',       val: 12, type: 'core',               theta: '0.523', desc: '14-qubit state-vector evolution execution environment' },
+  { id: 'NetworkX Graph Store',      name: 'NetworkX Graph Store',      val: 11, type: 'storage',            theta: '1.047', desc: 'In-memory multi-hop relational adjacency storage' },
+  { id: 'Trastuzumab Emtansine',     name: 'Trastuzumab Emtansine',     val: 13, type: 'biomedical',         theta: '0.912', desc: 'Antibody-drug conjugate targeting HER2 in metastatic breast cancer' },
+  { id: 'HER2 Receptor',             name: 'HER2 Receptor',             val: 12, type: 'biomedical',         theta: '0.628', desc: 'Receptor tyrosine kinase amplified in aggressive carcinomas' },
+  { id: 'DM1 Cytotoxin',             name: 'DM1 Cytotoxin',             val: 10, type: 'biomedical',         theta: '1.414', desc: 'Potent microtubule inhibitor triggering targeted mitotic arrest' },
+  { id: 'CRISPR-Cas9 RNP',           name: 'CRISPR-Cas9 RNP',           val: 13, type: 'precision_medicine', theta: '0.850', desc: 'Targeted endonuclease ribonucleoprotein for gene editing' },
+  { id: 'BCL11A Erythroid Enhancer', name: 'BCL11A Erythroid Enhancer', val: 11, type: 'precision_medicine', theta: '1.110', desc: 'Enhancer region regulating gamma-globin repression in sickle cell' },
+  { id: 'Fetal Hemoglobin HbF',      name: 'Fetal Hemoglobin HbF',      val: 12, type: 'precision_medicine', theta: '0.420', desc: 'Anti-sickling hemoglobin tetramer preventing erythrocyte sickling' },
+  { id: 'BCR-ABL1 Fusion Gene',      name: 'BCR-ABL1 Fusion Gene',      val: 13, type: 'precision_medicine', theta: '1.570', desc: 'Chimeric tyrosine kinase oncogene in Chronic Myeloid Leukemia' },
+  { id: 'Imatinib',                  name: 'Imatinib',                  val: 12, type: 'precision_medicine', theta: '0.730', desc: 'Selective ATP-competitive tyrosine kinase inhibitor' },
+  { id: 'Osimertinib',               name: 'Osimertinib',               val: 12, type: 'biomedical',         theta: '0.890', desc: 'Irreversible 3rd-gen EGFR inhibitor targeting T790M resistance' },
+  { id: 'Graphene',                  name: 'Graphene',                  val: 12, type: 'physics',            theta: '0.650', desc: '2D honeycomb carbon lattice with relativistic Dirac fermions' },
+  { id: 'Superconductivity',         name: 'Superconductivity',         val: 13, type: 'physics',            theta: '1.320', desc: 'Macroscopic zero-resistance quantum condensation state' },
+  { id: 'Cooper Pairs',              name: 'Cooper Pairs',              val: 11, type: 'physics',            theta: '0.980', desc: 'Electron pairs coupled via phonon lattice interactions' },
 ];
 
 const DEFAULT_LINKS = [
   { source: 'Quantum Kernel',           target: 'Heisenberg Hamiltonian',    label: 'MODELS' },
   { source: 'Quantum Kernel',           target: 'PennyLane Simulator',        label: 'EXECUTES_ON' },
   { source: 'NetworkX Graph Store',     target: 'Quantum Kernel',             label: 'FEEDS_SUBGRAPH' },
-  { source: 'Qdrant Vector DB',         target: 'Nomic Embeddings',           label: 'INDEXES_VECTORS' },
-  { source: 'Cloudflare Workers AI',    target: 'Quantum Kernel',             label: 'SYNTHESIZES' },
-  { source: 'Quantum Kernel',           target: 'Hilbert Space Overlap',      label: 'CALCULATES' },
-  { source: 'Heisenberg Hamiltonian',   target: 'Trotter Unitary Evolution',  label: 'EVOLVES_VIA' },
-  { source: 'Trotter Unitary Evolution',target: 'Superconducting Pathway',    label: 'MAPS_TO' },
-  { source: 'NetworkX Graph Store',     target: 'Biomedical Resistance Gene', label: 'CONTAINS' },
+  { source: 'Trastuzumab Emtansine',     target: 'HER2 Receptor',             label: 'binds_to' },
+  { source: 'Trastuzumab Emtansine',     target: 'DM1 Cytotoxin',             label: 'delivers' },
+  { source: 'CRISPR-Cas9 RNP',           target: 'BCL11A Erythroid Enhancer', label: 'cleaves' },
+  { source: 'BCL11A Erythroid Enhancer', target: 'Fetal Hemoglobin HbF',      label: 'reactivates' },
+  { source: 'Imatinib',                  target: 'BCR-ABL1 Fusion Gene',      label: 'inhibits' },
+  { source: 'Superconductivity',         target: 'Cooper Pairs',              label: 'formed_by' },
 ];
 
-const TYPE_COLOR: Record<string, number> = { core: 0x4f46e5, physics: 0x8b5cf6, storage: 0x0284c7, ai: 0x10b981 };
-const TYPE_HEX:   Record<string, string> = { core: '#4f46e5', physics: '#8b5cf6', storage: '#0284c7', ai: '#10b981' };
+const TYPE_COLOR: Record<string, number> = {
+  core: 0x4f46e5,
+  physics: 0x8b5cf6,
+  biomedical: 0x10b981,
+  precision_medicine: 0xf43f5e,
+  oncology: 0xf59e0b,
+  storage: 0x0284c7,
+  ai: 0x06b6d4
+};
+
+const TYPE_HEX: Record<string, string> = {
+  core: '#4f46e5',
+  physics: '#8b5cf6',
+  biomedical: '#10b981',
+  precision_medicine: '#f43f5e',
+  oncology: '#f59e0b',
+  storage: '#0284c7',
+  ai: '#06b6d4'
+};
 
 /** Compute the degree (connection count) of every node */
 function computeDegrees(nodes: any[], links: any[]): Record<string, number> {
@@ -150,14 +173,30 @@ export const GraphExplorer: React.FC<GraphExplorerProps> = ({ initialSubgraph })
 
         if (!data.nodes?.length) return; // Backend graph is empty — keep defaults
 
-        const formattedNodes = data.nodes.map((n: any, idx: number) => ({
-          id:    n.id,
-          name:  n.label || n.id,
-          val:   10 + Math.floor(Math.random() * 6),
-          type:  n.type?.toLowerCase() || 'core',
-          theta: ((idx * 0.35) % Math.PI).toFixed(3),
-          desc:  `Knowledge graph entity: ${n.id}`,
-        }));
+        const formattedNodes = data.nodes.map((n: any, idx: number) => {
+          const idStr = String(n.id || n.name || '');
+          const rawCat = (n.category || n.type || '').toLowerCase();
+          let type = 'biomedical';
+          if (rawCat.includes('physics') || idStr.includes('Graphene') || idStr.includes('Superconduct') || idStr.includes('Trotter') || idStr.includes('Cooper') || idStr.includes('BCS') || idStr.includes('Hamiltonian') || idStr.includes('Quantum')) {
+            type = 'physics';
+          } else if (rawCat.includes('precision') || idStr.includes('CRISPR') || idStr.includes('BCL11A') || idStr.includes('Imatinib') || idStr.includes('BCR-ABL') || idStr.includes('Hemoglobin') || idStr.includes('Metformin')) {
+            type = 'precision_medicine';
+          } else if (rawCat.includes('core') || idStr.includes('Kernel') || idStr.includes('Simulator')) {
+            type = 'core';
+          } else if (rawCat.includes('storage') || idStr.includes('Store') || idStr.includes('Qdrant')) {
+            type = 'storage';
+          } else if (rawCat.includes('ai') || idStr.includes('Cloudflare') || idStr.includes('LLM')) {
+            type = 'ai';
+          }
+          return {
+            id:    n.id,
+            name:  n.label || n.id,
+            val:   11 + Math.floor(Math.random() * 5),
+            type:  type,
+            theta: ((idx * 0.35) % Math.PI).toFixed(3),
+            desc:  n.desc || `Knowledge graph entity: ${n.id}`,
+          };
+        });
         const formattedLinks = data.edges.map((e: any) => ({
           source: e.source,
           target: e.target,

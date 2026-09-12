@@ -8,7 +8,24 @@ from app.core.config import settings
 
 class GraphService:
     def __init__(self, file_path: Optional[str] = None):
-        self.file_path = file_path or settings.GRAPH_STORE_PATH
+        target = file_path or settings.GRAPH_STORE_PATH
+        if not os.path.isabs(target):
+            # Check candidate locations
+            backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+            candidates = [
+                os.path.abspath(target),
+                os.path.join(backend_dir, target),
+                os.path.join(backend_dir, "backend", target),
+            ]
+            found = False
+            for c in candidates:
+                if os.path.exists(c):
+                    target = c
+                    found = True
+                    break
+            if not found:
+                target = os.path.join(backend_dir, target)
+        self.file_path = target
         self.lock = rwlock.RWLockFair()
         self.graph = self._load_graph()
 
@@ -19,7 +36,7 @@ class GraphService:
                     data = json.load(f)
                     # Pass multigraph=True and directed=True to correctly restore MultiDiGraph
                     return nx.node_link_graph(data, multigraph=True, directed=True)
-            except Exception:
+            except Exception as e:
                 # Fallback to empty graph on parse failure
                 return nx.MultiDiGraph()
         return nx.MultiDiGraph()
