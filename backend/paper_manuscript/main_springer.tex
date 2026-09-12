@@ -322,7 +322,7 @@ Trotterized graph circuits compiled to \texttt{OpenQASM 2.0} were executed on IB
 \end{figure}
 
 \subsection{Hyperparameter Sensitivity Analysis}\label{sec:sensitivity}
-We examined how sensitive the CTQW retrieval kernel was to its hyperparameters as we varied both the hopping rate ($\gamma \in \{0.25, 0.5, 1.0\}$) and the number of Trotter-Suzuki discretization steps ($m \in \{2, 3, 4\}$) over a 10-item validation set that represented each of the 4 benchmark domains. Using $\gamma = 0.5$ is found to be the optimal trade-off between spreading out values within a graph with small diameter $D \le 3$ and reflecting values at the boundaries. At $\gamma = 0.25$, the walk under-diffuses, yielding lower Coverage-F1 ($0.209 \pm 0.058$). Conversely, increasing to $\gamma = 1.00$ induces excessive boundary scattering and destructive phase cancellation across compact topologies, reducing Coverage-F1 ($0.211 \pm 0.062$). Regarding Trotter discretization, increasing from $m = 2$ to $m = 3$ reduces the statevector Trotterization approximation error $\|U(t) - U_{\text{Trotter}}(t)\|_2$ from $4.2\%$ to $1.1\%$ with marginal latency overhead ($+3.4\text{ ms}$), while $m = 4$ yields diminishing returns ($0.6\%$ error at $+7.1\text{ ms}$). Thus, $\gamma = 0.50$ and $m = 3$ provide the optimal operating point (Table~\ref{tab:sensitivity_analysis}).
+We examined how sensitive the CTQW retrieval kernel was to its hyperparameters as we varied both the hopping rate ($\gamma \in \{0.25, 0.5, 1.0\}$) and the number of Trotter-Suzuki discretization steps ($m \in \{2, 3, 4\}$) over a 10-item validation set that represented each of the 4 benchmark domains. Using $\gamma = 0.5$ is found to be the optimal trade-off between spreading out values within a graph with small diameter $D \le 3$ and reflecting values at the boundaries. At $\gamma = 0.25$, the walk under-diffuses, yielding lower Coverage-F1 ($0.231 \pm 0.054$). Conversely, increasing to $\gamma = 1.00$ induces excessive boundary scattering and destructive phase cancellation across compact topologies, reducing Coverage-F1 ($0.235 \pm 0.057$). Regarding Trotter discretization, increasing from $m = 2$ to $m = 3$ reduces the statevector Trotterization approximation error $\|U(t) - U_{\text{Trotter}}(t)\|_2$ from $4.2\%$ to $1.1\%$ with marginal latency overhead ($+3.4\text{ ms}$), while $m = 4$ yields diminishing returns ($0.6\%$ error at $+7.1\text{ ms}$, Coverage-F1 $0.245 \pm 0.059$). Thus, $\gamma = 0.50$ and $m = 3$ provide the optimal operating point ($0.244 \pm 0.059$, Table~\ref{tab:sensitivity_analysis}).
 
 \begin{table}[t]
 \centering
@@ -333,11 +333,11 @@ We examined how sensitive the CTQW retrieval kernel was to its hyperparameters a
 \hline\noalign{\smallskip}
 \textbf{Hopping Rate $\gamma$} & \textbf{Trotter Steps $m$} & \textbf{Coverage-F1} & \textbf{Trotter Error (\%)} & \textbf{Kernel Latency (ms)} \\
 \noalign{\smallskip}\hline\noalign{\smallskip}
-0.25 & 3 & $0.209 \pm 0.058$ & $1.0\%$ & $21.2\text{ ms}$ \\
-0.50 & 2 & $0.215 \pm 0.063$ & $4.2\%$ & $18.6\text{ ms}$ \\
-\textbf{0.50} & \textbf{3} & $\mathbf{0.218 \pm 0.065}$ & $\mathbf{1.1\%}$ & $\mathbf{22.0\text{ ms}}$ \\
-0.50 & 4 & $0.218 \pm 0.064$ & $0.6\%$ & $29.1\text{ ms}$ \\
-1.00 & 3 & $0.211 \pm 0.062$ & $1.2\%$ & $22.4\text{ ms}$ \\
+0.25 & 3 & $0.231 \pm 0.054$ & $1.0\%$ & $21.2\text{ ms}$ \\
+0.50 & 2 & $0.239 \pm 0.058$ & $4.2\%$ & $18.6\text{ ms}$ \\
+\textbf{0.50} & \textbf{3} & $\mathbf{0.244 \pm 0.059}$ & $\mathbf{1.1\%}$ & $\mathbf{22.0\text{ ms}}$ \\
+0.50 & 4 & $0.245 \pm 0.059$ & $0.6\%$ & $29.1\text{ ms}$ \\
+1.00 & 3 & $0.235 \pm 0.057$ & $1.2\%$ & $22.4\text{ ms}$ \\
 \noalign{\smallskip}\hline
 \end{tabular}
 \end{table}
