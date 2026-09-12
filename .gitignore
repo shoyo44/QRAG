@@ -76,3 +76,13 @@ pnpm-debug.log*
 *.tar.gz
 *.rar
 Qrg.txt
+
+# Research Paper Manuscripts & Academic Artifacts
+backend/paper_manuscript/
+*.pdf
+*.pptx
+*.tex
+backend/create_overleaf_zip.py
+backend/create_presentation.py
+backend/generate_visual_proofs_pdf.py
+RESEARCH_SUMMARY_REPORT.md

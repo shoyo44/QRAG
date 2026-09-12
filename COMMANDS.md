@@ -79,20 +79,6 @@ python run_biomedical_bench.py
 # 3. Run Live 3-Way Comparative Ablation Test
 python test_live_ablation.py
 
-# 4. Generate Publication Figures (PNG 300 DPI)
+# 4. Generate Evaluation Figures (PNG 300 DPI)
 python -m app.evaluation.generate_publication_figures
-
-# 5. Generate Visual Proofs PDF Compendium
-python generate_visual_proofs_pdf.py
 ```
-
----
-
-## 📊 5. Presentation Deck Generation
-
-```powershell
-cd d:\Projects\QRAG\backend
-conda activate qrag
-python create_presentation.py
-```
-- Output presentation: **`d:\Projects\QRAG\Quantum_GraphRAG_Project_Presentation.pptx`**

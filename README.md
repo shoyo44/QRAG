@@ -336,8 +336,7 @@ QRAG/
 │   │   ├── tasks/
 │   │   │   └── workers.py          # Celery asynchronous quantum tasks
 │   │   └── evaluation/             # Ablation pipeline, RAGAS metrics & benchmark catalog
-│   ├── paper_figures/              # Publication figures, LaTeX tables & OpenQASM files
-│   └── paper_manuscript/           # LaTeX paper manuscripts & references
+│   └── paper_figures/              # Evaluation figures & OpenQASM files
 └── frontend/
     ├── Dockerfile                  # Production frontend container definition
     ├── package.json                # Node dependencies & build scripts
